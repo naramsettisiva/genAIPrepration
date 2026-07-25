@@ -1,0 +1,5 @@
+transformers>=4.40.0
+torch>=2.0.0
+# Optional for real LangChain (examples run without these using mock LLM):
+# langchain>=0.3.0
+# langchain-aws>=0.2.0

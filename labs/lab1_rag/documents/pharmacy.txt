@@ -1,0 +1,16 @@
+HealthConnect (sample) Pharmacy and Prescription Guide
+
+Prescription Refills: To refill a prescription, use the HealthConnect (sample) mobile app,
+call the pharmacy directly, or use the auto-refill program. Refills can be
+requested when 25% or less of the medication remains.
+
+Generic Drugs: $10 copay for a 30-day supply.
+Preferred Brand Drugs: $35 copay for a 30-day supply.
+Non-Preferred Brand Drugs: $70 copay for a 30-day supply.
+Specialty Drugs: 20% coinsurance, up to $250 per fill.
+
+Mail Order Pharmacy: 90-day supplies available at 2.5x the 30-day copay,
+saving money on maintenance medications.
+
+Prior Authorization: Some medications require prior authorization from your
+provider before the plan will cover them. This typically takes 2-3 business days.

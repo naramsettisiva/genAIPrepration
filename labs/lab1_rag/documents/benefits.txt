@@ -1,0 +1,15 @@
+HealthPlan Benefits Summary
+
+Primary Care Visit: $20 copay per visit. No referral needed.
+Specialist Visit: $50 copay per visit. Referral required from primary care provider.
+Emergency Room: $250 copay, waived if admitted to hospital.
+Urgent Care: $75 copay per visit.
+
+Annual Deductible: $1,500 for individual, $3,000 for family. The deductible
+is the amount you pay before the plan starts covering costs.
+
+Out-of-Pocket Maximum: $6,000 individual, $12,000 family per year. After you
+reach this amount, the plan pays 100% of covered services.
+
+Preventive Care: Covered at 100% with no copay. This includes annual physicals,
+immunizations, and standard screenings.

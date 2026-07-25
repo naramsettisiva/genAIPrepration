@@ -1,0 +1,14 @@
+HealthConnect (sample) Telehealth Services
+
+Virtual Primary Care: $0 copay for telehealth visits with in-network providers.
+Available 24/7 through the HealthConnect (sample) app.
+
+Virtual Mental Health: $0 copay for the first 10 therapy sessions per year,
+then $25 per session. Includes therapy and psychiatry.
+
+Prescription via Telehealth: Providers can prescribe medications during virtual
+visits, sent directly to your preferred pharmacy.
+
+How to Start a Telehealth Visit: Open the HealthConnect (sample) app, tap "Talk to a Doctor",
+select your reason for visit, and you'll be connected to an available provider
+within 15 minutes on average.
