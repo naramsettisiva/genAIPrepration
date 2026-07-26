@@ -9,6 +9,9 @@ Everything here runs locally (no API key needed for the core demos) and maps to 
 ## What's Inside
 
 ### 📘 [GenAI Solutions Guide](GENAI_SOLUTIONS_GUIDE.md)
+
+Also available as a styled, navigable **[HTML version](index.html)** — open `index.html` in
+any browser, or enable GitHub Pages to view it online.
 Reference architectures for six common GenAI solution patterns — AI-powered support,
 case categorization, AI summaries, agentic automation, natural-language BI, and adoption
 programs — plus practical sections on **people/engineering leadership, AI infrastructure,

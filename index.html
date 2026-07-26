@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GenAI Solutions Guide</title>
+<style>
+:root { --primary:#1B2A4A; --accent:#2E86AB; --bg:#f8f9fa; --text:#333;
+  --code-bg:#1e1e1e; --code-text:#d4d4d4; --border:#e0e0e0; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;
+  line-height:1.7; color:var(--text); background:var(--bg); display:flex; }
+.sidebar { width:280px; position:fixed; top:0; left:0; height:100vh; background:var(--primary);
+  color:white; overflow-y:auto; padding:20px 0; z-index:100; transition:transform .3s; }
+.sidebar h2 { padding:0 20px 12px; font-size:14px; text-transform:uppercase; letter-spacing:1px;
+  opacity:.7; border-bottom:1px solid rgba(255,255,255,.1); margin-bottom:8px; }
+.sidebar a { display:block; padding:7px 20px; color:rgba(255,255,255,.85); text-decoration:none;
+  font-size:12.5px; border-left:3px solid transparent; transition:all .2s; }
+.sidebar a:hover, .sidebar a.active { background:rgba(255,255,255,.1); color:white; border-left-color:var(--accent); }
+.sidebar .nav-section { font-weight:700; font-size:10.5px; margin-top:14px; padding:5px 20px;
+  opacity:.5; text-transform:uppercase; letter-spacing:.5px; color:#7fb8d9; }
+.content { margin-left:280px; max-width:900px; padding:40px 60px; min-height:100vh; }
+h1 { color:var(--primary); font-size:2.1em; margin:40px 0 20px; padding-bottom:10px; border-bottom:3px solid var(--accent); }
+h2 { color:var(--primary); font-size:1.55em; margin:35px 0 15px; padding-top:20px; border-top:1px solid var(--border); }
+h3 { color:var(--accent); font-size:1.22em; margin:25px 0 10px; }
+h4 { color:#555; font-size:1.05em; margin:20px 0 8px; }
+p { margin:12px 0; }
+pre { background:var(--code-bg); color:var(--code-text); padding:20px; border-radius:8px;
+  overflow-x:auto; margin:15px 0; font-size:12.5px; line-height:1.5; border:1px solid #333; }
+code { background:#e9ecef; padding:2px 6px; border-radius:3px; font-size:.9em; color:#c7254e; }
+pre code { background:none; padding:0; color:inherit; }
+table { width:100%; border-collapse:collapse; margin:15px 0; font-size:13.5px; border-radius:8px;
+  overflow:hidden; box-shadow:0 1px 3px rgba(0,0,0,.1); }
+th { background:var(--primary); color:white; padding:11px 14px; text-align:left; font-weight:600; }
+td { padding:9px 14px; border-bottom:1px solid var(--border); }
+tr:nth-child(even){ background:#f8f9fa; } tr:hover{ background:#e8f4f8; }
+ul,ol { margin:10px 0 10px 25px; } li { margin:6px 0; }
+blockquote { background:linear-gradient(135deg,#e8f4f8,#f0f8ff); border-left:4px solid var(--accent);
+  padding:15px 20px; margin:15px 0; border-radius:0 8px 8px 0; font-style:italic; }
+blockquote p { margin:5px 0; }
+strong { color:var(--primary); } a { color:var(--accent); }
+hr { border:none; border-top:2px solid var(--border); margin:30px 0; }
+.menu-toggle { display:none; position:fixed; top:15px; left:15px; z-index:200; background:var(--primary);
+  color:white; border:none; padding:10px 15px; border-radius:5px; cursor:pointer; font-size:18px; }
+.progress-bar { position:fixed; top:0; left:280px; right:0; height:3px; background:var(--border); z-index:50; }
+.progress-bar .fill { height:100%; background:var(--accent); width:0%; transition:width .1s; }
+@media (max-width:768px){ .sidebar{transform:translateX(-100%);} .sidebar.open{transform:translateX(0);}
+  .content{margin-left:0;padding:20px;} .menu-toggle{display:block;} .progress-bar{left:0;} }
+</style></head><body>
+
+<button class="menu-toggle" onclick="document.querySelector('.sidebar').classList.toggle('open')">&#9776;</button>
+<nav class="sidebar">
+  <h2>GenAI Solutions Guide</h2>
+  <a href="#top">&#127968; Overview</a>
+  <div class="nav-section">Solution Patterns</div>
+  <a href="#solution-1">1. AI-Powered Support</a>
+  <a href="#solution-2">2. Case Categorization</a>
+  <a href="#solution-3">3. AI Summaries</a>
+  <a href="#solution-4">4. Agentic Automation</a>
+  <a href="#solution-5">5. NL to BI</a>
+  <a href="#solution-6">6. Adoption Program</a>
+  <a href="#arch">Reference Architecture</a>
+  <a href="#cheat-sheet">Cheat Sheet</a>
+  <div class="nav-section">Practical Program</div>
+  <a href="#people-mgmt">Engineering Leadership</a>
+  <a href="#ai-infra">AI Infrastructure</a>
+  <a href="#ai-coding">AI-Assisted Coding</a>
+  <a href="#hands-on">Hands-On Labs</a>
+</nav>
+<div class="progress-bar"><div class="fill"></div></div>
+
+<main class="content" id="top">
+<h1 id="genai-solutions-guide-architecture-patterns-practical-program">GenAI Solutions Guide — Architecture Patterns &amp; Practical Program</h1>
+<blockquote>
+<p>A cloud-agnostic guide to building production GenAI systems: six common solution<br />
+patterns with reference architectures, plus practical sections on AI infrastructure,<br />
+AI-assisted coding, and popular frameworks. Examples use AWS (Bedrock) with GCP<br />
+(Vertex AI) equivalents noted throughout. All data shown is synthetic/sample.</p>
+</blockquote>
+<h2 id="1-ai-powered-customer-support-amazon-connect-bedrock-agents">1. AI-Powered Customer Support (→ Amazon Connect + Bedrock Agents)</h2>
+<h3 id="what-you-launched">What You Launched</h3>
+<p>An AI system that automatically handles customer inquiries — answering questions, resolving issues, and escalating only when necessary.</p>
+<h3 id="architecture-diagram-mental-model">Architecture Diagram (Mental Model)</h3>
+<pre class="codehilite"><code>Customer contacts support (phone/chat/email)
+         │
+         ▼
+┌─────────────────────────────────────┐
+│     Amazon Connect (Omnichannel)     │
+│  • Receives call/chat/email          │
+│  • Identifies customer (phone/email)  │
+│  • Passes to AI Agent                │
+└──────────────┬──────────────────────┘
+               │
+               ▼
+┌─────────────────────────────────────┐
+│     Amazon Bedrock Agent             │
+│  • Understands customer's intent      │
+│  • Retrieves context (RAG)           │
+│  • Takes actions via tool-use        │
+│  • Generates natural language reply  │
+└──────────┬────────────┬─────────────┘
+           │            │
+           ▼            ▼
+┌──────────────┐  ┌──────────────────┐
+│ Knowledge Base│  │ Action Groups     │
+│ (RAG)        │  │ (API integrations)│
+│ • FAQs       │  │ • Check shipment  │
+│ • Policies   │  │ • Update ETA      │
+│ • SOPs       │  │ • Create ticket   │
+│ • Past cases │  │ • Escalate        │
+└──────────────┘  └──────────────────┘
+                          │
+                          ▼
+              ┌────────────────────┐
+              │ Backend Systems     │
+              │ • TMS (shipments)   │
+              │ • CRM (customer)    │
+              │ • Ticketing system   │
+              └────────────────────┘
+</code></pre>
+
+<h3 id="how-it-works-step-by-step">How It Works Step-by-Step</h3>
+<ol>
+<li><strong>Customer contacts support</strong> via phone, chat, or email</li>
+<li><strong>Amazon Connect</strong> receives the contact, identifies the customer using phone number or email match against Customer Profiles</li>
+<li><strong>Intent detection:</strong> Connect's conversational AI (powered by Lex + Bedrock) determines what the customer wants:</li>
+<li>"Where is my shipment?" → Track &amp; Trace</li>
+<li>"My delivery is late" → Exception handling</li>
+<li>"I need to change pickup time" → Schedule modification</li>
+<li><strong>Bedrock Agent activates:</strong></li>
+<li><strong>Reasoning:</strong> The agent's orchestration layer (ReAct pattern) decides what information it needs</li>
+<li><strong>RAG retrieval:</strong> Queries the Knowledge Base (backed by OpenSearch Serverless vector store) for relevant policies, SOPs, or similar past cases</li>
+<li><strong>Tool use:</strong> Calls Action Groups (Lambda functions) that hit your TMS API, CRM, etc.</li>
+<li><strong>Response generation:</strong> Synthesizes a natural language answer grounded in retrieved facts</li>
+<li><strong>Resolution or escalation:</strong></li>
+<li>If resolved → Agent delivers answer, generates summary, closes contact</li>
+<li>If complex → Transfers to human agent with full context (transcript + summary + customer profile)</li>
+</ol>
+<h3 id="key-aws-services-involved">Key AWS Services Involved</h3>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Role</th>
+<th>Why This Choice</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Amazon Connect</td>
+<td>Omnichannel contact routing</td>
+<td>Single platform for voice/chat/email, built-in AI</td>
+</tr>
+<tr>
+<td>Amazon Bedrock</td>
+<td>LLM inference (Claude/Nova)</td>
+<td>Managed, no infrastructure to run</td>
+</tr>
+<tr>
+<td>Bedrock Agents</td>
+<td>Orchestration + tool use</td>
+<td>Handles multi-step reasoning without custom code</td>
+</tr>
+<tr>
+<td>Bedrock Knowledge Bases</td>
+<td>RAG (vector search)</td>
+<td>Ingests docs, chunks, embeds, retrieves automatically</td>
+</tr>
+<tr>
+<td>OpenSearch Serverless</td>
+<td>Vector store for RAG</td>
+<td>Scales to zero, no cluster management</td>
+</tr>
+<tr>
+<td>AWS Lambda</td>
+<td>Action Groups (API calls)</td>
+<td>Serverless functions that call your backend systems</td>
+</tr>
+<tr>
+<td>Amazon S3</td>
+<td>Document storage for KB</td>
+<td>Store FAQs, policies, SOPs as source documents</td>
+</tr>
+<tr>
+<td>Amazon Connect Customer Profiles</td>
+<td>Customer identity</td>
+<td>Unifies customer data from CRM + contact history</td>
+</tr>
+</tbody>
+</table>
+<h3 id="technical-details-you-should-know">Technical Details You Should Know</h3>
+<p><strong>RAG (Retrieval-Augmented Generation):</strong><br />
+- Documents (PDFs, HTML, Word) stored in S3<br />
+- Bedrock Knowledge Base automatically: chunks documents → generates embeddings (Titan Embeddings v2) → stores in vector DB<br />
+- At query time: user question → embed → vector similarity search → top-K chunks retrieved → passed as context to LLM → grounded answer generated<br />
+- <strong>Why RAG vs. fine-tuning:</strong> RAG keeps knowledge current (just update S3 docs), cheaper, no model retraining, auditable (you can see which docs were retrieved)</p>
+<p><strong>Agent Orchestration (ReAct Pattern):</strong><br />
+- Agent receives user query + system instructions<br />
+- Agent THINKS: "I need to check shipment status for tracking #XYZ"<br />
+- Agent ACTS: Calls <code>check_shipment_status</code> tool with tracking number<br />
+- Agent OBSERVES: Gets result (delivered, in transit, delayed)<br />
+- Agent THINKS: "Shipment is delayed. I should check the reason and provide an updated ETA"<br />
+- Agent ACTS: Calls <code>get_delay_reason</code> tool<br />
+- This loop continues until the agent has enough info to respond</p>
+<p><strong>Guardrails:</strong><br />
+- Bedrock Guardrails filter: PII, toxic content, off-topic requests<br />
+- You can define "denied topics" (e.g., "Don't discuss competitor pricing")<br />
+- Configurable thresholds for when to escalate to human</p>
+<h3 id="how-you-talk-about-it-in-interview">How You Talk About It in Interview</h3>
+<blockquote>
+<p>"We built an AI-powered support system on Amazon Connect with Bedrock Agents. The architecture uses RAG for knowledge grounding — customer policies, SOPs, and historical case resolutions are chunked and stored in a vector database. When a customer contacts us, the AI Agent reasons through their request, retrieves relevant context from the knowledge base, and can take actions like checking shipment status or updating delivery times through API integrations. We saw X% of inquiries resolved without human intervention, reducing average handle time by Y%."</p>
+</blockquote>
+<hr />
+<h2 id="2-case-categorization-rag-llm-classification">2. Case Categorization (→ RAG + LLM Classification)</h2>
+<h3 id="what-you-launched_1">What You Launched</h3>
+<p>An AI system that automatically categorizes incoming support cases by type/intent, reducing manual triage effort.</p>
+<h3 id="architecture">Architecture</h3>
+<pre class="codehilite"><code>Incoming case (email/chat/form submission)
+         │
+         ▼
+┌─────────────────────────────────────┐
+│     Ingestion Layer                  │
+│  • Amazon SQS (queue)                │
+│  • Lambda trigger                    │
+└──────────────┬──────────────────────┘
+               │
+               ▼
+┌─────────────────────────────────────┐
+│     Classification Pipeline          │
+│                                      │
+│  Step 1: Embed incoming case text    │
+│     (Titan Embeddings)               │
+│                                      │
+│  Step 2: Retrieve similar past cases │
+│     (Vector search - top 5)          │
+│                                      │
+│  Step 3: LLM classifies with context │
+│     Prompt: &quot;Given this case and     │
+│     these similar past cases,        │
+│     classify into: [categories]&quot;     │
+│                                      │
+│  Step 4: Confidence check            │
+│     High confidence → auto-route     │
+│     Low confidence → human review    │
+└──────────────┬──────────────────────┘
+               │
+               ▼
+┌─────────────────────────────────────┐
+│     Routing &amp; Assignment             │
+│  • Route to correct queue/team       │
+│  • Set priority (P1/P2/P3)          │
+│  • Assign SLA timer                  │
+│  • Update CRM/ticketing system       │
+└─────────────────────────────────────┘
+</code></pre>
+
+<h3 id="how-it-works-step-by-step_1">How It Works Step-by-Step</h3>
+<ol>
+<li><strong>Case arrives</strong> via email, chat, or web form → lands in SQS queue</li>
+<li><strong>Lambda triggers</strong> classification pipeline</li>
+<li><strong>Text preprocessing:</strong> Extract subject, body, any attachments (using Textract for images/PDFs)</li>
+<li><strong>Embedding:</strong> Convert case text to vector using Amazon Titan Embeddings v2</li>
+<li><strong>Few-shot retrieval:</strong> Vector search against historical labeled cases → retrieve top 5 most similar cases with their categories</li>
+<li><strong>LLM classification:</strong> Send to Bedrock (Claude/Nova) with prompt:<br />
+   ```<br />
+   You are a case categorization system. Given this new case and 5 similar<br />
+   historical cases with their categories, classify the new case.</li>
+</ol>
+<p>Categories: [Shipment Delay, Billing Dispute, Pickup Scheduling,<br />
+   Rate Inquiry, Damage Claim, Account Issue, Other]</p>
+<p>New case: {case_text}</p>
+<p>Similar past cases:<br />
+   1. {similar_case_1} → Category: Shipment Delay<br />
+   2. {similar_case_2} → Category: Billing Dispute<br />
+   ...</p>
+<p>Respond with: category, confidence (high/medium/low), reasoning<br />
+   ```<br />
+7. <strong>Confidence routing:</strong><br />
+   - High confidence (&gt;90%) → auto-categorize and route<br />
+   - Medium confidence (70-90%) → auto-categorize but flag for review<br />
+   - Low confidence (&lt;70%) → send to human triage</p>
+<h3 id="key-design-decisions">Key Design Decisions</h3>
+<p><strong>Why RAG-based classification vs. traditional ML?</strong><br />
+| Approach | Pros | Cons |<br />
+|----------|------|------|<br />
+| Traditional ML (e.g., BERT classifier) | Fast inference, cheap per call | Needs labeled training data, retraining for new categories, can't explain decisions |<br />
+| RAG + LLM | No training needed, handles new categories immediately, explainable, works with few examples | Higher per-call cost, slightly slower |<br />
+| <strong>Our choice: RAG + LLM</strong> | Best for rapidly evolving categories, small labeled dataset, need for explanations | Cost managed by batch processing |</p>
+<p><strong>Handling edge cases:</strong><br />
+- <strong>New category detection:</strong> If LLM repeatedly says "Other" with low confidence, flag for category review<br />
+- <strong>Multi-intent cases:</strong> Prompt instructs LLM to identify primary AND secondary intents<br />
+- <strong>Language variations:</strong> LLM handles natural language variations without explicit rules</p>
+<h3 id="aws-services">AWS Services</h3>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Amazon SQS</td>
+<td>Queue incoming cases, decouple ingestion from processing</td>
+</tr>
+<tr>
+<td>AWS Lambda</td>
+<td>Processing logic, API calls</td>
+</tr>
+<tr>
+<td>Amazon Bedrock (Titan Embeddings)</td>
+<td>Convert text to vectors</td>
+</tr>
+<tr>
+<td>Amazon OpenSearch Serverless</td>
+<td>Vector store for historical cases</td>
+</tr>
+<tr>
+<td>Amazon Bedrock (Claude/Nova)</td>
+<td>Classification reasoning</td>
+</tr>
+<tr>
+<td>Amazon DynamoDB</td>
+<td>Store case metadata + classification results</td>
+</tr>
+<tr>
+<td>Amazon EventBridge</td>
+<td>Trigger downstream routing based on category</td>
+</tr>
+</tbody>
+</table>
+<h3 id="interview-walkthrough">Interview Walkthrough</h3>
+<blockquote>
+<p>"We built a RAG-based classification system. Instead of training a traditional ML model — which would need thousands of labeled examples and retraining whenever categories change — we used a few-shot retrieval approach. When a new case comes in, we embed it, find the 5 most similar historical cases from our vector store, and pass those as examples to the LLM along with the new case. The LLM classifies it and provides a confidence score. High-confidence classifications route automatically; low-confidence goes to human triage. This gave us 90%+ accuracy while being flexible enough to add new categories without retraining."</p>
+</blockquote>
+<hr />
+<h2 id="3-ai-summaries-bedrock-structured-output">3. AI Summaries (→ Bedrock + Structured Output)</h2>
+<h3 id="what-you-launched_2">What You Launched</h3>
+<p>AI-generated summaries of operational data, cases, and interactions for teams to quickly understand status.</p>
+<h3 id="architecture_1">Architecture</h3>
+<pre class="codehilite"><code>Source Data
+│
+├── Contact transcripts (voice/chat)
+├── Case history &amp; updates
+├── Operational metrics
+│
+▼
+┌─────────────────────────────────────┐
+│     Summarization Pipeline           │
+│                                      │
+│  Step 1: Collect relevant data       │
+│     • Pull transcript/case data      │
+│     • Pull customer context          │
+│     • Pull operational metrics       │
+│                                      │
+│  Step 2: Structured prompt           │
+│     &quot;Summarize this interaction:     │
+│      - Issue: ...                    │
+│      - Actions taken: ...            │
+│      - Resolution: ...               │
+│      - Next steps: ...               │
+│      - Sentiment: ...&quot;               │
+│                                      │
+│  Step 3: LLM generates summary       │
+│     (Amazon Bedrock - Claude/Nova)   │
+│                                      │
+│  Step 4: Validate &amp; store            │
+│     • Check for PII/hallucination    │
+│     • Store in case record           │
+│     • Surface in dashboard           │
+└─────────────────────────────────────┘
+</code></pre>
+
+<h3 id="types-of-summaries-you-can-discuss">Types of Summaries You Can Discuss</h3>
+<p><strong>1. Post-Contact Summary (after each call/chat):</strong></p>
+<pre class="codehilite"><code class="language-json">{
+  &quot;issue&quot;: &quot;Customer reported delayed pickup for order #12345&quot;,
+  &quot;root_cause&quot;: &quot;Driver reassigned due to capacity constraints in Nashville hub&quot;,
+  &quot;actions_taken&quot;: &quot;Rescheduled pickup for next day, applied service credit&quot;,
+  &quot;resolution&quot;: &quot;Resolved - new pickup confirmed for 7/26 AM window&quot;,
+  &quot;sentiment&quot;: &quot;Negative → Neutral (improved after resolution)&quot;,
+  &quot;follow_up_required&quot;: false
+}
+</code></pre>
+
+<p><strong>2. Case Summary (aggregates multiple interactions):</strong></p>
+<pre class="codehilite"><code class="language-json">{
+  &quot;case_id&quot;: &quot;CASE-98765&quot;,
+  &quot;created&quot;: &quot;2024-07-20&quot;,
+  &quot;summary&quot;: &quot;Enterprise customer ABC Corp experiencing recurring delays at Nashville hub. 3 contacts over 5 days. Root cause: capacity planning gap for volume surge. Resolution: dedicated lane allocated starting 7/28.&quot;,
+  &quot;total_contacts&quot;: 3,
+  &quot;escalation_level&quot;: &quot;L2 Operations&quot;,
+  &quot;business_impact&quot;: &quot;Risk of churn - $500K annual revenue account&quot;
+}
+</code></pre>
+
+<p><strong>3. Operational Shift Summary (end-of-shift report):</strong></p>
+<pre class="codehilite"><code class="language-json">{
+  &quot;shift&quot;: &quot;7/24 Day Shift (6AM-6PM CT)&quot;,
+  &quot;total_contacts&quot;: 847,
+  &quot;ai_resolved&quot;: 612 (72%),
+  &quot;human_handled&quot;: 235,
+  &quot;top_issues&quot;: [&quot;Pickup delays (34%)&quot;, &quot;Rate inquiries (22%)&quot;, &quot;POD requests (18%)&quot;],
+  &quot;anomalies&quot;: &quot;Spike in Nashville hub delay complaints (2.3x normal)&quot;,
+  &quot;recommended_actions&quot;: [&quot;Investigate Nashville capacity&quot;, &quot;Proactive outreach to top 5 affected customers&quot;]
+}
+</code></pre>
+
+<h3 id="key-technical-patterns">Key Technical Patterns</h3>
+<p><strong>Structured output enforcement:</strong></p>
+<pre class="codehilite"><code class="language-python"># Using Bedrock with structured output
+response = bedrock.invoke_model(
+    modelId=&quot;anthropic.claude-v3-sonnet&quot;,
+    body={
+        &quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: prompt}],
+        &quot;system&quot;: &quot;&quot;&quot;You are a case summarization system. 
+        Always respond in this exact JSON format:
+        {&quot;issue&quot;: &quot;...&quot;, &quot;actions_taken&quot;: &quot;...&quot;, &quot;resolution&quot;: &quot;...&quot;, 
+         &quot;sentiment&quot;: &quot;...&quot;, &quot;follow_up_required&quot;: true/false}
+        Do NOT include any PII (names, phone numbers, SSNs).
+        Base your summary ONLY on the provided transcript.&quot;&quot;&quot;
+    }
+)
+</code></pre>
+
+<p><strong>PII handling:</strong><br />
+- Amazon Comprehend detects PII entities before/after summarization<br />
+- Bedrock Guardrails configured to block PII in outputs<br />
+- For healthcare (the enterprise context): PHI detection + HIPAA-safe storage</p>
+<h3 id="interview-walkthrough_1">Interview Walkthrough</h3>
+<blockquote>
+<p>"We automated post-contact summarization using Amazon Bedrock. After every interaction — voice or chat — the transcript feeds into a summarization pipeline that produces structured JSON output: issue, actions taken, resolution, sentiment, and next steps. We enforce structured output through system prompts and validate against a schema. The summaries reduce after-contact work for agents by 60-70% and give supervisors instant visibility into what's happening without reading full transcripts. We also aggregate these into shift-level and weekly operational summaries that surface trends and anomalies automatically."</p>
+</blockquote>
+<hr />
+<h2 id="4-tms-automation-via-ai-agents-bedrock-agents-action-groups">4. TMS Automation via AI Agents (→ Bedrock Agents + Action Groups)</h2>
+<h3 id="what-you-launched_3">What You Launched</h3>
+<p>AI Agents that autonomously interact with external Transportation Management Systems — checking status, updating records, triggering workflows.</p>
+<h3 id="architecture_2">Architecture</h3>
+<pre class="codehilite"><code>User/System Trigger
+│
+├── Customer asks &quot;reschedule my pickup&quot;
+├── System detects SLA breach → auto-remediate
+├── Operator needs bulk status update
+│
+▼
+┌─────────────────────────────────────┐
+│     Bedrock Agent (Orchestrator)     │
+│                                      │
+│  System Prompt:                      │
+│  &quot;You are a logistics operations     │
+│   agent. You can check shipments,    │
+│   update schedules, create BOLs,     │
+│   and escalate exceptions.&quot;          │
+│                                      │
+│  Available Tools (Action Groups):    │
+│  ┌─────────────────────────────┐    │
+│  │ 1. check_shipment_status    │    │
+│  │ 2. update_pickup_schedule   │    │
+│  │ 3. get_carrier_availability │    │
+│  │ 4. create_bol               │    │
+│  │ 5. update_delivery_eta      │    │
+│  │ 6. escalate_to_operations   │    │
+│  │ 7. send_notification        │    │
+│  └─────────────────────────────┘    │
+└──────────────┬──────────────────────┘
+               │
+               ▼
+┌─────────────────────────────────────┐
+│     Action Group (Lambda Functions)  │
+│                                      │
+│  Each tool = Lambda function that:   │
+│  • Authenticates to TMS API          │
+│  • Makes API call                    │
+│  • Validates response                │
+│  • Returns structured result         │
+│                                      │
+│  Example: update_pickup_schedule     │
+│  ┌────────────────────────────────┐ │
+│  │ Input: shipment_id, new_date,  │ │
+│  │        new_time_window         │ │
+│  │ Process:                       │ │
+│  │  1. GET /shipments/{id}        │ │
+│  │  2. Validate new schedule      │ │
+│  │  3. PUT /shipments/{id}/pickup │ │
+│  │  4. Confirm update             │ │
+│  │ Output: success/failure +      │ │
+│  │         confirmation details   │ │
+│  └────────────────────────────────┘ │
+└──────────────┬──────────────────────┘
+               │
+               ▼
+┌─────────────────────────────────────┐
+│     External Systems                 │
+│  • TMS (Transportation Mgmt System) │
+│  • WMS (Warehouse Mgmt System)      │
+│  • Carrier portals                   │
+│  • ERP (billing, invoicing)          │
+└─────────────────────────────────────┘
+</code></pre>
+
+<h3 id="multi-step-agent-reasoning-example">Multi-Step Agent Reasoning Example</h3>
+<p><strong>User request:</strong> "Reschedule tomorrow's pickup for customer ABC Corp to Thursday instead"</p>
+<p><strong>Agent reasoning (ReAct loop):</strong></p>
+<pre class="codehilite"><code>THOUGHT: I need to find ABC Corp's scheduled pickups for tomorrow.
+ACTION: check_shipment_status(customer=&quot;ABC Corp&quot;, date=&quot;2024-07-26&quot;)
+OBSERVATION: Found 3 pickups scheduled: SH-001 (Nashville), SH-002 (Memphis), SH-003 (Nashville)
+
+THOUGHT: There are 3 pickups. I should confirm which ones to reschedule. 
+But the user said &quot;tomorrow's pickup&quot; (singular implies all). Let me check 
+carrier availability for Thursday.
+ACTION: get_carrier_availability(origin=&quot;Nashville&quot;, date=&quot;2024-07-28&quot;)
+OBSERVATION: Carrier XYZ available, 2 slots open (AM/PM window)
+
+ACTION: get_carrier_availability(origin=&quot;Memphis&quot;, date=&quot;2024-07-28&quot;)
+OBSERVATION: Carrier DEF available, 1 slot open (PM window)
+
+THOUGHT: Capacity available for all 3. I'll reschedule all pickups.
+ACTION: update_pickup_schedule(shipment_id=&quot;SH-001&quot;, new_date=&quot;2024-07-28&quot;, window=&quot;AM&quot;)
+OBSERVATION: Success - pickup rescheduled
+
+ACTION: update_pickup_schedule(shipment_id=&quot;SH-002&quot;, new_date=&quot;2024-07-28&quot;, window=&quot;PM&quot;)
+OBSERVATION: Success - pickup rescheduled
+
+ACTION: update_pickup_schedule(shipment_id=&quot;SH-003&quot;, new_date=&quot;2024-07-28&quot;, window=&quot;AM&quot;)
+OBSERVATION: Success - pickup rescheduled
+
+THOUGHT: All 3 pickups rescheduled. I should notify the customer.
+ACTION: send_notification(customer=&quot;ABC Corp&quot;, type=&quot;schedule_change&quot;, details=...)
+OBSERVATION: Notification sent
+
+FINAL RESPONSE: &quot;Done! I've rescheduled all 3 of ABC Corp's pickups from 
+tomorrow (7/26) to Thursday (7/28). Nashville pickups moved to the AM window, 
+Memphis to PM window. ABC Corp has been notified via email.&quot;
+</code></pre>
+
+<h3 id="key-design-patterns">Key Design Patterns</h3>
+<p><strong>1. Tool Definition (OpenAPI schema):</strong></p>
+<pre class="codehilite"><code class="language-yaml"># Each tool is defined as an OpenAPI spec
+paths:
+  /check_shipment_status:
+    get:
+      summary: &quot;Check the current status of a shipment&quot;
+      parameters:
+        - name: shipment_id
+          type: string
+          description: &quot;The shipment tracking ID&quot;
+          required: true
+      responses:
+        200:
+          description: &quot;Shipment status&quot;
+          schema:
+            type: object
+            properties:
+              status: {type: string, enum: [scheduled, in_transit, delivered, delayed]}
+              eta: {type: string, format: date-time}
+              current_location: {type: string}
+</code></pre>
+
+<p><strong>2. Guardrails for automated actions:</strong><br />
+- <strong>Read-only by default:</strong> Agent can check/read without approval<br />
+- <strong>Write actions need confirmation:</strong> "I'm about to reschedule 3 pickups. Proceed?"<br />
+- <strong>Cost thresholds:</strong> Actions above $X require human approval<br />
+- <strong>Rollback capability:</strong> Every action logs the previous state for undo</p>
+<p><strong>3. Error handling:</strong><br />
+- TMS API returns error → Agent retries once → If still fails, explains to user and offers alternatives<br />
+- Partial success → Agent reports what succeeded and what didn't</p>
+<h3 id="healthcare-parallel-the-enterprise-a-healthcare-platform-sample">Healthcare Parallel (the enterprise a healthcare platform (sample))</h3>
+<pre class="codehilite"><code>Member asks: &quot;Refill my blood pressure medication&quot;
+
+THOUGHT: I need to verify the member and check their prescription.
+ACTION: get_member_profile(member_id=&quot;MBR-12345&quot;)
+OBSERVATION: Member verified. Has Rx #567 for Lisinopril 10mg, last filled 6/25.
+
+THOUGHT: Rx is eligible for refill (30-day supply, 25 days elapsed). Check pharmacy availability.
+ACTION: check_pharmacy_inventory(pharmacy=&quot;the enterprise #4521&quot;, ndc=&quot;12345-678-90&quot;)
+OBSERVATION: In stock. Ready for pickup in 2 hours.
+
+THOUGHT: All clear. Process the refill.
+ACTION: submit_refill(rx_id=&quot;567&quot;, pharmacy=&quot;the enterprise #4521&quot;, pickup_date=&quot;today&quot;)
+OBSERVATION: Refill submitted. Ready by 4:00 PM.
+
+ACTION: send_notification(member=&quot;MBR-12345&quot;, type=&quot;refill_ready&quot;, details=...)
+
+FINAL RESPONSE: &quot;Your Lisinopril 10mg refill has been submitted! 
+It'll be ready for pickup at the enterprise #4521 by 4:00 PM today. 
+Need anything else?&quot;
+</code></pre>
+
+<h3 id="interview-walkthrough_2">Interview Walkthrough</h3>
+<blockquote>
+<p>"We built AI Agents using Amazon Bedrock that can autonomously interact with our TMS and other external systems. The architecture uses the ReAct pattern — the agent reasons about what it needs to do, calls the appropriate tools (Lambda functions that wrap our TMS APIs), observes the results, and continues until the task is complete. Key design decisions: we defined clear tool schemas using OpenAPI specs, implemented guardrails so write operations require confirmation, and built rollback capability for every automated action. This pattern handles multi-step workflows that previously required operators to navigate 3-4 different systems manually."</p>
+</blockquote>
+<hr />
+<h2 id="5-mcp-servers-for-bi-insights-natural-language-to-sqlapi">5. MCP Servers for BI Insights (→ Natural Language to SQL/API)</h2>
+<h3 id="what-you-launched_4">What You Launched</h3>
+<p>Custom MCP (Model Context Protocol) servers that let non-technical users query business intelligence data through natural language conversations.</p>
+<h3 id="architecture_3">Architecture</h3>
+<pre class="codehilite"><code>User: &quot;What's our average delivery time trending this month?&quot;
+         │
+         ▼
+┌─────────────────────────────────────┐
+│     MCP Server (Custom built)        │
+│                                      │
+│  Components:                         │
+│  ┌────────────────────────────────┐ │
+│  │ 1. Intent Parser               │ │
+│  │    • Understands BI questions   │ │
+│  │    • Maps to data domains       │ │
+│  └────────────────────────────────┘ │
+│  ┌────────────────────────────────┐ │
+│  │ 2. Schema Context              │ │
+│  │    • Table definitions          │ │
+│  │    • Column descriptions        │ │
+│  │    • Common query patterns      │ │
+│  │    • Business metric formulas   │ │
+│  └────────────────────────────────┘ │
+│  ┌────────────────────────────────┐ │
+│  │ 3. Query Generator (LLM)       │ │
+│  │    • NL → SQL translation       │ │
+│  │    • Validates SQL safety        │ │
+│  │    • Executes query             │ │
+│  └────────────────────────────────┘ │
+│  ┌────────────────────────────────┐ │
+│  │ 4. Response Formatter           │ │
+│  │    • Formats results            │ │
+│  │    • Generates insights         │ │
+│  │    • Suggests follow-ups        │ │
+│  └────────────────────────────────┘ │
+└─────────────────────────────────────┘
+</code></pre>
+
+<h3 id="how-natural-language-sql-works">How Natural Language → SQL Works</h3>
+<p><strong>User:</strong> "What's our average delivery time by region this month?"</p>
+<p><strong>Step 1: Schema context injection</strong></p>
+<pre class="codehilite"><code>System prompt includes:
+- Table: shipments (id, origin_region, dest_region, pickup_time, delivery_time, status)
+- Table: carriers (id, name, region, on_time_rate)
+- Metric: delivery_time = delivery_time - pickup_time (in hours)
+- Regions: Northeast, Southeast, Midwest, West, Southwest
+- Current month filter: WHERE pickup_time &gt;= '2024-07-01'
+</code></pre>
+
+<p><strong>Step 2: LLM generates SQL</strong></p>
+<pre class="codehilite"><code class="language-sql">SELECT 
+    dest_region,
+    AVG(EXTRACT(EPOCH FROM (delivery_time - pickup_time)) / 3600) as avg_delivery_hours,
+    COUNT(*) as total_shipments
+FROM shipments
+WHERE pickup_time &gt;= '2024-07-01'
+    AND status = 'delivered'
+GROUP BY dest_region
+ORDER BY avg_delivery_hours DESC;
+</code></pre>
+
+<p><strong>Step 3: Execute &amp; format response</strong></p>
+<pre class="codehilite"><code>Results:
+| Region     | Avg Delivery (hrs) | Shipments |
+|------------|-------------------|-----------|
+| Northeast  | 28.3              | 1,247     |
+| West       | 31.7              | 892       |
+| Southeast  | 24.1              | 1,583     |
+| Midwest    | 26.8              | 1,105     |
+| Southwest  | 33.2              | 654       |
+
+AI Response: &quot;This month's average delivery times by region:
+• Southeast is fastest at 24.1 hours (1,583 shipments)
+• Southwest is slowest at 33.2 hours (654 shipments)
+• Overall average: 27.8 hours across 5,481 deliveries
+
+Notable: Southwest is 38% slower than Southeast despite lower volume, 
+suggesting a capacity or routing issue rather than congestion.
+Would you like me to drill into Southwest delays by carrier?&quot;
+</code></pre>
+
+<h3 id="mcp-server-implementation-pattern">MCP Server Implementation Pattern</h3>
+<pre class="codehilite"><code class="language-python"># MCP Server structure (simplified)
+class BIInsightsMCPServer:
+
+    def __init__(self):
+        self.schema_context = load_schema_descriptions()
+        self.bedrock_client = boto3.client('bedrock-runtime')
+        self.redshift_client = boto3.client('redshift-data')
+
+    # Tool 1: Query operational metrics
+    def query_metrics(self, natural_language_question: str) -&gt; dict:
+        # Generate SQL from natural language
+        sql = self._generate_sql(natural_language_question)
+
+        # Safety check: only SELECT allowed, no mutations
+        if not sql.strip().upper().startswith(&quot;SELECT&quot;):
+            raise SecurityError(&quot;Only read queries allowed&quot;)
+
+        # Execute against Redshift/Athena
+        results = self._execute_query(sql)
+
+        # Generate insight narrative
+        insight = self._generate_insight(natural_language_question, results)
+
+        return {&quot;data&quot;: results, &quot;insight&quot;: insight, &quot;sql&quot;: sql}
+
+    # Tool 2: Compare time periods
+    def compare_periods(self, metric: str, period1: str, period2: str) -&gt; dict:
+        ...
+
+    # Tool 3: Anomaly detection
+    def detect_anomalies(self, metric: str, lookback_days: int = 30) -&gt; dict:
+        ...
+
+    def _generate_sql(self, question: str) -&gt; str:
+        prompt = f&quot;&quot;&quot;Given this database schema:
+        {self.schema_context}
+
+        Generate a SQL query to answer: {question}
+
+        Rules:
+        - Only SELECT statements
+        - Always include reasonable LIMIT (max 1000)
+        - Use appropriate date filters
+        - Return the SQL only, no explanation&quot;&quot;&quot;
+
+        response = self.bedrock_client.invoke_model(...)
+        return response['sql']
+</code></pre>
+
+<h3 id="key-design-decisions_1">Key Design Decisions</h3>
+<p><strong>Security:</strong><br />
+- Read-only database credentials (no INSERT/UPDATE/DELETE possible)<br />
+- Query cost limits (timeout after 30 seconds, max rows)<br />
+- PII columns excluded from schema context<br />
+- All queries logged for audit</p>
+<p><strong>Accuracy:</strong><br />
+- Schema descriptions include business context (not just column names)<br />
+- Pre-defined metric formulas prevent calculation errors<br />
+- "Did you mean...?" suggestions when query is ambiguous<br />
+- Show generated SQL so users can verify logic</p>
+<p><strong>Performance:</strong><br />
+- Frequently asked queries cached (TTL 15 min)<br />
+- Pre-aggregated materialized views for common metrics<br />
+- Query complexity limits to prevent expensive table scans</p>
+<h3 id="aws-services_1">AWS Services</h3>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Amazon Bedrock (Claude)</td>
+<td>NL→SQL translation + insight generation</td>
+</tr>
+<tr>
+<td>Amazon Redshift Serverless</td>
+<td>Data warehouse (OLAP queries)</td>
+</tr>
+<tr>
+<td>Amazon Athena</td>
+<td>Ad-hoc queries on S3 data lake</td>
+</tr>
+<tr>
+<td>AWS Lambda</td>
+<td>MCP server hosting</td>
+</tr>
+<tr>
+<td>Amazon API Gateway</td>
+<td>REST endpoint for MCP tools</td>
+</tr>
+<tr>
+<td>Amazon CloudWatch</td>
+<td>Query monitoring, cost tracking</td>
+</tr>
+</tbody>
+</table>
+<h3 id="interview-walkthrough_3">Interview Walkthrough</h3>
+<blockquote>
+<p>"I built custom MCP servers — essentially tool interfaces that let AI assistants query our data warehouse using natural language. The system takes a question like 'What's our delivery performance trending this month?', injects our schema context (table definitions, metric formulas, business rules), generates a safe SQL query via LLM, executes it against Redshift, and returns both the data and a narrative insight. Key design decisions: read-only credentials for safety, schema enrichment with business context for accuracy, query caching for performance, and generated SQL transparency so users can verify the logic."</p>
+</blockquote>
+<hr />
+<h2 id="6-genai-workshops-for-product-team-adoption-framework">6. GenAI Workshops for Product Team (→ Adoption Framework)</h2>
+<h3 id="what-you-launched_5">What You Launched</h3>
+<p>A structured workshop series that enabled Product teams to independently identify and scope AI use cases.</p>
+<h3 id="workshop-framework-architecture">Workshop Framework Architecture</h3>
+<pre class="codehilite"><code>┌─────────────────────────────────────────────────┐
+│           GenAI Adoption Framework                │
+│                                                   │
+│  Workshop 1: &quot;The Art of the Possible&quot;           │
+│  ├── What GenAI can/can't do (with demos)        │
+│  ├── Real examples from our org                  │
+│  └── Identify 10 potential use cases             │
+│                                                   │
+│  Workshop 2: &quot;Use Case Evaluation&quot;               │
+│  ├── Impact × Feasibility × Risk matrix          │
+│  ├── Data readiness assessment                   │
+│  ├── Prioritize top 3 use cases                  │
+│  └── Define success metrics upfront              │
+│                                                   │
+│  Workshop 3: &quot;Responsible AI &amp; Guardrails&quot;       │
+│  ├── What can go wrong (hallucination, bias)     │
+│  ├── Human-in-the-loop design patterns           │
+│  ├── Data privacy &amp; compliance                   │
+│  └── When NOT to use AI                          │
+│                                                   │
+│  Workshop 4: &quot;Hands-On Prototyping&quot;              │
+│  ├── Prompt engineering basics                   │
+│  ├── Build a working prototype in 2 hours        │
+│  ├── Test with real data                         │
+│  └── Demo to stakeholders                        │
+│                                                   │
+│  Outcome: Product teams can independently        │
+│  identify, scope, and champion AI initiatives    │
+└─────────────────────────────────────────────────┘
+</code></pre>
+
+<h3 id="use-case-evaluation-matrix">Use Case Evaluation Matrix</h3>
+<table>
+<thead>
+<tr>
+<th>Criteria</th>
+<th>Weight</th>
+<th>Score (1-5)</th>
+<th>How to Assess</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Business Impact</td>
+<td>30%</td>
+<td>?</td>
+<td>Revenue, cost savings, customer satisfaction</td>
+</tr>
+<tr>
+<td>Data Readiness</td>
+<td>25%</td>
+<td>?</td>
+<td>Is the data available, clean, sufficient?</td>
+</tr>
+<tr>
+<td>Technical Feasibility</td>
+<td>20%</td>
+<td>?</td>
+<td>Can current AI models handle this?</td>
+</tr>
+<tr>
+<td>Risk Level</td>
+<td>15%</td>
+<td>?</td>
+<td>What if AI is wrong? Reversible?</td>
+</tr>
+<tr>
+<td>Time to Value</td>
+<td>10%</td>
+<td>?</td>
+<td>How fast can we ship an MVP?</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Score &gt; 3.5:</strong> Proceed to prototype<br />
+<strong>Score 2.5-3.5:</strong> Investigate further, address gaps<br />
+<strong>Score &lt; 2.5:</strong> Deprioritize or redesign</p>
+<h3 id="the-when-not-to-use-ai-framework-critical-for-healthcare">The "When NOT to Use AI" Framework (Critical for Healthcare)</h3>
+<pre class="codehilite"><code>DON'T use AI when:
+├── Consequences of errors are irreversible (e.g., medication dosing)
+├── Regulatory requirement for human decision (e.g., clinical diagnosis)
+├── Data is insufficient or biased
+├── Simple rules/logic would work (over-engineering)
+└── User trust requires human accountability
+
+DO use AI when:
+├── Task is repetitive + has high variability in inputs
+├── Speed matters more than 100% accuracy (with human backup)
+├── Patterns exist in historical data
+├── Scale makes human review impossible
+└── AI augments (not replaces) human judgment
+</code></pre>
+
+<h3 id="interview-walkthrough_4">Interview Walkthrough</h3>
+<blockquote>
+<p>"I ran a structured GenAI workshop series for our Product team — four sessions that took them from 'what is GenAI' to 'here's a working prototype.' The key framework I developed is an Impact × Feasibility × Risk evaluation matrix that helps Product teams independently score and prioritize AI use cases. We also established a 'When NOT to use AI' framework — which is critical in healthcare where wrong AI outputs can have real patient safety implications. The outcome was Product teams going from waiting for engineering to propose AI features to independently bringing us prioritized, well-scoped AI opportunities."</p>
+</blockquote>
+<hr />
+<h2 id="quick-reference-end-to-end-architecture-for-a-healthcare-platform-sample">Quick Reference: End-to-End Architecture for a healthcare platform (sample)</h2>
+<p>If asked "How would you architect an AI-native health platform?":</p>
+<pre class="codehilite"><code>┌──────────────────────────────────────────────────────────┐
+│                    AI-NATIVE PLATFORM (REFERENCE)                      │
+│                                                           │
+│  ┌─────────────────────────────────────────────────────┐ │
+│  │              Consumer Experience Layer               │ │
+│  │  • Mobile app  • Web portal  • Voice/Chat          │ │
+│  └─────────────────────┬───────────────────────────────┘ │
+│                        │                                  │
+│  ┌─────────────────────▼───────────────────────────────┐ │
+│  │              AI Agent Layer (Agentic)                │ │
+│  │  • Health AI Agent (member-facing)                  │ │
+│  │  • Provider AI Agent (clinician-facing)             │ │
+│  │  • Operations AI Agent (internal)                   │ │
+│  │  • Each agent has: tools, knowledge, guardrails     │ │
+│  └─────────────────────┬───────────────────────────────┘ │
+│                        │                                  │
+│  ┌─────────────────────▼───────────────────────────────┐ │
+│  │              AI Platform Layer                       │ │
+│  │  • LLM inference (Gemini / Vertex AI)              │ │
+│  │  • RAG (Knowledge grounding)                        │ │
+│  │  • Embeddings + Vector search                       │ │
+│  │  • Guardrails (PII/PHI, bias, hallucination)       │ │
+│  │  • Evaluation &amp; monitoring                          │ │
+│  └─────────────────────┬───────────────────────────────┘ │
+│                        │                                  │
+│  ┌─────────────────────▼───────────────────────────────┐ │
+│  │              Data &amp; Integration Layer                │ │
+│  │  • Unified member profile (pharmacy + insurance +   │ │
+│  │    provider + claims + health records)              │ │
+│  │  • Event streaming (Kafka/Pub-Sub)                 │ │
+│  │  • APIs to: Pharmacy, PBM, Insurance, Providers    │ │
+│  └─────────────────────┬───────────────────────────────┘ │
+│                        │                                  │
+│  ┌─────────────────────▼───────────────────────────────┐ │
+│  │              Infrastructure (GCP/Cloud)             │ │
+│  │  • GKE (Kubernetes)  • Cloud Run  • BigQuery       │ │
+│  │  • Cloud SQL  • Pub/Sub  • IAM  • HIPAA controls  │ │
+│  └─────────────────────────────────────────────────────┘ │
+└──────────────────────────────────────────────────────────┘
+</code></pre>
+
+<hr />
+<h2 id="cheat-sheet-key-terms-to-use-fluently">Cheat Sheet: Key Terms to Use Fluently</h2>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>What It Means</th>
+<th>When to Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RAG</td>
+<td>Retrieval-Augmented Generation — ground LLM in your data</td>
+<td>"We used RAG to ensure accurate, grounded responses"</td>
+</tr>
+<tr>
+<td>Agentic AI</td>
+<td>AI that reasons, plans, and takes actions autonomously</td>
+<td>"Our agents can multi-step reason through complex tasks"</td>
+</tr>
+<tr>
+<td>ReAct</td>
+<td>Reasoning + Acting loop — think, act, observe, repeat</td>
+<td>"The agent uses a ReAct pattern to orchestrate tools"</td>
+</tr>
+<tr>
+<td>Guardrails</td>
+<td>Safety filters on AI inputs/outputs</td>
+<td>"We implemented guardrails for PII, toxicity, and hallucination"</td>
+</tr>
+<tr>
+<td>Tool use / Function calling</td>
+<td>LLM calls external APIs</td>
+<td>"The agent uses tool-use to interact with backend systems"</td>
+</tr>
+<tr>
+<td>Few-shot prompting</td>
+<td>Giving LLM examples to learn from</td>
+<td>"We use few-shot retrieval for classification"</td>
+</tr>
+<tr>
+<td>Embeddings</td>
+<td>Converting text to numerical vectors</td>
+<td>"We embed documents for semantic search"</td>
+</tr>
+<tr>
+<td>Vector store</td>
+<td>Database optimized for similarity search</td>
+<td>"Historical cases stored in a vector database"</td>
+</tr>
+<tr>
+<td>Structured output</td>
+<td>Forcing LLM to respond in specific format</td>
+<td>"We enforce JSON schema for consistent downstream processing"</td>
+</tr>
+<tr>
+<td>Human-in-the-loop</td>
+<td>Human validates AI decisions</td>
+<td>"Low-confidence predictions route to human review"</td>
+</tr>
+<tr>
+<td>Hallucination</td>
+<td>AI generating false information</td>
+<td>"RAG grounding reduces hallucination risk"</td>
+</tr>
+<tr>
+<td>Prompt engineering</td>
+<td>Designing effective LLM instructions</td>
+<td>"We optimized prompts for accuracy and consistency"</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="final-prep-checklist">Final Prep Checklist</h2>
+<ul>
+<li>[ ] Can walk through Architecture Diagram for each of 6 solutions</li>
+<li>[ ] Can explain WHY you chose this approach over alternatives</li>
+<li>[ ] Can describe the AWS services and their roles</li>
+<li>[ ] Can translate each solution to a Healthcare/the enterprise use case</li>
+<li>[ ] Know the GCP equivalents (Vertex AI, Gemini, BigQuery, GKE)</li>
+<li>[ ] Can discuss guardrails, especially for healthcare (HIPAA, PHI)</li>
+<li>[ ] Have 2-3 metrics for each solution's impact</li>
+<li>[ ] Can explain failure modes and how you handle them</li>
+</ul>
+<hr />
+<h1 id="part-2-practical-preparation-program">PART 2: PRACTICAL PREPARATION PROGRAM</h1>
+<blockquote>
+<p>This is your hands-on curriculum to build real, demonstrable skills — not just talk about them. Each section has learning content PLUS working labs you can execute. The goal: walk into any interview able to whiteboard architecture, discuss real trade-offs, and prove you've actually built things.</p>
+</blockquote>
+<hr />
+<h2 id="people-management-preparation">People Management Preparation</h2>
+<p>The the enterprise role is fundamentally a people leadership role: <em>"Lead, mentor, and grow engineering managers and senior engineers, owning hiring, performance management, career development, succession planning."</em> You manage managers — this is second-line leadership.</p>
+<h3 id="core-frameworks-to-master">Core Frameworks to Master</h3>
+<p><strong>1. The Manager-of-Managers Shift</strong></p>
+<p>At this level, you're not managing engineers — you're managing the <em>managers</em> who manage engineers. Your leverage changes:</p>
+<table>
+<thead>
+<tr>
+<th>First-Line Manager</th>
+<th>Second-Line Manager (This Role)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Coaches individual engineers</td>
+<td>Coaches managers on how to coach</td>
+</tr>
+<tr>
+<td>Owns team delivery</td>
+<td>Owns multi-team strategy &amp; outcomes</td>
+</tr>
+<tr>
+<td>Reviews code/designs</td>
+<td>Reviews architecture &amp; technical direction</td>
+</tr>
+<tr>
+<td>Runs 1:1s with ICs</td>
+<td>Runs 1:1s with managers, skip-levels with ICs</td>
+</tr>
+<tr>
+<td>Tactical execution</td>
+<td>Organizational design &amp; scaling</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Talking point:</strong> <em>"As a manager of managers, my job is to multiply through my leaders. I set clear outcomes and standards, then give my managers the autonomy to execute. I use skip-level 1:1s to stay connected to the ground truth without undermining my managers."</em></p>
+<p><strong>2. Situational Leadership Model</strong></p>
+<p>Adapt your style to the person and situation:<br />
+- <strong>Directing</strong> (new/struggling): High direction, high support<br />
+- <strong>Coaching</strong> (developing): High direction, building skills<br />
+- <strong>Supporting</strong> (competent but low confidence): Low direction, high support<br />
+- <strong>Delegating</strong> (high performers): Low direction, low support — get out of their way</p>
+<p><strong>3. The GROW Coaching Model</strong> (for developing your managers)<br />
+- <strong>Goal:</strong> What do you want to achieve?<br />
+- <strong>Reality:</strong> What's the current situation?<br />
+- <strong>Options:</strong> What could you do?<br />
+- <strong>Will:</strong> What will you commit to?</p>
+<p><strong>4. Radical Candor</strong> (Kim Scott)<br />
+- Care Personally + Challenge Directly<br />
+- Avoid "Ruinous Empathy" (caring but not challenging = kindness that hurts)<br />
+- Avoid "Obnoxious Aggression" (challenging without caring)</p>
+<h3 id="behavioral-questions-people-management-with-star-answers">Behavioral Questions — People Management (with STAR answers)</h3>
+<p><strong>Q: "How do you develop and grow engineering managers?"</strong></p>
+<p><strong>STAR:</strong><br />
+- <strong>Situation:</strong> At a logistics platform, I inherited managers of varying experience — some first-time managers promoted from strong ICs.<br />
+- <strong>Task:</strong> Level them up to run autonomous, high-performing teams.<br />
+- <strong>Action:</strong><br />
+  - Weekly 1:1s focused on <em>their</em> growth, not just status ("What's the hardest decision you made this week?")<br />
+  - Paired new managers with experienced mentors<br />
+  - Gave stretch assignments with a safety net (I'd review, but they'd own)<br />
+  - Taught them frameworks: how to run effective 1:1s, give feedback, handle underperformance<br />
+  - Created a manager forum for peer learning<br />
+- <strong>Result:</strong> 2 first-time managers grew into senior managers within 18 months; team engagement scores improved; I could delegate increasingly complex initiatives.</p>
+<p><strong>Q: "Tell me about a time you had to manage out an underperformer."</strong></p>
+<p><strong>STAR:</strong><br />
+- <strong>Situation:</strong> A senior engineer at Oracle was technically strong but consistently missed commitments and created friction with the team.<br />
+- <strong>Task:</strong> Address the performance and behavior issues fairly.<br />
+- <strong>Action:</strong><br />
+  - Direct, specific feedback with examples (not vague)<br />
+  - Co-created a 60-day improvement plan with measurable goals<br />
+  - Weekly check-ins with documented progress<br />
+  - Made clear the consequences and the support available<br />
+- <strong>Result:</strong> Performance didn't improve to the bar despite support. I transitioned them out respectfully with dignity. The team's velocity and morale improved measurably. Key learning: acting decisively but humanely is a kindness to the whole team.</p>
+<p><strong>Q: "How do you handle succession planning?"</strong></p>
+<blockquote>
+<p>"I maintain a talent matrix for my org — who's ready now, ready in 1 year, ready in 2 years for each critical role. For every key position, I want at least one identified successor being actively developed. I give high-potentials stretch assignments and visibility to senior leadership. I also document tribal knowledge so no single person is a bus-factor risk. At Amazon, I ensured every team had a clear #2 who could step up."</p>
+</blockquote>
+<p><strong>Q: "How do you build culture across distributed teams?"</strong></p>
+<blockquote>
+<p>"Culture is what people do when you're not watching. I build it through: clear values made concrete in decisions, celebrating the right behaviors publicly, consistent rituals (demos, retros, tech talks), psychological safety so people speak up, and leading by example. For distributed teams, I over-invest in written communication and periodic in-person gatherings for relationship-building."</p>
+</blockquote>
+<p><strong>Q: "How do you give difficult feedback?"</strong></p>
+<blockquote>
+<p>"I use the SBI model — Situation, Behavior, Impact. 'In yesterday's design review (situation), when you dismissed the junior engineer's idea before they finished (behavior), it shut down the discussion and I noticed others held back (impact).' Specific, timely, focused on behavior not character. Then I listen and we problem-solve together. I give feedback early and often so it's never a surprise."</p>
+</blockquote>
+<h3 id="people-management-scenarios-to-rehearse">People Management Scenarios to Rehearse</h3>
+<ol>
+<li>
+<p><strong>Two of your managers are in conflict over resource allocation.</strong> → Facilitate, don't dictate. Get them to align on shared goals first, then negotiate trade-offs with data.</p>
+</li>
+<li>
+<p><strong>A high performer threatens to quit over comp.</strong> → Understand the real driver (often not just money). Advocate hard if they're critical, but never make retention counter-offers a habit.</p>
+</li>
+<li>
+<p><strong>Your best engineer wants to become a manager, but you think they're better as an IC.</strong> → Create a tech-lead path. Be honest about what management really involves. Let them try with support.</p>
+</li>
+<li>
+<p><strong>A team is burning out from on-call load.</strong> → Root-cause the alert volume. Invest in reliability. Rebalance rotations. This is an operational excellence issue, not a people issue alone.</p>
+</li>
+<li>
+<p><strong>You need to cut 15% of budget.</strong> → Protect your best people, be transparent about the why, cut projects not just people, communicate with empathy.</p>
+</li>
+</ol>
+<hr />
+<h2 id="ai-infrastructure-preparation">AI Infrastructure Preparation</h2>
+<p>The role wants: <em>"Strong technical depth in distributed systems and cloud-native architectures, including microservices, DevOps (CI/CD, Kubernetes/Docker), and cloud platforms."</em> Plus AI infrastructure for an AI-native platform.</p>
+<h3 id="ai-infrastructure-stack-what-you-must-understand">AI Infrastructure Stack — What You Must Understand</h3>
+<p><strong>Layer 1: Compute &amp; Orchestration</strong></p>
+<pre class="codehilite"><code>┌─────────────────────────────────────────┐
+│  Model Serving Infrastructure            │
+│  • GPU/TPU clusters for inference        │
+│  • Auto-scaling based on request load    │
+│  • Model versioning &amp; A/B testing        │
+│  Examples: SageMaker Endpoints,          │
+│  Vertex AI Endpoints, GKE + GPU nodes    │
+└─────────────────────────────────────────┘
+</code></pre>
+
+<p><strong>Layer 2: Model Access &amp; Gateway</strong></p>
+<pre class="codehilite"><code>┌─────────────────────────────────────────┐
+│  LLM Gateway / API Layer                 │
+│  • Rate limiting &amp; quota management      │
+│  • Model routing (cheap vs. powerful)    │
+│  • Caching (semantic cache)              │
+│  • Cost tracking per team/use case       │
+│  • Fallback &amp; retry logic                │
+│  Examples: Bedrock, Vertex AI, LiteLLM   │
+└─────────────────────────────────────────┘
+</code></pre>
+
+<p><strong>Layer 3: RAG &amp; Knowledge Infrastructure</strong></p>
+<pre class="codehilite"><code>┌─────────────────────────────────────────┐
+│  Vector Database &amp; Retrieval             │
+│  • Embedding pipeline (batch + realtime) │
+│  • Vector store (OpenSearch, Pinecone,   │
+│    pgvector, Vertex Vector Search)       │
+│  • Chunking &amp; indexing strategy          │
+│  • Hybrid search (vector + keyword)      │
+│  • Re-ranking                            │
+└─────────────────────────────────────────┘
+</code></pre>
+
+<p><strong>Layer 4: Orchestration &amp; Agents</strong></p>
+<pre class="codehilite"><code>┌─────────────────────────────────────────┐
+│  Agent Orchestration                     │
+│  • Workflow engine (Step Functions,      │
+│    LangGraph, Bedrock Agents)            │
+│  • Tool/function registry                │
+│  • State management                      │
+│  • Multi-agent coordination              │
+└─────────────────────────────────────────┘
+</code></pre>
+
+<p><strong>Layer 5: Evaluation &amp; Observability</strong></p>
+<pre class="codehilite"><code>┌─────────────────────────────────────────┐
+│  MLOps / LLMOps                          │
+│  • Prompt versioning &amp; management        │
+│  • Evaluation pipelines (accuracy,       │
+│    hallucination, latency, cost)         │
+│  • Monitoring &amp; alerting                 │
+│  • Feedback loops (human ratings)        │
+│  • Drift detection                       │
+└─────────────────────────────────────────┘
+</code></pre>
+
+<p><strong>Layer 6: Governance &amp; Safety</strong></p>
+<pre class="codehilite"><code>┌─────────────────────────────────────────┐
+│  Responsible AI Layer                    │
+│  • Guardrails (PII/PHI, toxicity, bias)  │
+│  • Content filtering                     │
+│  • Audit logging                         │
+│  • Access controls (who can call what)   │
+│  • Compliance (HIPAA for healthcare)     │
+└─────────────────────────────────────────┘
+</code></pre>
+
+<h3 id="key-ai-infrastructure-concepts-to-discuss-fluently">Key AI Infrastructure Concepts to Discuss Fluently</h3>
+<p><strong>Inference optimization:</strong><br />
+- <strong>Batching:</strong> Group requests to maximize GPU utilization<br />
+- <strong>Quantization:</strong> Reduce model precision (FP16/INT8) for faster/cheaper inference<br />
+- <strong>Model distillation:</strong> Train smaller models from larger ones<br />
+- <strong>Caching:</strong> Semantic caching for repeated/similar queries (huge cost savings)<br />
+- <strong>Model routing:</strong> Use cheap models for easy tasks, expensive for hard ones</p>
+<p><strong>Cost management (critical for leaders):</strong><br />
+- Token costs add up fast at scale — a chatbot handling 1M conversations/day can cost $100K+/month<br />
+- Strategies: caching, model routing, prompt optimization (shorter prompts), batch processing<br />
+- <strong>Talking point:</strong> <em>"AI cost governance is a real discipline. At scale, the difference between a naive implementation and an optimized one can be 10x. I'd implement per-team cost tracking, semantic caching, and tiered model routing."</em></p>
+<p><strong>Scaling patterns:</strong><br />
+- Async processing for non-realtime (queues + workers)<br />
+- Streaming responses for better UX (don't wait for full generation)<br />
+- Provisioned throughput for predictable workloads, on-demand for spiky</p>
+<p><strong>Healthcare-specific infrastructure:</strong><br />
+- All AI processing in HIPAA-eligible services with BAA<br />
+- PHI de-identification before any model processing<br />
+- Data residency and encryption at rest/in transit<br />
+- Audit trails for every AI decision touching patient data<br />
+- Human-in-the-loop for clinical decisions</p>
+<h3 id="ai-infrastructure-interview-questions">AI Infrastructure Interview Questions</h3>
+<p><strong>Q: "How would you architect the AI infrastructure for a healthcare platform (sample) to scale to millions of members?"</strong></p>
+<blockquote>
+<p>"I'd design in layers. At the base, a model gateway that abstracts the LLM provider (Vertex AI/Gemini) with built-in rate limiting, semantic caching, and cost tracking. Above that, a RAG layer with a managed vector store for member context and clinical knowledge. Then an agent orchestration layer for multi-step workflows. Critically, an evaluation/observability layer from day one — we need to catch AI errors before members do. And wrapping everything, a governance layer with PHI guardrails and audit logging for HIPAA. For scale, async processing for non-realtime tasks, streaming for chat UX, and aggressive semantic caching since many member questions repeat."</p>
+</blockquote>
+<p><strong>Q: "How do you control AI costs at scale?"</strong></p>
+<blockquote>
+<p>"Four levers: First, semantic caching — many queries are similar, so cache embeddings and responses. Second, model routing — use small/cheap models for simple classification, reserve powerful models for complex reasoning. Third, prompt optimization — every token costs money, so tight prompts matter at scale. Fourth, per-team cost attribution so teams own their spend. I'd set up dashboards tracking cost-per-interaction and alert on anomalies."</p>
+</blockquote>
+<hr />
+<h2 id="ai-assisted-coding-preparation">AI-Assisted Coding Preparation</h2>
+<p>Preferred qualification: <em>"Familiarity with tools such as Claude and Cursor, and the ability to apply them responsibly to improve speed and quality."</em> The role wants a leader who models modern AI-assisted development.</p>
+<h3 id="the-modern-ai-assisted-development-landscape">The Modern AI-Assisted Development Landscape</h3>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>What It Does</th>
+<th>Your Angle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Amazon Q Developer</strong></td>
+<td>AI coding assistant in IDE (your experience)</td>
+<td>"I use Amazon Q for code generation, review, and modernization"</td>
+</tr>
+<tr>
+<td><strong>Kiro</strong></td>
+<td>Agentic IDE / spec-driven development (your experience)</td>
+<td>"I use Kiro for spec-to-code workflows"</td>
+</tr>
+<tr>
+<td><strong>GitHub Copilot</strong></td>
+<td>Inline code completion</td>
+<td>Know it exists, industry standard</td>
+</tr>
+<tr>
+<td><strong>Cursor</strong></td>
+<td>AI-native code editor</td>
+<td>The role mentions this — worth trying</td>
+</tr>
+<tr>
+<td><strong>Claude Code / Codex</strong></td>
+<td>Agentic coding in terminal</td>
+<td>Terminal-based agentic dev</td>
+</tr>
+</tbody>
+</table>
+<h3 id="how-ai-assisted-coding-changes-engineering-leadership-view">How AI-Assisted Coding Changes Engineering (Leadership View)</h3>
+<p><strong>Productivity gains:</strong><br />
+- Boilerplate/scaffolding: 5-10x faster<br />
+- Test generation: massive time savings<br />
+- Code review: AI catches issues before human review<br />
+- Documentation: auto-generated and kept current<br />
+- Legacy modernization: AI translates/refactors old code</p>
+<p><strong>What leaders must manage:</strong><br />
+- <strong>Quality gates:</strong> AI-generated code still needs review, testing, security scanning<br />
+- <strong>Over-reliance risk:</strong> Junior engineers may not learn fundamentals<br />
+- <strong>Security:</strong> AI can suggest vulnerable code or leak secrets<br />
+- <strong>IP/licensing:</strong> Ensure generated code doesn't violate licenses<br />
+- <strong>Consistency:</strong> AI output must follow team standards</p>
+<p><strong>Talking point:</strong> <em>"AI-assisted coding is a force multiplier, but it shifts the engineer's job from writing code to specifying, reviewing, and integrating. I'd establish standards: AI accelerates, but humans own quality. I'd measure impact through DORA metrics and ensure our juniors still build deep understanding, not just prompt-and-paste."</em></p>
+<h3 id="ai-assisted-coding-interview-questions">AI-Assisted Coding Interview Questions</h3>
+<p><strong>Q: "How do you think about AI-assisted development on your teams?"</strong></p>
+<blockquote>
+<p>"I'm a strong advocate — I use these tools myself with Amazon Q and Kiro. But adoption needs guardrails. First, AI accelerates but doesn't replace judgment — all AI code goes through the same review, test, and security gates. Second, I worry about juniors not learning fundamentals, so I pair AI use with mentorship. Third, security matters — AI can suggest vulnerable patterns or leak secrets, so we scan everything. Done right, I've seen 30-40% productivity gains on boilerplate and testing. The engineer's role elevates from writing every line to architecting, specifying, and validating."</p>
+</blockquote>
+<p><strong>Q: "How would you measure the impact of AI coding tools?"</strong></p>
+<blockquote>
+<p>"I'd use DORA metrics as the baseline — lead time, deployment frequency, change failure rate, MTTR. Then AI-specific measures: % of code AI-assisted, time saved on common tasks, developer satisfaction. But I'd watch for false productivity — more code isn't better if quality drops. The real metric is sustainable delivery velocity with maintained or improved quality."</p>
+</blockquote>
+<hr />
+<h2 id="the-hands-on-learning-program">THE HANDS-ON LEARNING PROGRAM</h2>
+<blockquote>
+<p>Talk is cheap. Here's your practical curriculum to actually BUILD these skills. Each lab is a working session you execute in your DevSpace. By the end, you can honestly say "I built this" — and walk through real code.</p>
+</blockquote>
+<h3 id="learning-path-overview-4-week-program">Learning Path Overview (4-Week Program)</h3>
+<table>
+<thead>
+<tr>
+<th>Week</th>
+<th>Focus</th>
+<th>Labs</th>
+<th>Outcome</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>RAG Fundamentals</td>
+<td>Lab 1: Build a RAG system</td>
+<td>Understand embeddings, vector search, grounding</td>
+</tr>
+<tr>
+<td>2</td>
+<td>AI Agents</td>
+<td>Lab 2: Build an agent with tools</td>
+<td>Understand ReAct, tool-use, orchestration</td>
+</tr>
+<tr>
+<td>3</td>
+<td>AI-Assisted Coding</td>
+<td>Lab 3: Ship a feature with AI</td>
+<td>Experience modern dev workflow</td>
+</tr>
+<tr>
+<td>4</td>
+<td>AI Infrastructure</td>
+<td>Lab 4: Deploy &amp; observe</td>
+<td>Understand serving, cost, monitoring</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Frameworks</td>
+<td>Lab 5: HuggingFace, LangChain</td>
+<td>Know the ecosystem &amp; framework trade-offs</td>
+</tr>
+</tbody>
+</table>
+<h3 id="how-to-use-the-labs">How to Use the Labs</h3>
+<p>The labs live in <code>the</code>labs/<code>folder in this repo</code>. Each lab has:<br />
+- A <code>README.md</code> with learning objectives and step-by-step instructions<br />
+- Starter code with <code>TODO</code> markers<br />
+- A working reference solution<br />
+- "Interview talking points" — what you learned to say</p>
+<p>Ask me to walk you through any lab, or say "start Lab 1" and I'll guide you interactively.</p>
+<h3 id="lab-1-build-a-rag-system-week-1">Lab 1: Build a RAG System (Week 1)</h3>
+<p><strong>What you'll build:</strong> A working retrieval-augmented Q&amp;A system over a set of documents.</p>
+<p><strong>You'll learn:</strong><br />
+- How embeddings turn text into vectors<br />
+- How vector similarity search works<br />
+- How RAG grounds LLM responses in your data<br />
+- Why chunking strategy matters</p>
+<p><strong>Concepts demonstrated:</strong> Embeddings, vector stores, semantic search, prompt construction, grounding</p>
+<h3 id="lab-2-build-an-ai-agent-week-2">Lab 2: Build an AI Agent (Week 2)</h3>
+<p><strong>What you'll build:</strong> An agent that answers questions AND takes actions using tools.</p>
+<p><strong>You'll learn:</strong><br />
+- The ReAct pattern (Reason + Act)<br />
+- How to define and register tools<br />
+- How agents decide which tool to call<br />
+- Guardrails and error handling</p>
+<p><strong>Concepts demonstrated:</strong> Agentic AI, tool-use/function calling, multi-step reasoning</p>
+<h3 id="lab-3-ship-a-feature-with-ai-assisted-coding-week-3">Lab 3: Ship a Feature with AI-Assisted Coding (Week 3)</h3>
+<p><strong>What you'll build:</strong> A small full-stack feature using AI coding tools end-to-end.</p>
+<p><strong>You'll learn:</strong><br />
+- Spec-driven development workflow<br />
+- How to prompt effectively for code<br />
+- How to review and validate AI-generated code<br />
+- The quality gates that matter</p>
+<p><strong>Concepts demonstrated:</strong> Modern AI dev workflow, code review discipline, testing</p>
+<h3 id="lab-4-ai-infrastructure-deploy-observe-week-4">Lab 4: AI Infrastructure — Deploy &amp; Observe (Week 4)</h3>
+<p><strong>What you'll build:</strong> Deploy a model endpoint with monitoring, caching, and cost tracking.</p>
+<p><strong>You'll learn:</strong><br />
+- Model serving patterns<br />
+- Semantic caching for cost reduction<br />
+- Observability and evaluation<br />
+- Scaling considerations</p>
+<p><strong>Concepts demonstrated:</strong> MLOps/LLMOps, cost optimization, production readiness</p>
+<h3 id="lab-5-popular-frameworks-patterns-huggingface-langchain-llamaindex">Lab 5: Popular Frameworks &amp; Patterns (HuggingFace, LangChain, LlamaIndex)</h3>
+<p><strong>What you'll build:</strong> Run real HuggingFace models locally + explore LangChain patterns.</p>
+<p><strong>You'll learn:</strong><br />
+- The framework ecosystem and when to use each<br />
+- Running open models yourself (critical for PHI/HIPAA)<br />
+- Zero-shot classification (categorize WITHOUT training data)<br />
+- LangChain patterns: chains, RAG, agents, memory<br />
+- Build-vs-buy-vs-framework leadership judgment</p>
+<p><strong>Concepts demonstrated:</strong> HuggingFace transformers, LangChain, LlamaIndex, framework trade-offs</p>
+<p><strong>Runnable examples (real models, no API key):</strong><br />
+- Sentiment analysis → member/customer satisfaction routing<br />
+- Zero-shot classification → case categorization with no training data<br />
+- Summarization → AI post-contact summaries<br />
+- NER → PII/PHI detection for HIPAA redaction</p>
+<p><strong>Interview power line:</strong> <em>"I self-host open models via HuggingFace when data can't leave our boundary — critical for PHI. I use LangChain/LlamaIndex to accelerate standard RAG and agent patterns, but drop to the raw cloud SDK for high-scale production paths. The judgment is always: does the framework earn its place without hiding what matters?"</em></p>
+<hr />
+</main>
+<script>
+window.addEventListener('scroll',()=>{const s=document.documentElement.scrollTop;
+const h=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+document.querySelector('.progress-bar .fill').style.width=(s/h*100)+'%';});
+document.querySelectorAll('h1,h2,h3').forEach(el=>{const t=el.textContent.toLowerCase();
+if(t.includes('ai-powered customer'))el.id='solution-1';
+else if(t.includes('case categorization'))el.id='solution-2';
+else if(t.includes('ai summaries'))el.id='solution-3';
+else if(t.includes('tms automation')||t.includes('agentic'))el.id='solution-4';
+else if(t.includes('mcp servers')||t.includes('nl to'))el.id='solution-5';
+else if(t.includes('workshops')||t.includes('adoption'))el.id='solution-6';
+else if(t.includes('reference')||t.includes('end-to-end')||t.includes('quick reference'))el.id='arch';
+else if(t.includes('cheat sheet'))el.id='cheat-sheet';
+else if(t.includes('people management'))el.id='people-mgmt';
+else if(t.includes('ai infrastructure preparation'))el.id='ai-infra';
+else if(t.includes('ai-assisted coding preparation'))el.id='ai-coding';
+else if(t.includes('hands-on learning'))el.id='hands-on';});
+document.querySelectorAll('.sidebar a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{
+e.preventDefault();const t=document.querySelector(a.getAttribute('href'));
+if(t)t.scrollIntoView({behavior:'smooth',block:'start'});
+document.querySelector('.sidebar').classList.remove('open');});});
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){
+document.querySelectorAll('.sidebar a').forEach(a=>a.classList.remove('active'));
+const l=document.querySelector('.sidebar a[href="#'+e.target.id+'"]');
+if(l)l.classList.add('active');}});},{threshold:0.3});
+document.querySelectorAll('[id]').forEach(el=>obs.observe(el));
+</script>
+</body></html>
