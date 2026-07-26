@@ -1472,6 +1472,23 @@ Ask me to walk you through any lab, or say "start Lab 1" and I'll guide you inte
 
 **Interview power line:** *"I self-host open models via HuggingFace when data can't leave our boundary — critical for PHI. I use LangChain/LlamaIndex to accelerate standard RAG and agent patterns, but drop to the raw cloud SDK for high-scale production paths. The judgment is always: does the framework earn its place without hiding what matters?"*
 
+### Lab 6: Build & Launch an MCP Server
+
+**What you'll build:** A real, working MCP (Model Context Protocol) server that AI assistants can connect to.
+
+**You'll learn:**
+- What MCP is ("USB-C for AI") and why it matters
+- The MCP protocol: JSON-RPC over stdio — initialize, tools/list, tools/call
+- How to launch an MCP server and connect it to Claude Desktop / Amazon Q
+- The production SDK (FastMCP) approach
+- Security: auth, least privilege, input validation, audit logging
+
+**Concepts demonstrated:** MCP protocol, tool servers, stdio transport, AI-to-tools integration
+
+**Runnable:** `mcp_server.py` (real protocol implementation) + `test_client.py` (drives the full conversation) — exposes business metrics so an AI can answer BI questions by calling your server.
+
+**Interview power line:** *"I built and launched an MCP server from scratch — it's the open standard that lets any AI assistant connect to your tools uniformly. Under the hood it's JSON-RPC over stdio with initialize, tools/list, and tools/call. I implemented the protocol by hand so I understand exactly what happens, which matters for debugging, security, and auth."*
+
 ---
 
 ## Interview Practice Sessions

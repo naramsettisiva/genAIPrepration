@@ -1,83 +1,52 @@
-<!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CVS Health100 Interview Prep — Complete Guide</title>
-<style>
-:root { --primary:#1B2A4A; --accent:#2E86AB; --bg:#f8f9fa; --text:#333;
-  --code-bg:#1e1e1e; --code-text:#d4d4d4; --border:#e0e0e0; }
-* { box-sizing:border-box; margin:0; padding:0; }
-body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;
-  line-height:1.7; color:var(--text); background:var(--bg); display:flex; }
-.sidebar { width:290px; position:fixed; top:0; left:0; height:100vh; background:var(--primary);
-  color:white; overflow-y:auto; padding:20px 0; z-index:100; transition:transform .3s; }
-.sidebar h2 { padding:0 20px 12px; font-size:14px; text-transform:uppercase; letter-spacing:1px;
-  opacity:.7; border-bottom:1px solid rgba(255,255,255,.1); margin-bottom:8px; }
-.sidebar a { display:block; padding:7px 20px; color:rgba(255,255,255,.85); text-decoration:none;
-  font-size:12.5px; border-left:3px solid transparent; transition:all .2s; }
-.sidebar a:hover, .sidebar a.active { background:rgba(255,255,255,.1); color:white; border-left-color:var(--accent); }
-.sidebar .nav-section { font-weight:700; font-size:10.5px; margin-top:14px; padding:5px 20px;
-  opacity:.5; text-transform:uppercase; letter-spacing:.5px; color:#7fb8d9; }
-.content { margin-left:290px; max-width:900px; padding:40px 60px; min-height:100vh; }
-h1 { color:var(--primary); font-size:2.1em; margin:40px 0 20px; padding-bottom:10px; border-bottom:3px solid var(--accent); }
-h2 { color:var(--primary); font-size:1.55em; margin:35px 0 15px; padding-top:20px; border-top:1px solid var(--border); }
-h3 { color:var(--accent); font-size:1.22em; margin:25px 0 10px; }
-h4 { color:#555; font-size:1.05em; margin:20px 0 8px; }
-p { margin:12px 0; }
-pre { background:var(--code-bg); color:var(--code-text); padding:20px; border-radius:8px;
-  overflow-x:auto; margin:15px 0; font-size:12.5px; line-height:1.5; border:1px solid #333; }
-code { background:#e9ecef; padding:2px 6px; border-radius:3px; font-size:.9em; color:#c7254e; }
-pre code { background:none; padding:0; color:inherit; }
-table { width:100%; border-collapse:collapse; margin:15px 0; font-size:13.5px; border-radius:8px;
-  overflow:hidden; box-shadow:0 1px 3px rgba(0,0,0,.1); }
-th { background:var(--primary); color:white; padding:11px 14px; text-align:left; font-weight:600; }
-td { padding:9px 14px; border-bottom:1px solid var(--border); }
-tr:nth-child(even){ background:#f8f9fa; } tr:hover{ background:#e8f4f8; }
-ul,ol { margin:10px 0 10px 25px; } li { margin:6px 0; }
-blockquote { background:linear-gradient(135deg,#e8f4f8,#f0f8ff); border-left:4px solid var(--accent);
-  padding:15px 20px; margin:15px 0; border-radius:0 8px 8px 0; font-style:italic; }
-blockquote p { margin:5px 0; }
-strong { color:var(--primary); } a { color:var(--accent); }
-hr { border:none; border-top:2px solid var(--border); margin:30px 0; }
-.menu-toggle { display:none; position:fixed; top:15px; left:15px; z-index:200; background:var(--primary);
-  color:white; border:none; padding:10px 15px; border-radius:5px; cursor:pointer; font-size:18px; }
-.progress-bar { position:fixed; top:0; left:290px; right:0; height:3px; background:var(--border); z-index:50; }
-.progress-bar .fill { height:100%; background:var(--accent); width:0%; transition:width .1s; }
-@media (max-width:768px){ .sidebar{transform:translateX(-100%);} .sidebar.open{transform:translateX(0);}
-  .content{margin-left:0;padding:20px;} .menu-toggle{display:block;} .progress-bar{left:0;} }
-</style></head><body>
-
-<button class="menu-toggle" onclick="document.querySelector('.sidebar').classList.toggle('open')">&#9776;</button>
-<nav class="sidebar">
-  <h2>CVS Health100 Prep</h2>
-  <a href="#top">&#127968; Overview</a>
-  <div class="nav-section">Part 1: Technical Solutions</div>
-  <a href="#solution-1">1. AI-Powered Support</a>
-  <a href="#solution-2">2. Case Categorization</a>
-  <a href="#solution-3">3. AI Summaries</a>
-  <a href="#solution-4">4. TMS Automation</a>
-  <a href="#solution-5">5. MCP/BI Insights</a>
-  <a href="#solution-6">6. GenAI Workshops</a>
-  <a href="#health100-arch">Health100 Architecture</a>
-  <a href="#cheat-sheet">Cheat Sheet</a>
-  <div class="nav-section">HM Interview</div>
-  <a href="#hm-overview">Role & Company</a>
-  <a href="#hm-pitch">2-Min Pitch</a>
-  <a href="#hm-technical">Technical Questions</a>
-  <a href="#hm-leadership">Leadership Questions</a>
-  <a href="#hm-strategy">Strategy Questions</a>
-  <a href="#hm-your-questions">Your Questions to Ask</a>
-  <a href="#hm-comp">Comp Strategy</a>
-  <div class="nav-section">Part 2: Practical Program</div>
-  <a href="#people-mgmt">People Management</a>
-  <a href="#ai-infra">AI Infrastructure</a>
-  <a href="#ai-coding">AI-Assisted Coding</a>
-  <a href="#hands-on">Hands-On Labs (1-5)</a>
-  <a href="#practice-sessions">Practice Sessions</a>
-</nav>
-<div class="progress-bar"><div class="fill"></div></div>
-
-<main class="content" id="top">
-<h1 id="genai-technical-deep-dive-aws-solutions-for-your-6-proof-points">GenAI Technical Deep Dive — AWS Solutions for Your 6 Proof Points</h1>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>CVS Health100 Interview Prep — Complete Guide</title><style>
+:root{--primary:#1B2A4A;--accent:#2E86AB;--bg:#f8f9fa;--text:#333;--code-bg:#1e1e1e;--code-text:#d4d4d4;--border:#e0e0e0;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;line-height:1.7;color:var(--text);background:var(--bg);display:flex;}
+.sidebar{width:290px;position:fixed;top:0;left:0;height:100vh;background:var(--primary);color:white;overflow-y:auto;padding:20px 0;z-index:100;transition:transform .3s;}
+.sidebar h2{padding:0 20px 12px;font-size:14px;text-transform:uppercase;letter-spacing:1px;opacity:.7;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:8px;}
+.sidebar a{display:block;padding:7px 20px;color:rgba(255,255,255,.85);text-decoration:none;font-size:12.5px;border-left:3px solid transparent;transition:all .2s;}
+.sidebar a:hover,.sidebar a.active{background:rgba(255,255,255,.1);color:white;border-left-color:var(--accent);}
+.sidebar .nav-section{font-weight:700;font-size:10.5px;margin-top:14px;padding:5px 20px;opacity:.5;text-transform:uppercase;letter-spacing:.5px;color:#7fb8d9;}
+.content{margin-left:290px;max-width:900px;padding:40px 60px;min-height:100vh;}
+h1{color:var(--primary);font-size:2.1em;margin:40px 0 20px;padding-bottom:10px;border-bottom:3px solid var(--accent);}
+h2{color:var(--primary);font-size:1.55em;margin:35px 0 15px;padding-top:20px;border-top:1px solid var(--border);}
+h3{color:var(--accent);font-size:1.22em;margin:25px 0 10px;}
+h4{color:#555;font-size:1.05em;margin:20px 0 8px;}
+p{margin:12px 0;}
+pre{background:var(--code-bg);color:var(--code-text);padding:20px;border-radius:8px;overflow-x:auto;margin:15px 0;font-size:12.5px;line-height:1.5;border:1px solid #333;}
+code{background:#e9ecef;padding:2px 6px;border-radius:3px;font-size:.9em;color:#c7254e;}
+pre code{background:none;padding:0;color:inherit;}
+table{width:100%;border-collapse:collapse;margin:15px 0;font-size:13.5px;border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.1);}
+th{background:var(--primary);color:white;padding:11px 14px;text-align:left;font-weight:600;}
+td{padding:9px 14px;border-bottom:1px solid var(--border);}
+tr:nth-child(even){background:#f8f9fa;}tr:hover{background:#e8f4f8;}
+ul,ol{margin:10px 0 10px 25px;}li{margin:6px 0;}
+blockquote{background:linear-gradient(135deg,#e8f4f8,#f0f8ff);border-left:4px solid var(--accent);padding:15px 20px;margin:15px 0;border-radius:0 8px 8px 0;font-style:italic;}
+blockquote p{margin:5px 0;}
+strong{color:var(--primary);}a{color:var(--accent);}
+hr{border:none;border-top:2px solid var(--border);margin:30px 0;}
+.menu-toggle{display:none;position:fixed;top:15px;left:15px;z-index:200;background:var(--primary);color:white;border:none;padding:10px 15px;border-radius:5px;cursor:pointer;font-size:18px;}
+.progress-bar{position:fixed;top:0;left:290px;right:0;height:3px;background:var(--border);z-index:50;}
+.progress-bar .fill{height:100%;background:var(--accent);width:0%;transition:width .1s;}
+@media(max-width:768px){.sidebar{transform:translateX(-100%);}.sidebar.open{transform:translateX(0);}.content{margin-left:0;padding:20px;}.menu-toggle{display:block;}.progress-bar{left:0;}}
+</style></head><body><button class="menu-toggle" onclick="document.querySelector('.sidebar').classList.toggle('open')">&#9776;</button>
+<nav class="sidebar"><h2>CVS Health100 Prep</h2>
+<a href="#top">&#127968; Overview</a>
+<div class="nav-section">Part 1: Technical Solutions</div>
+<a href="#solution-1">1. AI-Powered Support</a><a href="#solution-2">2. Case Categorization</a>
+<a href="#solution-3">3. AI Summaries</a><a href="#solution-4">4. TMS Automation</a>
+<a href="#solution-5">5. MCP/BI Insights</a><a href="#solution-6">6. GenAI Workshops</a>
+<a href="#health100-arch">Health100 Architecture</a><a href="#cheat-sheet">Cheat Sheet</a>
+<div class="nav-section">HM Interview</div>
+<a href="#hm-overview">Role & Company</a><a href="#hm-pitch">2-Min Pitch</a>
+<a href="#hm-technical">Technical Questions</a><a href="#hm-leadership">Leadership Questions</a>
+<a href="#hm-strategy">Strategy Questions</a><a href="#hm-your-questions">Your Questions</a>
+<a href="#hm-comp">Comp Strategy</a>
+<div class="nav-section">Part 2: Practical Program</div>
+<a href="#people-mgmt">People Management</a><a href="#ai-infra">AI Infrastructure</a>
+<a href="#ai-coding">AI-Assisted Coding</a><a href="#hands-on">Hands-On Labs (1-6)</a>
+<a href="#practice-sessions">Practice Sessions</a></nav>
+<div class="progress-bar"><div class="fill"></div></div><main class="content" id="top"><h1 id="genai-technical-deep-dive-aws-solutions-for-your-6-proof-points">GenAI Technical Deep Dive — AWS Solutions for Your 6 Proof Points</h1>
 <h2 id="purpose">Purpose</h2>
 <p>This document gives you the technical depth to walk through each solution end-to-end in an HM interview. You launched these initiatives — now here's the "how it works under the hood" so you can speak fluently about architecture, trade-offs, and design decisions.</p>
 <hr />
@@ -1685,6 +1654,17 @@ Unifies pharmacies, providers, insurers, PBMs, and digital health solutions into
 - Summarization → AI post-contact summaries<br />
 - NER → PII/PHI detection for HIPAA redaction</p>
 <p><strong>Interview power line:</strong> <em>"I self-host open models via HuggingFace when data can't leave our boundary — critical for PHI. I use LangChain/LlamaIndex to accelerate standard RAG and agent patterns, but drop to the raw cloud SDK for high-scale production paths. The judgment is always: does the framework earn its place without hiding what matters?"</em></p>
+<h3 id="lab-6-build-launch-an-mcp-server">Lab 6: Build &amp; Launch an MCP Server</h3>
+<p><strong>What you'll build:</strong> A real, working MCP (Model Context Protocol) server that AI assistants can connect to.</p>
+<p><strong>You'll learn:</strong><br />
+- What MCP is ("USB-C for AI") and why it matters<br />
+- The MCP protocol: JSON-RPC over stdio — initialize, tools/list, tools/call<br />
+- How to launch an MCP server and connect it to Claude Desktop / Amazon Q<br />
+- The production SDK (FastMCP) approach<br />
+- Security: auth, least privilege, input validation, audit logging</p>
+<p><strong>Concepts demonstrated:</strong> MCP protocol, tool servers, stdio transport, AI-to-tools integration</p>
+<p><strong>Runnable:</strong> <code>mcp_server.py</code> (real protocol implementation) + <code>test_client.py</code> (drives the full conversation) — exposes business metrics so an AI can answer BI questions by calling your server.</p>
+<p><strong>Interview power line:</strong> <em>"I built and launched an MCP server from scratch — it's the open standard that lets any AI assistant connect to your tools uniformly. Under the hood it's JSON-RPC over stdio with initialize, tools/list, and tools/call. I implemented the protocol by hand so I understand exactly what happens, which matters for debugging, security, and auth."</em></p>
 <hr />
 <h2 id="interview-practice-sessions">Interview Practice Sessions</h2>
 <p>Beyond the technical labs, rehearse these with me (I can role-play the interviewer):</p>
@@ -1695,41 +1675,18 @@ Unifies pharmacies, providers, insurers, PBMs, and digital health solutions into
 <li><strong>Technical Grilling</strong> — I probe your GenAI/infrastructure depth</li>
 <li><strong>Reverse Interview</strong> — Practice the questions YOU ask</li>
 </ol>
-<p>Just say "mock interview" or "whiteboard practice" and I'll run a session.</p>
-</main>
-<script>
-window.addEventListener('scroll',()=>{const s=document.documentElement.scrollTop;
-const h=document.documentElement.scrollHeight-document.documentElement.clientHeight;
-document.querySelector('.progress-bar .fill').style.width=(s/h*100)+'%';});
+<p>Just say "mock interview" or "whiteboard practice" and I'll run a session.</p></main><script>window.addEventListener('scroll',()=>{const s=document.documentElement.scrollTop;const h=document.documentElement.scrollHeight-document.documentElement.clientHeight;document.querySelector('.progress-bar .fill').style.width=(s/h*100)+'%';});
 document.querySelectorAll('h1,h2,h3').forEach(el=>{const t=el.textContent.toLowerCase();
-if(t.includes('ai-powered shipper'))el.id='solution-1';
-else if(t.includes('case categorization'))el.id='solution-2';
-else if(t.includes('ai summaries'))el.id='solution-3';
-else if(t.includes('tms automation'))el.id='solution-4';
-else if(t.includes('mcp servers'))el.id='solution-5';
-else if(t.includes('genai workshops'))el.id='solution-6';
-else if(t.includes('quick reference')||t.includes('end-to-end'))el.id='health100-arch';
-else if(t.includes('cheat sheet'))el.id='cheat-sheet';
-else if(t.includes('about the role'))el.id='hm-overview';
-else if(t.includes('opening: your 2-minute'))el.id='hm-pitch';
-else if(t.includes('technical depth question'))el.id='hm-technical';
-else if(t.includes('leadership & delivery question'))el.id='hm-leadership';
-else if(t.includes('stakeholder & strategy'))el.id='hm-strategy';
-else if(t.includes('questions you should ask'))el.id='hm-your-questions';
-else if(t.includes('compensation negotiation'))el.id='hm-comp';
-else if(t.includes('people management preparation'))el.id='people-mgmt';
-else if(t.includes('ai infrastructure preparation'))el.id='ai-infra';
-else if(t.includes('ai-assisted coding preparation'))el.id='ai-coding';
-else if(t.includes('the hands-on learning program'))el.id='hands-on';
-else if(t.includes('interview practice sessions'))el.id='practice-sessions';});
-document.querySelectorAll('.sidebar a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{
-e.preventDefault();const t=document.querySelector(a.getAttribute('href'));
-if(t)t.scrollIntoView({behavior:'smooth',block:'start'});
-document.querySelector('.sidebar').classList.remove('open');});});
-const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){
-document.querySelectorAll('.sidebar a').forEach(a=>a.classList.remove('active'));
-const l=document.querySelector('.sidebar a[href="#'+e.target.id+'"]');
-if(l)l.classList.add('active');}});},{threshold:0.3});
-document.querySelectorAll('[id]').forEach(el=>obs.observe(el));
-</script>
-</body></html>
+if(t.includes('ai-powered shipper'))el.id='solution-1';else if(t.includes('case categorization'))el.id='solution-2';
+else if(t.includes('ai summaries'))el.id='solution-3';else if(t.includes('tms automation'))el.id='solution-4';
+else if(t.includes('mcp servers'))el.id='solution-5';else if(t.includes('genai workshops'))el.id='solution-6';
+else if(t.includes('quick reference')||t.includes('end-to-end'))el.id='health100-arch';else if(t.includes('cheat sheet'))el.id='cheat-sheet';
+else if(t.includes('about the role'))el.id='hm-overview';else if(t.includes('opening: your 2-minute'))el.id='hm-pitch';
+else if(t.includes('technical depth question'))el.id='hm-technical';else if(t.includes('leadership & delivery question'))el.id='hm-leadership';
+else if(t.includes('stakeholder & strategy'))el.id='hm-strategy';else if(t.includes('questions you should ask'))el.id='hm-your-questions';
+else if(t.includes('compensation negotiation'))el.id='hm-comp';else if(t.includes('people management preparation'))el.id='people-mgmt';
+else if(t.includes('ai infrastructure preparation'))el.id='ai-infra';else if(t.includes('ai-assisted coding preparation'))el.id='ai-coding';
+else if(t.includes('the hands-on learning program'))el.id='hands-on';else if(t.includes('interview practice sessions'))el.id='practice-sessions';});
+document.querySelectorAll('.sidebar a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'});document.querySelector('.sidebar').classList.remove('open');});});
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){document.querySelectorAll('.sidebar a').forEach(a=>a.classList.remove('active'));const l=document.querySelector('.sidebar a[href="#'+e.target.id+'"]');if(l)l.classList.add('active');}});},{threshold:0.3});
+document.querySelectorAll('[id]').forEach(el=>obs.observe(el));</script></body></html>

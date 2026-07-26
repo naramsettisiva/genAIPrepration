@@ -12,7 +12,8 @@ runs locally (no API key required for the core demos), and includes learning not
 | [Lab 2](lab2_agent/README.md) | AI Agent (ReAct + tools) | ✅ | 1-2 hrs |
 | [Lab 3](lab3_ai_coding/README.md) | Ship a feature with AI-assisted coding | Guided | 1-2 hrs |
 | [Lab 4](lab4_infra/README.md) | AI Infrastructure (caching, routing, cost) | ✅ | 1-2 hrs |
-| [Lab 5](lab5_frameworks/README.md) | Frameworks: HuggingFace, LangChain, LlamaIndex | ✅ | 1-2 hrs |
+| [Lab 5](lab5_frameworks/README.md) | Frameworks: HuggingFace, LangChain, LlamaIndex | ✅ |
+| [Lab 6](lab6_mcp/README.md) | Build & launch an MCP server | ✅ | 1-2 hrs |
 
 ## Quick Start
 
