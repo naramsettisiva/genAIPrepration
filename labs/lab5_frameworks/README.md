@@ -30,7 +30,7 @@ and build-vs-buy decisions, evaluate what teams propose, and speak credibly with
 ## How To Run
 
 ```bash
-cd <repo>/labs/lab5_frameworks
+cd genAIPrepration/labs/lab5_frameworks
 pip install -r requirements.txt
 
 # Real models running locally (first run downloads ~1.5GB)

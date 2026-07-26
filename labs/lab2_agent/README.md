@@ -21,7 +21,7 @@ This is the ReAct pattern: the agent alternates between **reasoning** (what shou
 ## How To Run
 
 ```bash
-cd <repo>/labs/lab2_agent
+cd genAIPrepration/labs/lab2_agent
 python3 agent_demo.py
 ```
 

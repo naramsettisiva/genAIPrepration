@@ -13,7 +13,7 @@ At scale, AI infrastructure is about three things: **cost, reliability, and obse
 ## How To Run
 
 ```bash
-cd <repo>/labs/lab4_infra
+cd genAIPrepration/labs/lab4_infra
 pip install -r requirements.txt
 python3 infra_demo.py
 ```

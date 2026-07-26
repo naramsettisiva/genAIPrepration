@@ -42,7 +42,7 @@ connect to YOUR tools and data through ONE uniform interface. Think of it as
 ## How To Run
 
 ```bash
-cd <repo>/labs/lab6_mcp
+cd genAIPrepration/labs/lab6_mcp
 
 # Run the client — it launches the server and shows the full MCP conversation
 python3 test_client.py

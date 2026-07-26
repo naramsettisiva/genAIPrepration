@@ -1392,16 +1392,24 @@ Preferred qualification: *"Familiarity with tools such as Claude and Cursor, and
 | 3 | AI-Assisted Coding | Lab 3: Ship a feature with AI | Experience modern dev workflow |
 | 4 | AI Infrastructure | Lab 4: Deploy & observe | Understand serving, cost, monitoring |
 | 5 | Frameworks | Lab 5: HuggingFace, LangChain | Know the ecosystem & framework trade-offs |
+| 6 | MCP Servers | Lab 6: Build & launch an MCP server | Understand MCP protocol & tool servers |
 
 ### How to Use the Labs
 
-The labs live in `~/shared/Siva_Job_Search/HandsOn_Labs/`. Each lab has:
-- A `README.md` with learning objectives and step-by-step instructions
-- Starter code with `TODO` markers
-- A working reference solution
-- "Interview talking points" — what you learned to say
+All labs are in this GitHub repository under [`labs/`](https://github.com/naramsettisiva/genAIPrepration/tree/main/labs). Each lab has a `README.md` with learning objectives, runnable code, and "interview talking points."
 
-Ask me to walk you through any lab, or say "start Lab 1" and I'll guide you interactively.
+**Direct links to each lab:**
+
+| Lab | Topic | Repo Link |
+|-----|-------|-----------|
+| Lab 1 | RAG System from scratch | [labs/lab1_rag](https://github.com/naramsettisiva/genAIPrepration/tree/main/labs/lab1_rag) |
+| Lab 2 | AI Agent (ReAct + tools) | [labs/lab2_agent](https://github.com/naramsettisiva/genAIPrepration/tree/main/labs/lab2_agent) |
+| Lab 3 | Ship a feature with AI | [labs/lab3_ai_coding](https://github.com/naramsettisiva/genAIPrepration/tree/main/labs/lab3_ai_coding) |
+| Lab 4 | AI Infrastructure (cache/cost) | [labs/lab4_infra](https://github.com/naramsettisiva/genAIPrepration/tree/main/labs/lab4_infra) |
+| Lab 5 | Frameworks (HuggingFace, LangChain) | [labs/lab5_frameworks](https://github.com/naramsettisiva/genAIPrepration/tree/main/labs/lab5_frameworks) |
+| Lab 6 | Build & launch an MCP server | [labs/lab6_mcp](https://github.com/naramsettisiva/genAIPrepration/tree/main/labs/lab6_mcp) |
+
+To run locally: `git clone https://github.com/naramsettisiva/genAIPrepration.git`, then `cd genAIPrepration/labs/lab1_rag && pip install -r requirements.txt && python3 rag_demo.py`
 
 ### Lab 1: Build a RAG System (Week 1)
 

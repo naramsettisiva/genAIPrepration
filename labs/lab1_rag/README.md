@@ -29,7 +29,7 @@ Question → [Embed] → [Search vectors] → [Retrieve top chunks] → [LLM + c
 ## How To Run
 
 ```bash
-cd <repo>/labs/lab1_rag
+cd genAIPrepration/labs/lab1_rag
 pip install -r requirements.txt
 python3 rag_demo.py
 ```
