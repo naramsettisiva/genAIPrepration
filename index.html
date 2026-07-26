@@ -49,8 +49,14 @@ hr{border:none;border-top:2px solid var(--border);margin:30px 0;}
 <div class="progress-bar"><div class="fill"></div></div><main class="content" id="top"><h1 id="genai-technical-deep-dive-aws-solutions-for-your-6-proof-points">GenAI Technical Deep Dive — AWS Solutions for Your 6 Proof Points</h1>
 <h2 id="purpose">Purpose</h2>
 <p>This document gives you the technical depth to walk through each solution end-to-end in an HM interview. You launched these initiatives — now here's the "how it works under the hood" so you can speak fluently about architecture, trade-offs, and design decisions.</p>
+<blockquote>
+<p>🚀 <strong>Deployable code for every solution below</strong> lives in <a href="https://github.com/naramsettisiva/genAIPrepration/tree/main/aws_solutions"><code>aws_solutions/</code></a> — working Python, SAM/CloudFormation templates, and step-by-step AWS deploy guides. Each use case links to its implementation.</p>
+</blockquote>
 <hr />
 <h2 id="1-ai-powered-shipper-support-amazon-connect-bedrock-agents">1. AI-Powered Shipper Support (→ Amazon Connect + Bedrock Agents)</h2>
+<blockquote>
+<p>💻 <strong>Deploy it:</strong> <a href="https://github.com/naramsettisiva/genAIPrepration/tree/main/aws_solutions/01_ai_customer_support">aws_solutions/01_ai_customer_support</a></p>
+</blockquote>
 <h3 id="what-you-launched">What You Launched</h3>
 <p>An AI system that automatically handles shipper inquiries — answering questions, resolving issues, and escalating only when necessary.</p>
 <h3 id="architecture-diagram-mental-model">Architecture Diagram (Mental Model)</h3>
@@ -185,6 +191,9 @@ hr{border:none;border-top:2px solid var(--border);margin:30px 0;}
 </blockquote>
 <hr />
 <h2 id="2-case-categorization-rag-llm-classification">2. Case Categorization (→ RAG + LLM Classification)</h2>
+<blockquote>
+<p>💻 <strong>Deploy it:</strong> <a href="https://github.com/naramsettisiva/genAIPrepration/tree/main/aws_solutions/02_case_categorization">aws_solutions/02_case_categorization</a></p>
+</blockquote>
 <h3 id="what-you-launched_1">What You Launched</h3>
 <p>An AI system that automatically categorizes incoming support cases by type/intent, reducing manual triage effort.</p>
 <h3 id="architecture">Architecture</h3>
@@ -308,6 +317,9 @@ hr{border:none;border-top:2px solid var(--border);margin:30px 0;}
 </blockquote>
 <hr />
 <h2 id="3-ai-summaries-bedrock-structured-output">3. AI Summaries (→ Bedrock + Structured Output)</h2>
+<blockquote>
+<p>💻 <strong>Deploy it:</strong> <a href="https://github.com/naramsettisiva/genAIPrepration/tree/main/aws_solutions/03_ai_summaries">aws_solutions/03_ai_summaries</a></p>
+</blockquote>
 <h3 id="what-you-launched_2">What You Launched</h3>
 <p>AI-generated summaries of operational data, cases, and interactions for teams to quickly understand status.</p>
 <h3 id="architecture_1">Architecture</h3>
@@ -406,6 +418,9 @@ response = bedrock.invoke_model(
 </blockquote>
 <hr />
 <h2 id="4-tms-automation-via-ai-agents-bedrock-agents-action-groups">4. TMS Automation via AI Agents (→ Bedrock Agents + Action Groups)</h2>
+<blockquote>
+<p>💻 <strong>Deploy it:</strong> <a href="https://github.com/naramsettisiva/genAIPrepration/tree/main/aws_solutions/04_tms_agent">aws_solutions/04_tms_agent</a></p>
+</blockquote>
 <h3 id="what-you-launched_3">What You Launched</h3>
 <p>AI Agents that autonomously interact with external Transportation Management Systems — checking status, updating records, triggering workflows.</p>
 <h3 id="architecture_2">Architecture</h3>
@@ -565,6 +580,9 @@ Need anything else?&quot;
 </blockquote>
 <hr />
 <h2 id="5-mcp-servers-for-bi-insights-natural-language-to-sqlapi">5. MCP Servers for BI Insights (→ Natural Language to SQL/API)</h2>
+<blockquote>
+<p>💻 <strong>Deploy it:</strong> <a href="https://github.com/naramsettisiva/genAIPrepration/tree/main/aws_solutions/05_bi_insights">aws_solutions/05_bi_insights</a>  ·  MCP server: <a href="https://github.com/naramsettisiva/genAIPrepration/tree/main/labs/lab6_mcp">labs/lab6_mcp</a></p>
+</blockquote>
 <h3 id="what-you-launched_4">What You Launched</h3>
 <p>Custom MCP (Model Context Protocol) servers that let non-technical users query business intelligence data through natural language conversations.</p>
 <h3 id="architecture_3">Architecture</h3>
@@ -751,6 +769,9 @@ class BIInsightsMCPServer:
 </blockquote>
 <hr />
 <h2 id="6-genai-workshops-for-product-team-adoption-framework">6. GenAI Workshops for Product Team (→ Adoption Framework)</h2>
+<blockquote>
+<p>💻 <strong>Program kit:</strong> <a href="https://github.com/naramsettisiva/genAIPrepration/tree/main/aws_solutions/06_genai_adoption">aws_solutions/06_genai_adoption</a></p>
+</blockquote>
 <h3 id="what-you-launched_5">What You Launched</h3>
 <p>A structured workshop series that enabled Product teams to independently identify and scope AI use cases.</p>
 <h3 id="workshop-framework-architecture">Workshop Framework Architecture</h3>

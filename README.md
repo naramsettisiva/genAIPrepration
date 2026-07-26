@@ -17,6 +17,19 @@ case categorization, AI summaries, agentic automation, natural-language BI, and 
 programs — plus practical sections on **people/engineering leadership, AI infrastructure,
 AI-assisted coding, and popular frameworks.**
 
+### 🚀 [AWS Deployable Solutions](aws_solutions/)
+Complete, deployable reference implementations for all six GenAI use cases on the **AWS
+tech stack** — working code, SAM/CloudFormation templates, and step-by-step deploy guides.
+
+| # | Solution | AWS Services |
+|---|----------|--------------|
+| 1 | [AI Customer Support](aws_solutions/01_ai_customer_support/) | Bedrock Agents, Knowledge Bases, Lambda, Connect |
+| 2 | [Case Categorization](aws_solutions/02_case_categorization/) | Bedrock (Titan+Claude), OpenSearch, Lambda |
+| 3 | [AI Summaries](aws_solutions/03_ai_summaries/) | Bedrock, Comprehend (PII), Lambda |
+| 4 | [TMS Agent](aws_solutions/04_tms_agent/) | Bedrock Agents, Action Groups, Lambda |
+| 5 | [BI Insights (NL→SQL)](aws_solutions/05_bi_insights/) | Bedrock, Athena, Glue, S3 |
+| 6 | [GenAI Adoption Program](aws_solutions/06_genai_adoption/) | Facilitator kit |
+
 ### 🧪 [Hands-On Labs](labs/)
 Five self-contained, runnable labs:
 

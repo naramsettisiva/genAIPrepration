@@ -3,9 +3,13 @@
 ## Purpose
 This document gives you the technical depth to walk through each solution end-to-end in an HM interview. You launched these initiatives — now here's the "how it works under the hood" so you can speak fluently about architecture, trade-offs, and design decisions.
 
+> 🚀 **Deployable code for every solution below** lives in [`aws_solutions/`](https://github.com/naramsettisiva/genAIPrepration/tree/main/aws_solutions) — working Python, SAM/CloudFormation templates, and step-by-step AWS deploy guides. Each use case links to its implementation.
+
 ---
 
 ## 1. AI-Powered Shipper Support (→ Amazon Connect + Bedrock Agents)
+
+> 💻 **Deploy it:** [aws_solutions/01_ai_customer_support](https://github.com/naramsettisiva/genAIPrepration/tree/main/aws_solutions/01_ai_customer_support)
 
 ### What You Launched
 An AI system that automatically handles shipper inquiries — answering questions, resolving issues, and escalating only when necessary.
@@ -110,6 +114,8 @@ Shipper contacts support (phone/chat/email)
 ---
 
 ## 2. Case Categorization (→ RAG + LLM Classification)
+
+> 💻 **Deploy it:** [aws_solutions/02_case_categorization](https://github.com/naramsettisiva/genAIPrepration/tree/main/aws_solutions/02_case_categorization)
 
 ### What You Launched
 An AI system that automatically categorizes incoming support cases by type/intent, reducing manual triage effort.
@@ -218,6 +224,8 @@ Incoming case (email/chat/form submission)
 ---
 
 ## 3. AI Summaries (→ Bedrock + Structured Output)
+
+> 💻 **Deploy it:** [aws_solutions/03_ai_summaries](https://github.com/naramsettisiva/genAIPrepration/tree/main/aws_solutions/03_ai_summaries)
 
 ### What You Launched
 AI-generated summaries of operational data, cases, and interactions for teams to quickly understand status.
@@ -328,6 +336,8 @@ response = bedrock.invoke_model(
 ---
 
 ## 4. TMS Automation via AI Agents (→ Bedrock Agents + Action Groups)
+
+> 💻 **Deploy it:** [aws_solutions/04_tms_agent](https://github.com/naramsettisiva/genAIPrepration/tree/main/aws_solutions/04_tms_agent)
 
 ### What You Launched
 AI Agents that autonomously interact with external Transportation Management Systems — checking status, updating records, triggering workflows.
@@ -502,6 +512,8 @@ Need anything else?"
 ---
 
 ## 5. MCP Servers for BI Insights (→ Natural Language to SQL/API)
+
+> 💻 **Deploy it:** [aws_solutions/05_bi_insights](https://github.com/naramsettisiva/genAIPrepration/tree/main/aws_solutions/05_bi_insights)  ·  MCP server: [labs/lab6_mcp](https://github.com/naramsettisiva/genAIPrepration/tree/main/labs/lab6_mcp)
 
 ### What You Launched
 Custom MCP (Model Context Protocol) servers that let non-technical users query business intelligence data through natural language conversations.
@@ -680,6 +692,8 @@ class BIInsightsMCPServer:
 ---
 
 ## 6. GenAI Workshops for Product Team (→ Adoption Framework)
+
+> 💻 **Program kit:** [aws_solutions/06_genai_adoption](https://github.com/naramsettisiva/genAIPrepration/tree/main/aws_solutions/06_genai_adoption)
 
 ### What You Launched
 A structured workshop series that enabled Product teams to independently identify and scope AI use cases.

@@ -1,0 +1,53 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  Solution 1 - AI-Powered Customer Support. A Lambda that answers customer
+  questions via Amazon Bedrock (Claude), optionally grounded by a Bedrock
+  Knowledge Base, exposed through API Gateway.
+
+Parameters:
+  KnowledgeBaseId:
+    Type: String
+    Default: ""
+    Description: Optional Bedrock Knowledge Base ID for managed RAG
+  ModelId:
+    Type: String
+    Default: anthropic.claude-3-sonnet-20240229-v1:0
+
+Globals:
+  Function:
+    Timeout: 30
+    MemorySize: 256
+    Runtime: python3.12
+
+Resources:
+  SupportFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: support_assistant.lambda_handler
+      CodeUri: ./
+      Environment:
+        Variables:
+          KNOWLEDGE_BASE_ID: !Ref KnowledgeBaseId
+          MODEL_ID: !Ref ModelId
+      Policies:
+        - Statement:
+            - Sid: BedrockInvoke
+              Effect: Allow
+              Action:
+                - bedrock:InvokeModel
+                - bedrock:Converse
+                - bedrock:RetrieveAndGenerate
+                - bedrock:Retrieve
+              Resource: "*"
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /support
+            Method: post
+
+Outputs:
+  ApiUrl:
+    Description: POST endpoint for the support assistant
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/support"

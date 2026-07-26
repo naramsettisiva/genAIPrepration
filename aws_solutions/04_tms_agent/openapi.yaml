@@ -1,0 +1,79 @@
+openapi: 3.0.0
+info:
+  title: TMS Operations API
+  version: 1.0.0
+  description: >
+    Tools for a logistics operations agent. Bedrock reads these descriptions to
+    decide which tool to call for a given user request.
+paths:
+  /check_shipment_status:
+    post:
+      summary: Check the current status of a shipment
+      description: Returns status, ETA, and origin for a given shipment ID.
+      operationId: checkShipmentStatus
+      parameters:
+        - name: shipment_id
+          in: query
+          required: true
+          schema: {type: string}
+          description: The shipment tracking ID, e.g. SH-001
+      responses:
+        '200':
+          description: Shipment status
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status: {type: string}
+                  eta: {type: string}
+                  origin: {type: string}
+  /reschedule_pickup:
+    post:
+      summary: Reschedule a shipment pickup to a new date
+      description: Changes the pickup date for a shipment. This is a WRITE action.
+      operationId: reschedulePickup
+      parameters:
+        - name: shipment_id
+          in: query
+          required: true
+          schema: {type: string}
+        - name: new_date
+          in: query
+          required: true
+          schema: {type: string}
+          description: New pickup date in YYYY-MM-DD
+      responses:
+        '200':
+          description: Reschedule confirmation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status: {type: string}
+                  new_date: {type: string}
+  /get_carrier_availability:
+    post:
+      summary: Check carrier availability for an origin and date
+      description: Returns whether carriers are available and open time slots.
+      operationId: getCarrierAvailability
+      parameters:
+        - name: origin
+          in: query
+          required: true
+          schema: {type: string}
+        - name: date
+          in: query
+          required: true
+          schema: {type: string}
+      responses:
+        '200':
+          description: Availability
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  available: {type: boolean}
+                  slots: {type: array, items: {type: string}}
