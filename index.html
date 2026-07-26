@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GenAI Solutions Guide</title>
+<title>CVS Health100 Interview Prep — Complete Guide</title>
 <style>
 :root { --primary:#1B2A4A; --accent:#2E86AB; --bg:#f8f9fa; --text:#333;
   --code-bg:#1e1e1e; --code-text:#d4d4d4; --border:#e0e0e0; }
 * { box-sizing:border-box; margin:0; padding:0; }
 body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;
   line-height:1.7; color:var(--text); background:var(--bg); display:flex; }
-.sidebar { width:280px; position:fixed; top:0; left:0; height:100vh; background:var(--primary);
+.sidebar { width:290px; position:fixed; top:0; left:0; height:100vh; background:var(--primary);
   color:white; overflow-y:auto; padding:20px 0; z-index:100; transition:transform .3s; }
 .sidebar h2 { padding:0 20px 12px; font-size:14px; text-transform:uppercase; letter-spacing:1px;
   opacity:.7; border-bottom:1px solid rgba(255,255,255,.1); margin-bottom:8px; }
@@ -17,7 +17,7 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans
 .sidebar a:hover, .sidebar a.active { background:rgba(255,255,255,.1); color:white; border-left-color:var(--accent); }
 .sidebar .nav-section { font-weight:700; font-size:10.5px; margin-top:14px; padding:5px 20px;
   opacity:.5; text-transform:uppercase; letter-spacing:.5px; color:#7fb8d9; }
-.content { margin-left:280px; max-width:900px; padding:40px 60px; min-height:100vh; }
+.content { margin-left:290px; max-width:900px; padding:40px 60px; min-height:100vh; }
 h1 { color:var(--primary); font-size:2.1em; margin:40px 0 20px; padding-bottom:10px; border-bottom:3px solid var(--accent); }
 h2 { color:var(--primary); font-size:1.55em; margin:35px 0 15px; padding-top:20px; border-top:1px solid var(--border); }
 h3 { color:var(--accent); font-size:1.22em; margin:25px 0 10px; }
@@ -40,7 +40,7 @@ strong { color:var(--primary); } a { color:var(--accent); }
 hr { border:none; border-top:2px solid var(--border); margin:30px 0; }
 .menu-toggle { display:none; position:fixed; top:15px; left:15px; z-index:200; background:var(--primary);
   color:white; border:none; padding:10px 15px; border-radius:5px; cursor:pointer; font-size:18px; }
-.progress-bar { position:fixed; top:0; left:280px; right:0; height:3px; background:var(--border); z-index:50; }
+.progress-bar { position:fixed; top:0; left:290px; right:0; height:3px; background:var(--border); z-index:50; }
 .progress-bar .fill { height:100%; background:var(--accent); width:0%; transition:width .1s; }
 @media (max-width:768px){ .sidebar{transform:translateX(-100%);} .sidebar.open{transform:translateX(0);}
   .content{margin-left:0;padding:20px;} .menu-toggle{display:block;} .progress-bar{left:0;} }
@@ -48,51 +48,57 @@ hr { border:none; border-top:2px solid var(--border); margin:30px 0; }
 
 <button class="menu-toggle" onclick="document.querySelector('.sidebar').classList.toggle('open')">&#9776;</button>
 <nav class="sidebar">
-  <h2>GenAI Solutions Guide</h2>
+  <h2>CVS Health100 Prep</h2>
   <a href="#top">&#127968; Overview</a>
-  <div class="nav-section">Solution Patterns</div>
+  <div class="nav-section">Part 1: Technical Solutions</div>
   <a href="#solution-1">1. AI-Powered Support</a>
   <a href="#solution-2">2. Case Categorization</a>
   <a href="#solution-3">3. AI Summaries</a>
-  <a href="#solution-4">4. Agentic Automation</a>
-  <a href="#solution-5">5. NL to BI</a>
-  <a href="#solution-6">6. Adoption Program</a>
-  <a href="#arch">Reference Architecture</a>
+  <a href="#solution-4">4. TMS Automation</a>
+  <a href="#solution-5">5. MCP/BI Insights</a>
+  <a href="#solution-6">6. GenAI Workshops</a>
+  <a href="#health100-arch">Health100 Architecture</a>
   <a href="#cheat-sheet">Cheat Sheet</a>
-  <div class="nav-section">Practical Program</div>
-  <a href="#people-mgmt">Engineering Leadership</a>
+  <div class="nav-section">HM Interview</div>
+  <a href="#hm-overview">Role & Company</a>
+  <a href="#hm-pitch">2-Min Pitch</a>
+  <a href="#hm-technical">Technical Questions</a>
+  <a href="#hm-leadership">Leadership Questions</a>
+  <a href="#hm-strategy">Strategy Questions</a>
+  <a href="#hm-your-questions">Your Questions to Ask</a>
+  <a href="#hm-comp">Comp Strategy</a>
+  <div class="nav-section">Part 2: Practical Program</div>
+  <a href="#people-mgmt">People Management</a>
   <a href="#ai-infra">AI Infrastructure</a>
   <a href="#ai-coding">AI-Assisted Coding</a>
-  <a href="#hands-on">Hands-On Labs</a>
+  <a href="#hands-on">Hands-On Labs (1-5)</a>
+  <a href="#practice-sessions">Practice Sessions</a>
 </nav>
 <div class="progress-bar"><div class="fill"></div></div>
 
 <main class="content" id="top">
-<h1 id="genai-solutions-guide-architecture-patterns-practical-program">GenAI Solutions Guide — Architecture Patterns &amp; Practical Program</h1>
-<blockquote>
-<p>A cloud-agnostic guide to building production GenAI systems: six common solution<br />
-patterns with reference architectures, plus practical sections on AI infrastructure,<br />
-AI-assisted coding, and popular frameworks. Examples use AWS (Bedrock) with GCP<br />
-(Vertex AI) equivalents noted throughout. All data shown is synthetic/sample.</p>
-</blockquote>
-<h2 id="1-ai-powered-customer-support-amazon-connect-bedrock-agents">1. AI-Powered Customer Support (→ Amazon Connect + Bedrock Agents)</h2>
+<h1 id="genai-technical-deep-dive-aws-solutions-for-your-6-proof-points">GenAI Technical Deep Dive — AWS Solutions for Your 6 Proof Points</h1>
+<h2 id="purpose">Purpose</h2>
+<p>This document gives you the technical depth to walk through each solution end-to-end in an HM interview. You launched these initiatives — now here's the "how it works under the hood" so you can speak fluently about architecture, trade-offs, and design decisions.</p>
+<hr />
+<h2 id="1-ai-powered-shipper-support-amazon-connect-bedrock-agents">1. AI-Powered Shipper Support (→ Amazon Connect + Bedrock Agents)</h2>
 <h3 id="what-you-launched">What You Launched</h3>
-<p>An AI system that automatically handles customer inquiries — answering questions, resolving issues, and escalating only when necessary.</p>
+<p>An AI system that automatically handles shipper inquiries — answering questions, resolving issues, and escalating only when necessary.</p>
 <h3 id="architecture-diagram-mental-model">Architecture Diagram (Mental Model)</h3>
-<pre class="codehilite"><code>Customer contacts support (phone/chat/email)
+<pre class="codehilite"><code>Shipper contacts support (phone/chat/email)
          │
          ▼
 ┌─────────────────────────────────────┐
 │     Amazon Connect (Omnichannel)     │
 │  • Receives call/chat/email          │
-│  • Identifies customer (phone/email)  │
+│  • Identifies shipper (phone/email)  │
 │  • Passes to AI Agent                │
 └──────────────┬──────────────────────┘
                │
                ▼
 ┌─────────────────────────────────────┐
 │     Amazon Bedrock Agent             │
-│  • Understands customer's intent      │
+│  • Understands shipper's intent      │
 │  • Retrieves context (RAG)           │
 │  • Takes actions via tool-use        │
 │  • Generates natural language reply  │
@@ -119,9 +125,9 @@ AI-assisted coding, and popular frameworks. Examples use AWS (Bedrock) with GCP<
 
 <h3 id="how-it-works-step-by-step">How It Works Step-by-Step</h3>
 <ol>
-<li><strong>Customer contacts support</strong> via phone, chat, or email</li>
-<li><strong>Amazon Connect</strong> receives the contact, identifies the customer using phone number or email match against Customer Profiles</li>
-<li><strong>Intent detection:</strong> Connect's conversational AI (powered by Lex + Bedrock) determines what the customer wants:</li>
+<li><strong>Shipper contacts support</strong> via phone, chat, or email</li>
+<li><strong>Amazon Connect</strong> receives the contact, identifies the shipper using phone number or email match against Customer Profiles</li>
+<li><strong>Intent detection:</strong> Connect's conversational AI (powered by Lex + Bedrock) determines what the shipper wants:</li>
 <li>"Where is my shipment?" → Track &amp; Trace</li>
 <li>"My delivery is late" → Exception handling</li>
 <li>"I need to change pickup time" → Schedule modification</li>
@@ -181,8 +187,8 @@ AI-assisted coding, and popular frameworks. Examples use AWS (Bedrock) with GCP<
 </tr>
 <tr>
 <td>Amazon Connect Customer Profiles</td>
-<td>Customer identity</td>
-<td>Unifies customer data from CRM + contact history</td>
+<td>Shipper identity</td>
+<td>Unifies shipper data from CRM + contact history</td>
 </tr>
 </tbody>
 </table>
@@ -206,7 +212,7 @@ AI-assisted coding, and popular frameworks. Examples use AWS (Bedrock) with GCP<
 - Configurable thresholds for when to escalate to human</p>
 <h3 id="how-you-talk-about-it-in-interview">How You Talk About It in Interview</h3>
 <blockquote>
-<p>"We built an AI-powered support system on Amazon Connect with Bedrock Agents. The architecture uses RAG for knowledge grounding — customer policies, SOPs, and historical case resolutions are chunked and stored in a vector database. When a customer contacts us, the AI Agent reasons through their request, retrieves relevant context from the knowledge base, and can take actions like checking shipment status or updating delivery times through API integrations. We saw X% of inquiries resolved without human intervention, reducing average handle time by Y%."</p>
+<p>"We built an AI-powered support system on Amazon Connect with Bedrock Agents. The architecture uses RAG for knowledge grounding — shipper policies, SOPs, and historical case resolutions are chunked and stored in a vector database. When a shipper contacts us, the AI Agent reasons through their request, retrieves relevant context from the knowledge base, and can take actions like checking shipment status or updating delivery times through API integrations. We saw X% of inquiries resolved without human intervention, reducing average handle time by Y%."</p>
 </blockquote>
 <hr />
 <h2 id="2-case-categorization-rag-llm-classification">2. Case Categorization (→ RAG + LLM Classification)</h2>
@@ -372,7 +378,7 @@ AI-assisted coding, and popular frameworks. Examples use AWS (Bedrock) with GCP<
 <h3 id="types-of-summaries-you-can-discuss">Types of Summaries You Can Discuss</h3>
 <p><strong>1. Post-Contact Summary (after each call/chat):</strong></p>
 <pre class="codehilite"><code class="language-json">{
-  &quot;issue&quot;: &quot;Customer reported delayed pickup for order #12345&quot;,
+  &quot;issue&quot;: &quot;Shipper reported delayed pickup for order #12345&quot;,
   &quot;root_cause&quot;: &quot;Driver reassigned due to capacity constraints in Nashville hub&quot;,
   &quot;actions_taken&quot;: &quot;Rescheduled pickup for next day, applied service credit&quot;,
   &quot;resolution&quot;: &quot;Resolved - new pickup confirmed for 7/26 AM window&quot;,
@@ -385,7 +391,7 @@ AI-assisted coding, and popular frameworks. Examples use AWS (Bedrock) with GCP<
 <pre class="codehilite"><code class="language-json">{
   &quot;case_id&quot;: &quot;CASE-98765&quot;,
   &quot;created&quot;: &quot;2024-07-20&quot;,
-  &quot;summary&quot;: &quot;Enterprise customer ABC Corp experiencing recurring delays at Nashville hub. 3 contacts over 5 days. Root cause: capacity planning gap for volume surge. Resolution: dedicated lane allocated starting 7/28.&quot;,
+  &quot;summary&quot;: &quot;Enterprise shipper ABC Corp experiencing recurring delays at Nashville hub. 3 contacts over 5 days. Root cause: capacity planning gap for volume surge. Resolution: dedicated lane allocated starting 7/28.&quot;,
   &quot;total_contacts&quot;: 3,
   &quot;escalation_level&quot;: &quot;L2 Operations&quot;,
   &quot;business_impact&quot;: &quot;Risk of churn - $500K annual revenue account&quot;
@@ -400,7 +406,7 @@ AI-assisted coding, and popular frameworks. Examples use AWS (Bedrock) with GCP<
   &quot;human_handled&quot;: 235,
   &quot;top_issues&quot;: [&quot;Pickup delays (34%)&quot;, &quot;Rate inquiries (22%)&quot;, &quot;POD requests (18%)&quot;],
   &quot;anomalies&quot;: &quot;Spike in Nashville hub delay complaints (2.3x normal)&quot;,
-  &quot;recommended_actions&quot;: [&quot;Investigate Nashville capacity&quot;, &quot;Proactive outreach to top 5 affected customers&quot;]
+  &quot;recommended_actions&quot;: [&quot;Investigate Nashville capacity&quot;, &quot;Proactive outreach to top 5 affected shippers&quot;]
 }
 </code></pre>
 
@@ -424,7 +430,7 @@ response = bedrock.invoke_model(
 <p><strong>PII handling:</strong><br />
 - Amazon Comprehend detects PII entities before/after summarization<br />
 - Bedrock Guardrails configured to block PII in outputs<br />
-- For healthcare (the enterprise context): PHI detection + HIPAA-safe storage</p>
+- For healthcare (CVS context): PHI detection + HIPAA-safe storage</p>
 <h3 id="interview-walkthrough_1">Interview Walkthrough</h3>
 <blockquote>
 <p>"We automated post-contact summarization using Amazon Bedrock. After every interaction — voice or chat — the transcript feeds into a summarization pipeline that produces structured JSON output: issue, actions taken, resolution, sentiment, and next steps. We enforce structured output through system prompts and validate against a schema. The summaries reduce after-contact work for agents by 60-70% and give supervisors instant visibility into what's happening without reading full transcripts. We also aggregate these into shift-level and weekly operational summaries that surface trends and anomalies automatically."</p>
@@ -436,7 +442,7 @@ response = bedrock.invoke_model(
 <h3 id="architecture_2">Architecture</h3>
 <pre class="codehilite"><code>User/System Trigger
 │
-├── Customer asks &quot;reschedule my pickup&quot;
+├── Shipper asks &quot;reschedule my pickup&quot;
 ├── System detects SLA breach → auto-remediate
 ├── Operator needs bulk status update
 │
@@ -497,10 +503,10 @@ response = bedrock.invoke_model(
 </code></pre>
 
 <h3 id="multi-step-agent-reasoning-example">Multi-Step Agent Reasoning Example</h3>
-<p><strong>User request:</strong> "Reschedule tomorrow's pickup for customer ABC Corp to Thursday instead"</p>
+<p><strong>User request:</strong> "Reschedule tomorrow's pickup for shipper ABC Corp to Thursday instead"</p>
 <p><strong>Agent reasoning (ReAct loop):</strong></p>
 <pre class="codehilite"><code>THOUGHT: I need to find ABC Corp's scheduled pickups for tomorrow.
-ACTION: check_shipment_status(customer=&quot;ABC Corp&quot;, date=&quot;2024-07-26&quot;)
+ACTION: check_shipment_status(shipper=&quot;ABC Corp&quot;, date=&quot;2024-07-26&quot;)
 OBSERVATION: Found 3 pickups scheduled: SH-001 (Nashville), SH-002 (Memphis), SH-003 (Nashville)
 
 THOUGHT: There are 3 pickups. I should confirm which ones to reschedule. 
@@ -522,8 +528,8 @@ OBSERVATION: Success - pickup rescheduled
 ACTION: update_pickup_schedule(shipment_id=&quot;SH-003&quot;, new_date=&quot;2024-07-28&quot;, window=&quot;AM&quot;)
 OBSERVATION: Success - pickup rescheduled
 
-THOUGHT: All 3 pickups rescheduled. I should notify the customer.
-ACTION: send_notification(customer=&quot;ABC Corp&quot;, type=&quot;schedule_change&quot;, details=...)
+THOUGHT: All 3 pickups rescheduled. I should notify the shipper.
+ACTION: send_notification(shipper=&quot;ABC Corp&quot;, type=&quot;schedule_change&quot;, details=...)
 OBSERVATION: Notification sent
 
 FINAL RESPONSE: &quot;Done! I've rescheduled all 3 of ABC Corp's pickups from 
@@ -562,7 +568,7 @@ paths:
 <p><strong>3. Error handling:</strong><br />
 - TMS API returns error → Agent retries once → If still fails, explains to user and offers alternatives<br />
 - Partial success → Agent reports what succeeded and what didn't</p>
-<h3 id="healthcare-parallel-the-enterprise-a-healthcare-platform-sample">Healthcare Parallel (the enterprise a healthcare platform (sample))</h3>
+<h3 id="healthcare-parallel-cvs-health100">Healthcare Parallel (CVS Health100)</h3>
 <pre class="codehilite"><code>Member asks: &quot;Refill my blood pressure medication&quot;
 
 THOUGHT: I need to verify the member and check their prescription.
@@ -570,17 +576,17 @@ ACTION: get_member_profile(member_id=&quot;MBR-12345&quot;)
 OBSERVATION: Member verified. Has Rx #567 for Lisinopril 10mg, last filled 6/25.
 
 THOUGHT: Rx is eligible for refill (30-day supply, 25 days elapsed). Check pharmacy availability.
-ACTION: check_pharmacy_inventory(pharmacy=&quot;the enterprise #4521&quot;, ndc=&quot;12345-678-90&quot;)
+ACTION: check_pharmacy_inventory(pharmacy=&quot;CVS #4521&quot;, ndc=&quot;12345-678-90&quot;)
 OBSERVATION: In stock. Ready for pickup in 2 hours.
 
 THOUGHT: All clear. Process the refill.
-ACTION: submit_refill(rx_id=&quot;567&quot;, pharmacy=&quot;the enterprise #4521&quot;, pickup_date=&quot;today&quot;)
+ACTION: submit_refill(rx_id=&quot;567&quot;, pharmacy=&quot;CVS #4521&quot;, pickup_date=&quot;today&quot;)
 OBSERVATION: Refill submitted. Ready by 4:00 PM.
 
 ACTION: send_notification(member=&quot;MBR-12345&quot;, type=&quot;refill_ready&quot;, details=...)
 
 FINAL RESPONSE: &quot;Your Lisinopril 10mg refill has been submitted! 
-It'll be ready for pickup at the enterprise #4521 by 4:00 PM today. 
+It'll be ready for pickup at CVS #4521 by 4:00 PM today. 
 Need anything else?&quot;
 </code></pre>
 
@@ -877,10 +883,10 @@ DO use AI when:
 <p>"I ran a structured GenAI workshop series for our Product team — four sessions that took them from 'what is GenAI' to 'here's a working prototype.' The key framework I developed is an Impact × Feasibility × Risk evaluation matrix that helps Product teams independently score and prioritize AI use cases. We also established a 'When NOT to use AI' framework — which is critical in healthcare where wrong AI outputs can have real patient safety implications. The outcome was Product teams going from waiting for engineering to propose AI features to independently bringing us prioritized, well-scoped AI opportunities."</p>
 </blockquote>
 <hr />
-<h2 id="quick-reference-end-to-end-architecture-for-a-healthcare-platform-sample">Quick Reference: End-to-End Architecture for a healthcare platform (sample)</h2>
+<h2 id="quick-reference-end-to-end-architecture-for-health100">Quick Reference: End-to-End Architecture for Health100</h2>
 <p>If asked "How would you architect an AI-native health platform?":</p>
 <pre class="codehilite"><code>┌──────────────────────────────────────────────────────────┐
-│                    AI-NATIVE PLATFORM (REFERENCE)                      │
+│                    HEALTH100 PLATFORM                      │
 │                                                           │
 │  ┌─────────────────────────────────────────────────────┐ │
 │  │              Consumer Experience Layer               │ │
@@ -999,11 +1005,308 @@ DO use AI when:
 <li>[ ] Can walk through Architecture Diagram for each of 6 solutions</li>
 <li>[ ] Can explain WHY you chose this approach over alternatives</li>
 <li>[ ] Can describe the AWS services and their roles</li>
-<li>[ ] Can translate each solution to a Healthcare/the enterprise use case</li>
+<li>[ ] Can translate each solution to a Healthcare/CVS use case</li>
 <li>[ ] Know the GCP equivalents (Vertex AI, Gemini, BigQuery, GKE)</li>
 <li>[ ] Can discuss guardrails, especially for healthcare (HIPAA, PHI)</li>
 <li>[ ] Have 2-3 metrics for each solution's impact</li>
 <li>[ ] Can explain failure modes and how you handle them</li>
+</ul>
+<hr />
+<h2 id="cvs-health100-hiring-manager-interview-preparation">CVS Health100 — Hiring Manager Interview Preparation</h2>
+<h3 id="about-the-role-company">About the Role &amp; Company</h3>
+<p><strong>Company:</strong> CVS Health ($357B revenue, 300K+ employees)<br />
+<strong>Platform:</strong> Health100 — AI-native health technology platform<br />
+<strong>Cloud:</strong> Google Cloud (GCP) — Powered by Google Cloud AI<br />
+<strong>Title:</strong> Lead Director, Software Engineering — Health100 Platform<br />
+<strong>Salary:</strong> $144,200 - $288,400 base + bonus + benefits<br />
+<strong>Reports to:</strong> Senior Director/VP of Engineering, Health100<br />
+<strong>Locations:</strong> Woonsocket RI (HQ preferred), Scottsdale AZ, Hartford CT, Northbrook IL, Boston MA, Richardson TX, Remote</p>
+<p><strong>What Health100 does:</strong><br />
+Unifies pharmacies, providers, insurers, PBMs, and digital health solutions into a single consumer-focused ecosystem. Powered by Google Cloud AI, reimagining personalized and connected health experiences.</p>
+<hr />
+<h3 id="hm-interview-structure-expected-60-min">HM Interview Structure (Expected 60 min)</h3>
+<table>
+<thead>
+<tr>
+<th>Segment</th>
+<th>Duration</th>
+<th>What They're Assessing</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Intro &amp; Role Context</td>
+<td>5 min</td>
+<td>HM explains team, challenges, what they need</td>
+</tr>
+<tr>
+<td>Your Background Walk-Through</td>
+<td>10 min</td>
+<td>Can you tell a compelling, relevant story?</td>
+</tr>
+<tr>
+<td>Technical Depth</td>
+<td>15 min</td>
+<td>Do you understand distributed systems, AI, cloud?</td>
+</tr>
+<tr>
+<td>Leadership &amp; Delivery</td>
+<td>15 min</td>
+<td>Can you build/scale teams and deliver at pace?</td>
+</tr>
+<tr>
+<td>Stakeholder &amp; Strategy</td>
+<td>10 min</td>
+<td>Can you partner cross-functionally and communicate up?</td>
+</tr>
+<tr>
+<td>Your Questions</td>
+<td>5 min</td>
+<td>Are you genuinely interested and strategic?</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="opening-your-2-minute-pitch">Opening: Your 2-Minute Pitch</h3>
+<blockquote>
+<p>"I'm a technology executive with 24+ years in software engineering and 12+ years in people leadership. Currently at Amazon, I lead a 250+ person organization driving Amazon Freight from $30M to $100M revenue — owning technical strategy, roadmap, and cross-functional delivery across 8 engineering teams and 10+ services. </p>
+<p>Before that, I built AWS's App Dev &amp; DevOps consulting practice from 4 to 50+ engineers in 15 months, delivering cloud-native solutions for Fortune 5000 clients. At Oracle, I managed the engineering org for a $400M+ SaaS platform.</p>
+<p>What excites me about Health100 is the AI-native architecture — I've spent the last 18 months shipping production GenAI solutions at Amazon: AI Agents, RAG-based systems, and automated workflows that handle real customer interactions. I'd love to bring that applied AI leadership plus my experience scaling engineering orgs to help Health100 deliver on its vision of connected, personalized health experiences."</p>
+</blockquote>
+<hr />
+<h3 id="technical-depth-questions-answers">Technical Depth Questions &amp; Answers</h3>
+<p><strong>Q1: "Tell me about a complex distributed system you've built or owned."</strong></p>
+<p><strong>STAR Response:</strong><br />
+- <strong>Situation:</strong> Amazon Freight needed to scale from a $30M MVP to a $100M platform serving thousands of shippers, with real-time tracking, dynamic pricing, and carrier matching across 10+ microservices.<br />
+- <strong>Task:</strong> I owned the technical strategy and delivery for the entire platform — 8 teams, 10+ services, distributed across North America and Europe.<br />
+- <strong>Action:</strong> Worked with Principal Engineers to design the service architecture — event-driven (SQS/SNS), microservices on ECS, API Gateway for external integrations, DynamoDB for real-time state, Redshift for analytics. Implemented CI/CD pipelines and defined SLAs per service. Drove operational excellence with runbooks, on-call rotations, and automated alerting.<br />
+- <strong>Result:</strong> Scaled from $30M to $100M revenue, 48% cost reduction, 99.9% uptime on critical path services. Platform now supports $5B target by 2030.</p>
+<p><strong>Key follow-up you should be ready for:</strong> "What would you do differently?" → "I'd invest in platform engineering earlier — we built shared capabilities (auth, observability, feature flags) later than ideal. For a greenfield like Health100, I'd establish those foundations from day one."</p>
+<hr />
+<p><strong>Q2: "How do you think about building an AI-native platform vs. adding AI to existing systems?"</strong></p>
+<blockquote>
+<p>"There's a fundamental architecture difference. Adding AI to existing systems means AI is a feature layer — it processes outputs from traditional systems. AI-native means AI is in the core loop — it's not just analyzing data, it's making decisions, orchestrating workflows, and directly shaping the user experience.</p>
+<p>For Health100, being AI-native means:<br />
+1. <strong>Unified data layer first</strong> — you can't have intelligent AI without connected data across pharmacy, insurance, providers, and claims<br />
+2. <strong>AI as a first-class service</strong> — with its own contracts, SLAs, monitoring, and evaluation frameworks<br />
+3. <strong>Evaluation/observability built in from day one</strong> — not retrofitted. You need to know when the AI is wrong before the user does<br />
+4. <strong>Graduated autonomy</strong> — start with AI-assist, earn trust through metrics, then expand to autonomous actions</p>
+<p>At Amazon, we added AI to existing services — it works, but you inherit constraints. For Health100's greenfield opportunity, I'd advocate for AI services that are peers to traditional services, not plugins."</p>
+</blockquote>
+<hr />
+<p><strong>Q3: "This role requires GCP expertise. Your background is AWS. How do you bridge that?"</strong></p>
+<blockquote>
+<p>"The architectural patterns transfer directly — I'm not switching from horse-drawn carriages to cars, I'm switching from driving a Toyota to a Honda. The principles of distributed systems, microservices, container orchestration, and AI/ML platforms are cloud-agnostic. Specifically:</p>
+<ul>
+<li>ECS/EKS → <strong>GKE</strong> (I've helped clients run Kubernetes at scale)</li>
+<li>Bedrock → <strong>Vertex AI + Gemini</strong> (same patterns: model selection, RAG, agents)</li>
+<li>Lambda → <strong>Cloud Functions / Cloud Run</strong></li>
+<li>DynamoDB → <strong>Firestore / Bigtable</strong></li>
+<li>Redshift → <strong>BigQuery</strong></li>
+<li>CloudFormation → <strong>Terraform</strong> (which is already multi-cloud)</li>
+</ul>
+<p>More importantly, at AWS ProServe I helped enterprise clients <em>migrate across platforms</em> — I understand multi-cloud architectures deeply. I'd invest the first 30 days in GCP-specific certification and hands-on work, but I can contribute immediately on architecture decisions, team leadership, and delivery execution from day one."</p>
+</blockquote>
+<hr />
+<p><strong>Q4: "Describe your experience with AI/GenAI in production."</strong></p>
+<blockquote>
+<p>"I've spent 18+ months shipping production AI — not POCs, but systems handling real traffic:</p>
+<ol>
+<li>
+<p><strong>AI Agents for shipper support</strong> — Built on Amazon Bedrock, these agents handle live customer inquiries using RAG for knowledge grounding and tool-use for taking actions on backend systems. They resolve 70%+ of inquiries without human intervention.</p>
+</li>
+<li>
+<p><strong>RAG-based case categorization</strong> — Replaced manual triage with a few-shot retrieval + LLM classification pipeline. 90%+ accuracy, auto-routes high-confidence cases, flags edge cases for human review.</p>
+</li>
+<li>
+<p><strong>TMS automation via AI Agents</strong> — Multi-step agents that interact with external Transportation Management Systems autonomously — checking status, updating records, rescheduling pickups. Uses the ReAct pattern with defined tool APIs.</p>
+</li>
+<li>
+<p><strong>Natural language BI</strong> — Custom MCP servers that translate business questions into SQL queries against our data warehouse, returning data + narrative insights.</p>
+</li>
+<li>
+<p><strong>AI summaries</strong> — Automated post-contact and operational summaries using structured output from LLMs, with PII detection guardrails.</p>
+</li>
+</ol>
+<p>The key lesson: shipping AI is 20% model work and 80% engineering — evaluation, guardrails, monitoring, graceful degradation, and human-in-the-loop design."</p>
+</blockquote>
+<hr />
+<h3 id="leadership-delivery-questions">Leadership &amp; Delivery Questions</h3>
+<p><strong>Q5: "Tell me about building and scaling a high-performing engineering organization."</strong></p>
+<p><strong>STAR Response:</strong><br />
+- <strong>Situation:</strong> At AWS ProServe, I was tasked with building a new cloud consulting practice from zero in 2019.<br />
+- <strong>Task:</strong> Hire, train, and operationalize a team that could deliver complex cloud engagements at 90% utilization while maintaining technical excellence.<br />
+- <strong>Action:</strong> <br />
+  - Defined hiring bar: 3+ AWS certs, hands-on coding + architecture skills, client-facing communication<br />
+  - Built structured hiring pipeline: hired 30+ engineers in 15 months<br />
+  - Established delivery frameworks: engagement playbooks, reusable accelerators, peer reviews<br />
+  - Created career paths: individual contributor track and management track<br />
+  - Maintained culture: weekly tech talks, innovation sprints, internal open-source contributions<br />
+- <strong>Result:</strong> 4 → 50+ engineers in 15 months. 90% utilization (industry benchmark: 65-70%). 10+ concurrent enterprise engagements. Practice playbooks became templates for other GCC practices.</p>
+<p><strong>Follow-up: "How did you handle underperformers?"</strong></p>
+<blockquote>
+<p>"I believe in radical candor — early, specific, actionable feedback. At Oracle, when scaling from 30 to 80, not everyone was the right fit for the cloud transformation we were driving. I implemented structured performance conversations: clear expectations, 30-day plans with measurable milestones, weekly 1:1 check-ins. About 80% improved; for the 20% who didn't, I helped them find better-fit roles internally or externally. The key is acting early — waiting helps no one."</p>
+</blockquote>
+<hr />
+<p><strong>Q6: "How do you manage a portfolio of parallel initiatives with different risk profiles?"</strong></p>
+<blockquote>
+<p>"This is my daily reality at Amazon Freight. I manage simultaneously:</p>
+<ul>
+<li><strong>Production infrastructure</strong> — zero-tolerance for downtime, SLA-driven</li>
+<li><strong>New product development</strong> — fast iteration, controlled risk</li>
+<li><strong>AI/GenAI initiatives</strong> — high uncertainty, needs experimentation budget</li>
+<li><strong>Compliance/audit work</strong> — deadline-driven, non-negotiable</li>
+</ul>
+<p>My framework:<br />
+1. <strong>Categorize by risk/urgency:</strong> Production issues &gt; compliance deadlines &gt; product milestones &gt; experimentation<br />
+2. <strong>Dedicated capacity allocation:</strong> I don't context-switch teams. Each team has a primary mission with 80% focus, 20% innovation buffer<br />
+3. <strong>Different governance per type:</strong> Production = daily standups, tight change control. Innovation = weekly demos, fail-fast sprints<br />
+4. <strong>Single executive view:</strong> I maintain one roadmap with all workstreams visible, clear dependencies, and risk flags<br />
+5. <strong>Escalation clarity:</strong> Teams know exactly when to escalate vs. decide independently</p>
+<p>For Health100, I'd apply the same approach — separate the platform reliability work from the AI innovation work with different cadences but unified visibility."</p>
+</blockquote>
+<hr />
+<p><strong>Q7: "How do you work with distributed teams including offshore/nearshore?"</strong></p>
+<blockquote>
+<p>"I've managed distributed teams throughout my career — 8 ODC teams at Oracle across India, offshore + nearshore at AWS ProServe, and multi-geo teams at Amazon Freight spanning Nashville, Hyderabad, and Europe.</p>
+<p>My principles:<br />
+- <strong>Async-first communication:</strong> Decisions and context documented in writing, not trapped in meetings<br />
+- <strong>Overlapping hours:</strong> Require 4-hour overlap windows for collaboration; use them for design reviews and problem-solving, not status updates<br />
+- <strong>Ownership by team, not location:</strong> Each team owns end-to-end outcomes. Don't split feature work across geos — that creates handoff waste<br />
+- <strong>Equal access to context:</strong> Offshore teams get the same strategy context as onshore. They can't make good decisions without understanding the 'why'<br />
+- <strong>In-person cadence:</strong> Quarterly in-person workshops for relationship building and complex planning<br />
+- <strong>Metrics-driven visibility:</strong> Same dashboards, same velocity metrics, same quality bars regardless of location"</p>
+</blockquote>
+<hr />
+<p><strong>Q8: "Tell me about a time you influenced a decision with senior leadership when there was disagreement."</strong></p>
+<p><strong>STAR Response:</strong><br />
+- <strong>Situation:</strong> At Amazon Freight, our VP wanted to accelerate enterprise customer onboarding by reducing integration time from 6 weeks to 2 weeks. Product proposed cutting testing phases.<br />
+- <strong>Task:</strong> I needed to advocate for a different approach without appearing to block business velocity.<br />
+- <strong>Action:</strong> <br />
+  - Quantified the risk: showed historical data that rushed integrations led to 3x more production incidents and 40% higher churn in first 90 days<br />
+  - Proposed alternative: invest in self-service integration tooling + automated validation (costing 6 weeks of engineering, saving 4 weeks per customer forever)<br />
+  - Framed as "faster AND safer" not "safer but slower"<br />
+  - Built a quick prototype to demonstrate feasibility<br />
+- <strong>Result:</strong> VP approved the investment. Within 3 months, integration time dropped to 10 days (better than the 2-week target) with zero increase in production incidents. Enterprise churn dropped 25%.</p>
+<hr />
+<h3 id="stakeholder-strategy-questions">Stakeholder &amp; Strategy Questions</h3>
+<p><strong>Q9: "How would you approach your first 90 days in this role?"</strong></p>
+<blockquote>
+<p><strong>Days 1-30: LEARN</strong><br />
+- Meet every engineering manager and senior engineer 1:1<br />
+- Understand the current architecture, tech debt, and production health<br />
+- Map stakeholder landscape: Product, Architecture, Security, Business, Design<br />
+- Understand Health100's roadmap and where engineering is a bottleneck<br />
+- Assess team health: attrition, engagement, skill gaps, hiring pipeline<br />
+- Get hands-on with GCP/Vertex AI (certifications, tutorials, pair programming)</p>
+<p><strong>Days 31-60: ASSESS &amp; QUICK WINS</strong><br />
+- Identify 2-3 quick wins that build credibility (reduce deploy friction, fix top pain points)<br />
+- Draft engineering excellence standards and share for feedback<br />
+- Align with Senior Director on priorities, success metrics, and decision rights<br />
+- Start 1:1 cadence with cross-functional partners (Product, Security, Architecture)<br />
+- Assess vendor/contractor strategy — are we getting value?</p>
+<p><strong>Days 61-90: EXECUTE &amp; SET DIRECTION</strong><br />
+- Publish team roadmap and OKRs aligned to Health100 business outcomes<br />
+- Implement operational frameworks (on-call, incident response, deployment standards)<br />
+- Make first critical hiring decisions (fill gaps identified in assessment)<br />
+- Present engineering strategy to senior leadership<br />
+- Establish innovation cadence (AI experimentation, tech talks, hackathons)</p>
+</blockquote>
+<hr />
+<p><strong>Q10: "What's your philosophy on engineering excellence and delivery governance?"</strong></p>
+<blockquote>
+<p>"Engineering excellence isn't about perfection — it's about predictable, sustainable, high-quality delivery. My framework:</p>
+<ol>
+<li><strong>Define 'done' clearly:</strong> Every feature has acceptance criteria that include: code reviewed, tested (unit + integration), documented, monitored, and operable</li>
+<li><strong>Automate the guardrails:</strong> CI/CD pipelines enforce quality — linting, testing, security scanning, performance benchmarks. If it's important, it's automated.</li>
+<li><strong>Measure what matters:</strong> </li>
+<li>Lead time (commit → production)</li>
+<li>Deployment frequency</li>
+<li>Change failure rate</li>
+<li>Mean time to recovery<br />
+   These DORA metrics tell you if you're actually delivering well, not just busy</li>
+<li><strong>Blameless incident culture:</strong> When things break (and they will), we run blameless retrospectives focused on systemic fixes, not individual blame</li>
+<li><strong>Risk management through progressive delivery:</strong> Feature flags, canary deployments, A/B testing. Never big-bang releases.</li>
+</ol>
+<p>For healthcare specifically, I'd add: <strong>compliance-as-code</strong> — HIPAA requirements encoded in automated checks, not manual audits."</p>
+</blockquote>
+<hr />
+<h3 id="questions-you-should-ask-the-hm">Questions YOU Should Ask the HM</h3>
+<p>Ask 3-4 of these (pick based on conversation flow):</p>
+<p><strong>About the team and challenges:</strong><br />
+1. "What does the current engineering organization look like? How many managers report to this role, and what's the total IC count?"<br />
+2. "What's the biggest engineering challenge Health100 faces right now — is it scaling, speed of delivery, quality, talent, or something else?"<br />
+3. "How mature is the platform today? Are we building greenfield, or modernizing/integrating existing CVS systems?"</p>
+<p><strong>About AI/GenAI strategy:</strong><br />
+4. "How central is AI to Health100's architecture today vs. your 12-month vision? What's the current gap?"<br />
+5. "What AI infrastructure exists — Vertex AI, custom models, third-party? And how does the team collaborate with Google Cloud's AI teams?"<br />
+6. "How do you handle responsible AI governance given healthcare regulations?"</p>
+<p><strong>About culture and success:</strong><br />
+7. "What does success look like for this role in the first year? What would make you say 'this hire was a home run'?"<br />
+8. "How does Health100 operate within CVS — is it a startup-within-a-company, or more integrated with existing CVS engineering?"<br />
+9. "What's the decision-making culture like? How much autonomy does this role have on technical direction?"</p>
+<p><strong>About roadmap:</strong><br />
+10. "What consumer experiences are you most excited about that Health100 enables in the next 12 months?"</p>
+<hr />
+<h3 id="potential-red-flags-how-to-handle">Potential Red Flags &amp; How to Handle</h3>
+<table>
+<thead>
+<tr>
+<th>If They Say...</th>
+<th>What It Might Mean</th>
+<th>How to Respond</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"We're still figuring out the roadmap"</td>
+<td>Ambiguity, possibly chaotic</td>
+<td>"I thrive in ambiguity — I built AWS ProServe from zero with no playbook. I'd love to help shape it."</td>
+</tr>
+<tr>
+<td>"We need someone very hands-on technically"</td>
+<td>Might expect you to code</td>
+<td>"I'm hands-on with architecture and AI tooling. I code prototypes and review designs, but my highest leverage is setting technical direction and unblocking teams."</td>
+</tr>
+<tr>
+<td>"GCP experience is really important"</td>
+<td>They might prefer GCP-native candidates</td>
+<td>"The patterns transfer directly. I've helped enterprises migrate across clouds. I'll invest my first 30 days in GCP depth."</td>
+</tr>
+<tr>
+<td>"The team has had some turnover"</td>
+<td>Possible morale/culture issues</td>
+<td>"I've rebuilt teams before — at Oracle I stabilized after acquisition turmoil. What's your read on the root cause?"</td>
+</tr>
+<tr>
+<td>"We move very fast"</td>
+<td>Could mean unstaffed or rushing</td>
+<td>"I love speed — I took a product from concept to MVP in 100 days at my startup. How do you balance speed with quality in healthcare?"</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="compensation-negotiation-prep">Compensation Negotiation Prep</h3>
+<p><strong>Role range:</strong> $144,200 - $288,400 base<br />
+<strong>Your target:</strong> $250K+ total comp<br />
+<strong>Your current:</strong> ~$300K total (Amazon: $191K base + RSUs + bonus)</p>
+<p><strong>Strategy:</strong><br />
+- Don't discuss comp in HM interview — say "I'm sure we can work something out if there's mutual fit"<br />
+- If pressed: "I'm currently in the $300K total comp range and would expect something competitive for a Lead Director role at CVS"<br />
+- Know that CVS also offers: annual bonus (15-25% for directors), RSUs (growing program), 401k match, HSA, ESPP<br />
+- The midpoint of their range ($216K base) + 20% bonus + equity could get you to $280-320K total</p>
+<hr />
+<h3 id="day-before-checklist">Day-Before Checklist</h3>
+<ul>
+<li>[ ] Re-read this entire prep guide</li>
+<li>[ ] Practice 2-minute pitch out loud (time it)</li>
+<li>[ ] Review Health100 + Google Cloud partnership news (search recent press)</li>
+<li>[ ] Review CVS Health Q1/Q2 2026 earnings for business context</li>
+<li>[ ] Have 4 questions ready (memorized, not read)</li>
+<li>[ ] Test video/audio setup</li>
+<li>[ ] Have water, notebook, and pen ready</li>
+<li>[ ] Review architecture diagrams — can you draw them from memory?</li>
+<li>[ ] Know your key numbers cold: 250+ org, $30M→$100M, 48% cost reduction, 4→50+ in 15 months, 30→80 engineers</li>
 </ul>
 <hr />
 <h1 id="part-2-practical-preparation-program">PART 2: PRACTICAL PREPARATION PROGRAM</h1>
@@ -1012,7 +1315,7 @@ DO use AI when:
 </blockquote>
 <hr />
 <h2 id="people-management-preparation">People Management Preparation</h2>
-<p>The the enterprise role is fundamentally a people leadership role: <em>"Lead, mentor, and grow engineering managers and senior engineers, owning hiring, performance management, career development, succession planning."</em> You manage managers — this is second-line leadership.</p>
+<p>The CVS role is fundamentally a people leadership role: <em>"Lead, mentor, and grow engineering managers and senior engineers, owning hiring, performance management, career development, succession planning."</em> You manage managers — this is second-line leadership.</p>
 <h3 id="core-frameworks-to-master">Core Frameworks to Master</h3>
 <p><strong>1. The Manager-of-Managers Shift</strong></p>
 <p>At this level, you're not managing engineers — you're managing the <em>managers</em> who manage engineers. Your leverage changes:</p>
@@ -1065,7 +1368,7 @@ DO use AI when:
 <h3 id="behavioral-questions-people-management-with-star-answers">Behavioral Questions — People Management (with STAR answers)</h3>
 <p><strong>Q: "How do you develop and grow engineering managers?"</strong></p>
 <p><strong>STAR:</strong><br />
-- <strong>Situation:</strong> At a logistics platform, I inherited managers of varying experience — some first-time managers promoted from strong ICs.<br />
+- <strong>Situation:</strong> At Amazon Freight, I inherited managers of varying experience — some first-time managers promoted from strong ICs.<br />
 - <strong>Task:</strong> Level them up to run autonomous, high-performing teams.<br />
 - <strong>Action:</strong><br />
   - Weekly 1:1s focused on <em>their</em> growth, not just status ("What's the hardest decision you made this week?")<br />
@@ -1209,7 +1512,7 @@ DO use AI when:
 - Audit trails for every AI decision touching patient data<br />
 - Human-in-the-loop for clinical decisions</p>
 <h3 id="ai-infrastructure-interview-questions">AI Infrastructure Interview Questions</h3>
-<p><strong>Q: "How would you architect the AI infrastructure for a healthcare platform (sample) to scale to millions of members?"</strong></p>
+<p><strong>Q: "How would you architect the AI infrastructure for Health100 to scale to millions of members?"</strong></p>
 <blockquote>
 <p>"I'd design in layers. At the base, a model gateway that abstracts the LLM provider (Vertex AI/Gemini) with built-in rate limiting, semantic caching, and cost tracking. Above that, a RAG layer with a managed vector store for member context and clinical knowledge. Then an agent orchestration layer for multi-step workflows. Critically, an evaluation/observability layer from day one — we need to catch AI errors before members do. And wrapping everything, a governance layer with PHI guardrails and audit logging for HIPAA. For scale, async processing for non-realtime tasks, streaming for chat UX, and aggressive semantic caching since many member questions repeat."</p>
 </blockquote>
@@ -1329,7 +1632,7 @@ DO use AI when:
 </tbody>
 </table>
 <h3 id="how-to-use-the-labs">How to Use the Labs</h3>
-<p>The labs live in <code>the</code>labs/<code>folder in this repo</code>. Each lab has:<br />
+<p>The labs live in <code>~/shared/Siva_Job_Search/HandsOn_Labs/</code>. Each lab has:<br />
 - A <code>README.md</code> with learning objectives and step-by-step instructions<br />
 - Starter code with <code>TODO</code> markers<br />
 - A working reference solution<br />
@@ -1377,30 +1680,48 @@ DO use AI when:
 - Build-vs-buy-vs-framework leadership judgment</p>
 <p><strong>Concepts demonstrated:</strong> HuggingFace transformers, LangChain, LlamaIndex, framework trade-offs</p>
 <p><strong>Runnable examples (real models, no API key):</strong><br />
-- Sentiment analysis → member/customer satisfaction routing<br />
+- Sentiment analysis → member/shipper satisfaction routing<br />
 - Zero-shot classification → case categorization with no training data<br />
 - Summarization → AI post-contact summaries<br />
 - NER → PII/PHI detection for HIPAA redaction</p>
 <p><strong>Interview power line:</strong> <em>"I self-host open models via HuggingFace when data can't leave our boundary — critical for PHI. I use LangChain/LlamaIndex to accelerate standard RAG and agent patterns, but drop to the raw cloud SDK for high-scale production paths. The judgment is always: does the framework earn its place without hiding what matters?"</em></p>
 <hr />
+<h2 id="interview-practice-sessions">Interview Practice Sessions</h2>
+<p>Beyond the technical labs, rehearse these with me (I can role-play the interviewer):</p>
+<ol>
+<li><strong>Mock HM Interview</strong> — I play the CVS hiring manager, you answer live</li>
+<li><strong>Whiteboard Architecture</strong> — I give you a design prompt, you walk through it</li>
+<li><strong>Behavioral Deep-Dive</strong> — Rapid-fire STAR questions on leadership</li>
+<li><strong>Technical Grilling</strong> — I probe your GenAI/infrastructure depth</li>
+<li><strong>Reverse Interview</strong> — Practice the questions YOU ask</li>
+</ol>
+<p>Just say "mock interview" or "whiteboard practice" and I'll run a session.</p>
 </main>
 <script>
 window.addEventListener('scroll',()=>{const s=document.documentElement.scrollTop;
 const h=document.documentElement.scrollHeight-document.documentElement.clientHeight;
 document.querySelector('.progress-bar .fill').style.width=(s/h*100)+'%';});
 document.querySelectorAll('h1,h2,h3').forEach(el=>{const t=el.textContent.toLowerCase();
-if(t.includes('ai-powered customer'))el.id='solution-1';
+if(t.includes('ai-powered shipper'))el.id='solution-1';
 else if(t.includes('case categorization'))el.id='solution-2';
 else if(t.includes('ai summaries'))el.id='solution-3';
-else if(t.includes('tms automation')||t.includes('agentic'))el.id='solution-4';
-else if(t.includes('mcp servers')||t.includes('nl to'))el.id='solution-5';
-else if(t.includes('workshops')||t.includes('adoption'))el.id='solution-6';
-else if(t.includes('reference')||t.includes('end-to-end')||t.includes('quick reference'))el.id='arch';
+else if(t.includes('tms automation'))el.id='solution-4';
+else if(t.includes('mcp servers'))el.id='solution-5';
+else if(t.includes('genai workshops'))el.id='solution-6';
+else if(t.includes('quick reference')||t.includes('end-to-end'))el.id='health100-arch';
 else if(t.includes('cheat sheet'))el.id='cheat-sheet';
-else if(t.includes('people management'))el.id='people-mgmt';
+else if(t.includes('about the role'))el.id='hm-overview';
+else if(t.includes('opening: your 2-minute'))el.id='hm-pitch';
+else if(t.includes('technical depth question'))el.id='hm-technical';
+else if(t.includes('leadership & delivery question'))el.id='hm-leadership';
+else if(t.includes('stakeholder & strategy'))el.id='hm-strategy';
+else if(t.includes('questions you should ask'))el.id='hm-your-questions';
+else if(t.includes('compensation negotiation'))el.id='hm-comp';
+else if(t.includes('people management preparation'))el.id='people-mgmt';
 else if(t.includes('ai infrastructure preparation'))el.id='ai-infra';
 else if(t.includes('ai-assisted coding preparation'))el.id='ai-coding';
-else if(t.includes('hands-on learning'))el.id='hands-on';});
+else if(t.includes('the hands-on learning program'))el.id='hands-on';
+else if(t.includes('interview practice sessions'))el.id='practice-sessions';});
 document.querySelectorAll('.sidebar a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{
 e.preventDefault();const t=document.querySelector(a.getAttribute('href'));
 if(t)t.scrollIntoView({behavior:'smooth',block:'start'});
