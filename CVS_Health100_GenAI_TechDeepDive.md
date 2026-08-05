@@ -1408,6 +1408,8 @@ Preferred qualification: *"Familiarity with tools such as Claude and Cursor, and
 | 5 | Frameworks | Lab 5: HuggingFace, LangChain | Know the ecosystem & framework trade-offs |
 | 6 | MCP Servers | Lab 6: Build & launch an MCP server | Understand MCP protocol & tool servers |
 
+> 🎥 **Watch-then-build:** a curated, link-verified video/course path is in [LEARNING_VIDEOS.md](https://github.com/naramsettisiva/genAIPrepration/blob/main/LEARNING_VIDEOS.md) — includes a 6-week study plan pairing videos with each lab.
+
 ### How to Use the Labs
 
 All labs are in this GitHub repository under [`labs/`](https://github.com/naramsettisiva/genAIPrepration/tree/main/labs). Each lab has a `README.md` with learning objectives, runnable code, and "interview talking points."

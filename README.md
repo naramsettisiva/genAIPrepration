@@ -17,6 +17,10 @@ case categorization, AI summaries, agentic automation, natural-language BI, and 
 programs — plus practical sections on **people/engineering leadership, AI infrastructure,
 AI-assisted coding, and popular frameworks.**
 
+### 🎥 [Learning Videos & Courses](LEARNING_VIDEOS.md)
+Curated, **link-verified** video and course path (YouTube, AWS Skill Builder, Coursera,
+HuggingFace, DeepLearning.AI) mapped to each lab and solution — plus a 6-week study plan.
+
 ### 🚀 [AWS Deployable Solutions](aws_solutions/)
 Complete, deployable reference implementations for all six GenAI use cases on the **AWS
 tech stack** — working code, SAM/CloudFormation templates, and step-by-step deploy guides.
