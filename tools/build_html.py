@@ -239,11 +239,12 @@ JS = r"""
 
 
 def build_nav(html_body):
-    """Auto-generate the nav from the document's h2 headings."""
-    def slug(s):
-        s = re.sub(r'<[^>]+>', '', s)
-        out = re.sub(r'[^a-z0-9\s-]', '', s.lower()).strip()
-        return re.sub(r'\s+', '-', out)[:60]
+    """
+    Auto-generate the nav from the document's h2 headings.
+    Reads the `id` attribute that the markdown 'toc' extension already assigned —
+    this is the source of truth, so anchors can never drift out of sync.
+    """
+    import html as _html
 
     def label_of(raw):
         # Drop noisy parentheticals like "(→ Amazon Connect + Bedrock Agents)"
@@ -253,20 +254,21 @@ def build_nav(html_body):
         lbl = lbl.replace('Quick Reference: End-to-End Architecture', 'Reference Architecture')
         lbl = re.sub(r'\s+Preparation$', '', lbl)
         lbl = re.sub(r'\s+', ' ', lbl).strip()
-        # Title-case shouty headings
         if lbl.isupper():
             lbl = lbl.title()
         return lbl if len(lbl) <= 38 else lbl[:36].rstrip() + '…'
 
     items = []
-    for m in re.finditer(r'<h2[^>]*>(.*?)</h2>', html_body, re.DOTALL):
-        raw = re.sub(r'<[^>]+>', '', m.group(1)).strip()
+    # Only match headings that already carry an id (toc extension adds them)
+    for m in re.finditer(r'<h2 id="([^"]+)"[^>]*>(.*?)</h2>', html_body, re.DOTALL):
+        hid = m.group(1)
+        raw = _html.unescape(re.sub(r'<[^>]+>', '', m.group(2))).strip()
         if raw:
-            items.append((slug(raw), label_of(raw)))
+            items.append((hid, label_of(raw)))
 
     links = ['<a href="#top">&#127968; Top</a>']
-    for sid, label in items:
-        links.append(f'<a href="#{sid}">{label}</a>')
+    for hid, label in items:
+        links.append(f'<a href="#{hid}">{label}</a>')
     return "\n    ".join(links)
 
 
