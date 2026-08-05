@@ -1660,13 +1660,75 @@ A curated study path that maps directly to the [labs](https://github.com/naramse
 
 ---
 
-### 7. Courses (structured, certificate-bearing)
+### 7. Structured Learning Paths (hands-on)
 
-| Course | Platform | Notes |
-|--------|----------|-------|
-| [Generative AI with LLMs](https://www.coursera.org/learn/generative-ai-with-llms) | Coursera (AWS + DeepLearning.AI) | ⭐ Best AWS-aligned deep course |
-| [DeepLearning.AI Courses](https://www.deeplearning.ai/courses) | DeepLearning.AI | Free short courses (1-2 hrs): RAG, agents, evals |
-| [Generative AI catalog](https://www.coursera.org/courses?query=generative%20ai) | Coursera | Browse by depth/vendor |
+Ranked by **how much you actually build**. Prefer A and B — they involve real code/labs.
+
+#### A. AWS-native, free, most hands-on ⭐ start here
+
+| Path | What you build | Cost |
+|------|----------------|------|
+| [Amazon Bedrock Workshop](https://github.com/aws-samples/amazon-bedrock-workshop) (AWS Samples) | Real notebooks: RAG, agents, summarization, guardrails on Bedrock | Free (AWS usage only) |
+| [GenAI on AWS Workshop](https://catalog.workshops.aws/genai-on-aws/en-US) | Guided end-to-end GenAI build in your own account | Free |
+| [Generative AI Learning Plan for Developers](https://explore.skillbuilder.aws/learn/public/learning_plan/view/2068/generative-ai-learning-plan-for-developers) | Official AWS path w/ labs + assessments | Free |
+| [AWS Workshop Catalog](https://catalog.workshops.aws) | Search "Bedrock", "Agents", "RAG" for more labs | Free |
+| [AWS Skill Builder — GenAI catalog](https://explore.skillbuilder.aws/learn/external-ecommerce;view=none;redirectURL=?ctldoc-catalog-0=se-%22generative%20ai%22) | Browse all AWS GenAI training | Free tier |
+| [AWS GenAI training hub](https://aws.amazon.com/training/learn-about/generative-ai/) | Role-based AWS learning paths | Free |
+
+#### B. DeepLearning.AI short courses (1-2 hrs each, hands-on notebooks) ⭐ best value
+
+Every course is a Jupyter notebook you actually run. These map 1:1 to this repo's labs:
+
+| Course | Maps to |
+|--------|---------|
+| [Serverless LLM Apps with Amazon Bedrock](https://www.deeplearning.ai/courses/serverless-llm-apps-amazon-bedrock) | [Solution 1](https://github.com/naramsettisiva/genAIPrepration/tree/main/aws_solutions/01_ai_customer_support/) & [3](https://github.com/naramsettisiva/genAIPrepration/tree/main/aws_solutions/03_ai_summaries/) |
+| [Building and Evaluating Advanced RAG](https://www.deeplearning.ai/courses/building-evaluating-advanced-rag) | [Lab 1: RAG](https://github.com/naramsettisiva/genAIPrepration/tree/main/labs/lab1_rag/) |
+| [Building Applications with Vector Databases](https://www.deeplearning.ai/courses/building-applications-vector-databases) | [Lab 1: RAG](https://github.com/naramsettisiva/genAIPrepration/tree/main/labs/lab1_rag/) |
+| [Functions, Tools and Agents with LangChain](https://www.deeplearning.ai/courses/functions-tools-agents-langchain) | [Lab 2: Agent](https://github.com/naramsettisiva/genAIPrepration/tree/main/labs/lab2_agent/) |
+| [AI Agents in LangGraph](https://www.deeplearning.ai/courses/ai-agents-in-langgraph) | [Lab 2](https://github.com/naramsettisiva/genAIPrepration/tree/main/labs/lab2_agent/) & [Lab 5](https://github.com/naramsettisiva/genAIPrepration/tree/main/labs/lab5_frameworks/) |
+| [MCP: Build Rich-Context AI Apps with Anthropic](https://www.deeplearning.ai/courses/mcp-build-rich-context-ai-apps-with-anthropic) | [Lab 6: MCP](https://github.com/naramsettisiva/genAIPrepration/tree/main/labs/lab6_mcp/) ⭐ |
+| [LangChain: Chat with Your Data](https://www.deeplearning.ai/courses/langchain-chat-with-your-data) | [Lab 5: Frameworks](https://github.com/naramsettisiva/genAIPrepration/tree/main/labs/lab5_frameworks/) |
+| [ChatGPT Prompt Engineering for Developers](https://www.deeplearning.ai/courses/chatgpt-prompt-eng) | All solutions |
+| [Prompt Engineering with Llama](https://www.deeplearning.ai/courses/prompt-engineering-with-llama-2) | [Lab 5](https://github.com/naramsettisiva/genAIPrepration/tree/main/labs/lab5_frameworks/) |
+| [Browse all courses](https://www.deeplearning.ai/courses) | — |
+
+#### C. Coursera paths (graded labs + certificates)
+
+| Path | Type | Why |
+|------|------|-----|
+| [Generative AI with LLMs](https://www.coursera.org/learn/generative-ai-with-llms) | Course (AWS + DeepLearning.AI) | ⭐ Best AWS-aligned; hands-on labs in AWS |
+| [IBM Generative AI Engineering](https://www.coursera.org/professional-certificates/ibm-generative-ai-engineering) | Professional Certificate | Deep, project-heavy, resume-bearing |
+| [IBM AI Engineer](https://www.coursera.org/professional-certificates/ai-engineer) | Professional Certificate | Broader ML + GenAI engineering |
+| [Generative AI Engineering with LLMs](https://www.coursera.org/specializations/generative-ai-engineering-with-llms) | Specialization | RAG, agents, fine-tuning with labs |
+| [Generative AI for Everyone](https://www.coursera.org/learn/generative-ai-for-everyone) | Course (Andrew Ng) | Leadership/strategy framing |
+| [Prompt Engineering](https://www.coursera.org/learn/prompt-engineering) | Course | Practical prompt craft |
+| [Introduction to Large Language Models](https://www.coursera.org/learn/introduction-to-large-language-models) | Course (Google Cloud) | GCP-flavored fundamentals |
+| [AWS Cloud Technical Essentials](https://www.coursera.org/learn/aws-cloud-technical-essentials) | Course | AWS foundation if you need it |
+| [Deep Learning Specialization](https://www.coursera.org/specializations/deep-learning) | Specialization | Optional deep theory |
+| [Browse GenAI catalog](https://www.coursera.org/courses?query=generative%20ai) | — | Find more by depth/vendor |
+
+#### D. Udemy & other platforms
+
+⚠️ **Note:** Udemy blocks automated link checking, so unlike every other link in this file I
+could **not** verify specific Udemy course URLs. Individual Udemy courses also get unpublished
+often. Use these **search links** instead — they stay valid and show current top-rated courses:
+
+- [Udemy — Amazon Bedrock](https://www.udemy.com/courses/search/?q=amazon%20bedrock)
+- [Udemy — LangChain](https://www.udemy.com/courses/search/?q=langchain)
+- [Udemy — Generative AI / LLM engineering](https://www.udemy.com/courses/search/?q=generative%20ai%20llm)
+- [Udemy — AWS Certified AI Practitioner](https://www.udemy.com/courses/search/?q=aws%20certified%20ai%20practitioner)
+
+When choosing on Udemy, filter for **4.5+ rating, updated within 6 months, and "hands-on
+projects"** in the curriculum — many GenAI courses go stale fast.
+
+Also worth a look: [Pluralsight paths](https://www.pluralsight.com/paths) ·
+[A Cloud Guru](https://acloudguru.com) (strong on AWS labs)
+
+#### Recommended sequence (if you only do three things)
+
+1. **[Serverless LLM Apps with Amazon Bedrock](https://www.deeplearning.ai/courses/serverless-llm-apps-amazon-bedrock)** — ~1.5 hrs, gets you building on Bedrock immediately
+2. **[Amazon Bedrock Workshop](https://github.com/aws-samples/amazon-bedrock-workshop)** — the most practical AWS-native hands-on repo
+3. **[Generative AI with LLMs](https://www.coursera.org/learn/generative-ai-with-llms)** — the depth + credential
 
 ---
 
@@ -1704,13 +1766,13 @@ A curated study path that maps directly to the [labs](https://github.com/naramse
 
 ### 📅 Suggested 6-Week Study Plan
 
-| Week | Watch | Then build |
-|------|-------|-----------|
-| 1 | LLM Foundations (§1) | [Lab 1: RAG](https://github.com/naramsettisiva/genAIPrepration/tree/main/labs/lab1_rag/) |
-| 2 | RAG (§2) | [Solution 2: Case Categorization](https://github.com/naramsettisiva/genAIPrepration/tree/main/aws_solutions/02_case_categorization/) |
-| 3 | Agents (§3) | [Lab 2: Agent](https://github.com/naramsettisiva/genAIPrepration/tree/main/labs/lab2_agent/) + [Solution 4](https://github.com/naramsettisiva/genAIPrepration/tree/main/aws_solutions/04_tms_agent/) |
-| 4 | Bedrock & Infra (§5) | [Lab 4: AI Infra](https://github.com/naramsettisiva/genAIPrepration/tree/main/labs/lab4_infra/) + [Solution 1](https://github.com/naramsettisiva/genAIPrepration/tree/main/aws_solutions/01_ai_customer_support/) |
-| 5 | MCP (§4) + Frameworks (§6) | [Lab 6: MCP](https://github.com/naramsettisiva/genAIPrepration/tree/main/labs/lab6_mcp/) + [Lab 5](https://github.com/naramsettisiva/genAIPrepration/tree/main/labs/lab5_frameworks/) |
-| 6 | Leadership & Interview Craft (§8) | Whiteboard practice + mock interviews |
+| Week | Watch | Course (hands-on) | Then build |
+|------|-------|-------------------|-----------|
+| 1 | LLM Foundations (§1) | [Prompt Engineering for Devs](https://www.deeplearning.ai/courses/chatgpt-prompt-eng) | [Lab 1: RAG](https://github.com/naramsettisiva/genAIPrepration/tree/main/labs/lab1_rag/) |
+| 2 | RAG (§2) | [Advanced RAG](https://www.deeplearning.ai/courses/building-evaluating-advanced-rag) | [Solution 2](https://github.com/naramsettisiva/genAIPrepration/tree/main/aws_solutions/02_case_categorization/) |
+| 3 | Agents (§3) | [Functions, Tools & Agents](https://www.deeplearning.ai/courses/functions-tools-agents-langchain) | [Lab 2](https://github.com/naramsettisiva/genAIPrepration/tree/main/labs/lab2_agent/) + [Solution 4](https://github.com/naramsettisiva/genAIPrepration/tree/main/aws_solutions/04_tms_agent/) |
+| 4 | Bedrock & Infra (§5) | [Serverless LLM Apps w/ Bedrock](https://www.deeplearning.ai/courses/serverless-llm-apps-amazon-bedrock) ⭐ | [Lab 4](https://github.com/naramsettisiva/genAIPrepration/tree/main/labs/lab4_infra/) + [Solution 1](https://github.com/naramsettisiva/genAIPrepration/tree/main/aws_solutions/01_ai_customer_support/) |
+| 5 | MCP (§4) + Frameworks (§6) | [MCP with Anthropic](https://www.deeplearning.ai/courses/mcp-build-rich-context-ai-apps-with-anthropic) ⭐ | [Lab 6](https://github.com/naramsettisiva/genAIPrepration/tree/main/labs/lab6_mcp/) + [Lab 5](https://github.com/naramsettisiva/genAIPrepration/tree/main/labs/lab5_frameworks/) |
+| 6 | Leadership & Interview Craft (§8) | [Generative AI with LLMs](https://www.coursera.org/learn/generative-ai-with-llms) (ongoing) | Whiteboard + mock interviews |
 
 **Rule of thumb:** never watch more than ~2 hours without building something. Retention comes from the build, not the video.
