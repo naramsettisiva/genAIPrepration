@@ -105,6 +105,17 @@ blockquote{
 blockquote p{margin:5px 0;}
 img{max-width:100%;height:auto;}
 
+/* ---------- Last-updated stamp ---------- */
+.updated{
+  display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;
+  background:#eef6fa;border:1px solid #cfe5ef;border-left:4px solid var(--accent);
+  border-radius:0 8px 8px 0;padding:10px 14px;margin:0 0 24px;
+  font-size:13px;color:#31576b;
+}
+.updated__label{font-weight:700;color:var(--primary);}
+.updated__sep{opacity:.4;}
+.updated a{color:var(--accent);}
+
 /* ---------- Progress bar ---------- */
 .progress-bar{position:fixed;top:0;left:var(--sidebar-w);right:0;height:3px;background:var(--border);z-index:110;}
 .progress-bar .fill{height:100%;background:var(--accent);width:0%;}
@@ -188,6 +199,13 @@ img{max-width:100%;height:auto;}
 <div class="progress-bar"><div class="fill"></div></div>
 
 <main class="content" id="top">
+<div class="updated">
+  <span><span class="updated__label">Last updated:</span> 07 Aug 2026</span>
+  <span class="updated__sep">·</span>
+  <span>Page built: 07 Aug 2026</span>
+  <span class="updated__sep">·</span>
+  <span><a href="https://github.com/naramsettisiva/genAIPrepration/commits/main">View change history</a></span>
+</div>
 <h1 id="genai-technical-deep-dive-aws-solutions-for-your-6-proof-points">GenAI Technical Deep Dive — AWS Solutions for Your 6 Proof Points</h1>
 <h2 id="purpose">Purpose</h2>
 <p>This document gives you the technical depth to walk through each solution end-to-end in an HM interview. You launched these initiatives — now here's the "how it works under the hood" so you can speak fluently about architecture, trade-offs, and design decisions.</p>

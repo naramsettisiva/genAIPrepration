@@ -15,7 +15,28 @@ Mobile features:
 
 import re
 import sys
+import subprocess
+from datetime import datetime, timezone
 import markdown
+
+
+def build_stamp(src):
+    """
+    Build the 'last updated' line. Prefers the source file's last git commit date
+    (accurate to when the content actually changed) and falls back to build time.
+    """
+    built = datetime.now(timezone.utc).strftime('%d %b %Y')
+    content_date = None
+    try:
+        out = subprocess.run(
+            ['git', 'log', '-1', '--format=%cd', '--date=format:%d %b %Y', '--', src],
+            capture_output=True, text=True, timeout=10,
+        )
+        if out.returncode == 0 and out.stdout.strip():
+            content_date = out.stdout.strip()
+    except Exception:
+        pass
+    return content_date or built, built
 
 CSS = r"""
 :root{
@@ -116,6 +137,17 @@ blockquote{
 }
 blockquote p{margin:5px 0;}
 img{max-width:100%;height:auto;}
+
+/* ---------- Last-updated stamp ---------- */
+.updated{
+  display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;
+  background:#eef6fa;border:1px solid #cfe5ef;border-left:4px solid var(--accent);
+  border-radius:0 8px 8px 0;padding:10px 14px;margin:0 0 24px;
+  font-size:13px;color:#31576b;
+}
+.updated__label{font-weight:700;color:var(--primary);}
+.updated__sep{opacity:.4;}
+.updated a{color:var(--accent);}
 
 /* ---------- Progress bar ---------- */
 .progress-bar{position:fixed;top:0;left:var(--sidebar-w);right:0;height:3px;background:var(--border);z-index:110;}
@@ -289,6 +321,7 @@ def main():
     body = md.convert(md_text)
     body = wrap_tables(body)
 
+    content_date, built = build_stamp(src)
     title_m = re.search(r'^#\s+(.+)$', md_text, re.M)
     title = re.sub(r'[#*`]', '', title_m.group(1)).strip() if title_m else "Guide"
     nav_links = build_nav(body)
@@ -320,6 +353,13 @@ def main():
 <div class="progress-bar"><div class="fill"></div></div>
 
 <main class="content" id="top">
+<div class="updated">
+  <span><span class="updated__label">Last updated:</span> {content_date}</span>
+  <span class="updated__sep">·</span>
+  <span>Page built: {built}</span>
+  <span class="updated__sep">·</span>
+  <span><a href="https://github.com/naramsettisiva/genAIPrepration/commits/main">View change history</a></span>
+</div>
 {body}
 </main>
 
