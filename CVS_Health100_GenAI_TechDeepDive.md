@@ -9,7 +9,7 @@ This document gives you the technical depth to walk through each solution end-to
 
 ## 1. AI-Powered Shipper Support (→ Amazon Connect + Bedrock Agents)
 
-> 📺 **Watch first:** [RAG's Evolution: Simple Retrieval → Agentic AI](https://www.youtube.com/watch?v=JB2P5Gk23VI) (IBM, May 2026) · [What Happens When You Call Amazon Bedrock?](https://www.youtube.com/watch?v=xh10ChpIn3I) (AWS, Aug 2026) · [Implement RAG on AWS in 10 Min](https://www.youtube.com/watch?v=7Z-AqVfe2V4) (Nov 2025)
+> 📺 **Watch first:** [RAG Explained in 12 Min](https://www.youtube.com/watch?v=v0ynfDPpe4E) (Aishwarya Srinivasan, Mar 2026 — clearest intro) · [RAG's Evolution → Agentic AI](https://www.youtube.com/watch?v=JB2P5Gk23VI) (IBM, May 2026) · [What Happens When You Call Amazon Bedrock?](https://www.youtube.com/watch?v=xh10ChpIn3I) (AWS, Aug 2026)
 
 > 💻 **Deploy it:** [aws_solutions/01_ai_customer_support](https://github.com/naramsettisiva/genAIPrepration/tree/main/aws_solutions/01_ai_customer_support)
 
@@ -117,7 +117,7 @@ Shipper contacts support (phone/chat/email)
 
 ## 2. Case Categorization (→ RAG + LLM Classification)
 
-> 📺 **Watch:** [Is RAG Still Needed?](https://www.youtube.com/watch?v=UabBYexBD4k) (IBM, Mar 2026) · [RAG vs Direct Context in Production](https://www.youtube.com/watch?v=MEOh5fdBWWs) (IBM, May 2026) · [LLMs explained briefly](https://www.youtube.com/watch?v=LPZh9BOjkQs) (3Blue1Brown, Nov 2024)
+> 📺 **Watch:** [Vector Databases Explained 2026](https://www.youtube.com/watch?v=4pUYfY-b5CQ) (Aishwarya Srinivasan, Apr 2026) · [Is RAG Still Needed?](https://www.youtube.com/watch?v=UabBYexBD4k) (IBM, Mar 2026) · [RAG vs Direct Context in Production](https://www.youtube.com/watch?v=MEOh5fdBWWs) (IBM, May 2026)
 
 > 💻 **Deploy it:** [aws_solutions/02_case_categorization](https://github.com/naramsettisiva/genAIPrepration/tree/main/aws_solutions/02_case_categorization)
 
@@ -343,7 +343,7 @@ response = bedrock.invoke_model(
 
 ## 4. TMS Automation via AI Agents (→ Bedrock Agents + Action Groups)
 
-> 📺 **Watch first:** [Build AI Agents on AWS in Under 10 Min (Bedrock, Strands)](https://www.youtube.com/watch?v=igsklrIO3fo) (AWS, Jul 2026) · [Deploying Agents to the Cloud](https://www.youtube.com/watch?v=S_ZRZFDJ6wE) (AWS, Jul 2026) · [Understanding AI Agent Hallucination](https://www.youtube.com/watch?v=bNRhppHct54) (IBM, Aug 2026)
+> 📺 **Watch first:** [Agent AI System Design in 27 Min](https://www.youtube.com/watch?v=mwN75EiGfCE) (Aishwarya Srinivasan, Jul 2026 — ⭐ best for whiteboard prep) · [Build AI Agents on AWS in Under 10 Min](https://www.youtube.com/watch?v=igsklrIO3fo) (AWS, Jul 2026) · [Multi-Agent Systems](https://www.youtube.com/watch?v=-zBbij9rrEI) (Apr 2026)
 
 > 💻 **Deploy it:** [aws_solutions/04_tms_agent](https://github.com/naramsettisiva/genAIPrepration/tree/main/aws_solutions/04_tms_agent)
 
@@ -521,7 +521,7 @@ Need anything else?"
 
 ## 5. MCP Servers for BI Insights (→ Natural Language to SQL/API)
 
-> 📺 **Watch first:** [MCP vs Skills: Which for Your Agent?](https://www.youtube.com/watch?v=goU9VIXA8II) (IBM, Jul 2026) · [Shift DevOps Left with Terraform, MCP & LLMs](https://www.youtube.com/watch?v=knIuMPO-IUA) (IBM, May 2026) · [Building Agents with MCP — full workshop](https://www.youtube.com/watch?v=kQmXtrmQ5Zg) (Anthropic, Mar 2025) · 📄 [MCP docs](https://modelcontextprotocol.io/docs/getting-started/intro)
+> 📺 **Watch first:** [MCP Complete Explanation](https://www.youtube.com/watch?v=_fzpnqt39jQ) (Aishwarya Srinivasan, Jul 2026 — clearest) · [MCP vs Skills](https://www.youtube.com/watch?v=goU9VIXA8II) (IBM, Jul 2026) · [MCP full workshop](https://www.youtube.com/watch?v=kQmXtrmQ5Zg) (Anthropic) · 📄 [MCP docs](https://modelcontextprotocol.io/docs/getting-started/intro)
 
 > 💻 **Deploy it:** [aws_solutions/05_bi_insights](https://github.com/naramsettisiva/genAIPrepration/tree/main/aws_solutions/05_bi_insights)  ·  MCP server: [labs/lab6_mcp](https://github.com/naramsettisiva/genAIPrepration/tree/main/labs/lab6_mcp)
 
@@ -1246,7 +1246,7 @@ Adapt your style to the person and situation:
 
 ## AI Infrastructure Preparation
 
-> 📺 **Watch:** [What Happens When You Call Amazon Bedrock?](https://www.youtube.com/watch?v=xh10ChpIn3I) (AWS, Aug 2026) · [Deploying Agents to the Cloud](https://www.youtube.com/watch?v=S_ZRZFDJ6wE) (AWS, Jul 2026) · 🧪 [Bedrock Workshop](https://github.com/aws-samples/amazon-bedrock-workshop) · 🎓 [AWS GenAI Learning Plan](https://explore.skillbuilder.aws/learn/public/learning_plan/view/2068/generative-ai-learning-plan-for-developers)
+> 📺 **Watch:** [AI Evals Explained](https://www.youtube.com/watch?v=_Er8Hao_gmQ) (Aishwarya Srinivasan, Jul 2026 — ⭐ how do you know it works?) · [The Future of AI Security](https://www.youtube.com/watch?v=4Gx4sWiELDM) (Jul 2026) · [What Happens When You Call Bedrock?](https://www.youtube.com/watch?v=xh10ChpIn3I) (AWS, Aug 2026) · 🧪 [Bedrock Workshop](https://github.com/aws-samples/amazon-bedrock-workshop)
 
 The role wants: *"Strong technical depth in distributed systems and cloud-native architectures, including microservices, DevOps (CI/CD, Kubernetes/Docker), and cloud platforms."* Plus AI infrastructure for an AI-native platform.
 
@@ -1447,7 +1447,7 @@ To run locally: `git clone https://github.com/naramsettisiva/genAIPrepration.git
 
 ### Lab 1: Build a RAG System (Week 1)
 
-> 📺 [RAG's Evolution (May 2026)](https://www.youtube.com/watch?v=JB2P5Gk23VI) · [Implement RAG on AWS (Nov 2025)](https://www.youtube.com/watch?v=7Z-AqVfe2V4) · [Transformers explained](https://www.youtube.com/watch?v=wjZofJX0v4M)
+> 📺 [RAG Explained in 12 Min (Mar 2026)](https://www.youtube.com/watch?v=v0ynfDPpe4E) · [Vector Databases Explained (Apr 2026)](https://www.youtube.com/watch?v=4pUYfY-b5CQ) · [Implement RAG on AWS (Nov 2025)](https://www.youtube.com/watch?v=7Z-AqVfe2V4)
 
 **What you'll build:** A working retrieval-augmented Q&A system over a set of documents.
 
@@ -1461,7 +1461,7 @@ To run locally: `git clone https://github.com/naramsettisiva/genAIPrepration.git
 
 ### Lab 2: Build an AI Agent (Week 2)
 
-> 📺 [Build AI Agents on AWS (Jul 2026)](https://www.youtube.com/watch?v=igsklrIO3fo) · [Agent Hallucination (Aug 2026)](https://www.youtube.com/watch?v=bNRhppHct54)
+> 📺 [AI Agents in 14 Min (Mar 2026)](https://www.youtube.com/watch?v=TZMdEg1ZoIo) · [Agent AI System Design (Jul 2026)](https://www.youtube.com/watch?v=mwN75EiGfCE) · [Build AI Agents on AWS (Jul 2026)](https://www.youtube.com/watch?v=igsklrIO3fo)
 
 **What you'll build:** An agent that answers questions AND takes actions using tools.
 
@@ -1489,7 +1489,7 @@ To run locally: `git clone https://github.com/naramsettisiva/genAIPrepration.git
 
 ### Lab 4: AI Infrastructure — Deploy & Observe (Week 4)
 
-> 📺 [What Happens When You Call Bedrock? (Aug 2026)](https://www.youtube.com/watch?v=xh10ChpIn3I) · 🧪 [Bedrock Workshop](https://github.com/aws-samples/amazon-bedrock-workshop)
+> 📺 [AI Evals Explained (Jul 2026)](https://www.youtube.com/watch?v=_Er8Hao_gmQ) · [What Happens When You Call Bedrock? (Aug 2026)](https://www.youtube.com/watch?v=xh10ChpIn3I) · 🧪 [Bedrock Workshop](https://github.com/aws-samples/amazon-bedrock-workshop)
 
 **What you'll build:** Deploy a model endpoint with monitoring, caching, and cost tracking.
 
@@ -1526,7 +1526,7 @@ To run locally: `git clone https://github.com/naramsettisiva/genAIPrepration.git
 
 ### Lab 6: Build & Launch an MCP Server
 
-> 📺 [MCP vs Skills (Jul 2026)](https://www.youtube.com/watch?v=goU9VIXA8II) · [MCP full workshop (Anthropic)](https://www.youtube.com/watch?v=kQmXtrmQ5Zg) · 📄 [MCP docs](https://modelcontextprotocol.io/docs/getting-started/intro)
+> 📺 [MCP Complete Explanation (Jul 2026)](https://www.youtube.com/watch?v=_fzpnqt39jQ) · [MCP vs Skills (Jul 2026)](https://www.youtube.com/watch?v=goU9VIXA8II) · [MCP full workshop](https://www.youtube.com/watch?v=kQmXtrmQ5Zg)
 
 **What you'll build:** A real, working MCP (Model Context Protocol) server that AI assistants can connect to.
 
@@ -1602,7 +1602,9 @@ A curated study path that maps directly to the [labs](https://github.com/naramse
 
 | Video | Author | Published | Why watch |
 |-------|--------|-----------|-----------|
-| [RAG's Evolution: From Simple Retrieval to Agentic AI](https://www.youtube.com/watch?v=JB2P5Gk23VI) | IBM Technology | May 2026 | ⭐ **Current state of RAG.** Where the field actually is now |
+| [RAG Explained in 12 Minutes](https://www.youtube.com/watch?v=v0ynfDPpe4E) | Aishwarya Srinivasan | Mar 2026 | ⭐ **Clearest quick intro** — start here |
+| [Vector Databases Explained: Complete Guide for 2026](https://www.youtube.com/watch?v=4pUYfY-b5CQ) | Aishwarya Srinivasan | Apr 2026 | ⭐ The storage layer behind RAG |
+| [RAG's Evolution: From Simple Retrieval to Agentic AI](https://www.youtube.com/watch?v=JB2P5Gk23VI) | IBM Technology | May 2026 | ⭐ Current state of RAG |
 | [Is RAG Still Needed? Choosing the Best Approach](https://www.youtube.com/watch?v=UabBYexBD4k) | IBM Technology | Mar 2026 | ⭐ Long-context vs RAG — a real architecture decision |
 | [RAG vs Direct Context: Right LLM Strategy in Production](https://www.youtube.com/watch?v=MEOh5fdBWWs) | IBM Technology | May 2026 | Production trade-offs |
 | [Implement RAG on AWS in 10 Minutes (Bedrock Knowledge Bases)](https://www.youtube.com/watch?v=7Z-AqVfe2V4) | Cloud Quick Labs | Nov 2025 | Hands-on AWS walkthrough |
@@ -1616,6 +1618,10 @@ A curated study path that maps directly to the [labs](https://github.com/naramse
 
 | Video | Author | Published | Why watch |
 |-------|--------|-----------|-----------|
+| [AI Agents Explained in 14 Minutes](https://www.youtube.com/watch?v=TZMdEg1ZoIo) | Aishwarya Srinivasan | Mar 2026 | ⭐ **Clearest quick intro** — start here |
+| [Agent AI System Design Explained in 27 Minutes](https://www.youtube.com/watch?v=mwN75EiGfCE) | Aishwarya Srinivasan | Jul 2026 | ⭐⭐ **Best for whiteboard prep** — how to architect agent systems |
+| [Multi-Agent AI Systems Explained](https://www.youtube.com/watch?v=-zBbij9rrEI) | Aishwarya Srinivasan | Apr 2026 | ⭐ Multi-agent orchestration patterns |
+| [Agentic AI Explained: The Complete 2026 Guide](https://www.youtube.com/watch?v=vbKKQATMZ-0) | Aishwarya Srinivasan | Jun 2026 | Comprehensive agentic overview |
 | [Build AI Agents on AWS in Under 10 Minutes (Bedrock, Strands)](https://www.youtube.com/watch?v=igsklrIO3fo) | AWS Developers | Jul 2026 | ⭐ **Current AWS agent stack** incl. Strands SDK |
 | [Deploying Agents to the Cloud](https://www.youtube.com/watch?v=S_ZRZFDJ6wE) | AWS Developers | Jul 2026 | ⭐ Production deployment of agents |
 | [Understanding AI Agent Hallucination](https://www.youtube.com/watch?v=bNRhppHct54) | IBM Technology | Aug 2026 | ⭐ Guardrails & failure modes — leadership-relevant |
@@ -1631,6 +1637,7 @@ A curated study path that maps directly to the [labs](https://github.com/naramse
 
 | Video | Author | Published | Why watch |
 |-------|--------|-----------|-----------|
+| [MCP Complete Explanation](https://www.youtube.com/watch?v=_fzpnqt39jQ) | Aishwarya Srinivasan | Jul 2026 | ⭐ **Clearest full explanation** — start here |
 | [MCP vs Skills: Which Is Right for Your AI Agent?](https://www.youtube.com/watch?v=goU9VIXA8II) | IBM Technology | Jul 2026 | ⭐ Most current MCP thinking |
 | [How to Shift DevOps Left with Terraform, MCP & LLMs](https://www.youtube.com/watch?v=knIuMPO-IUA) | IBM Technology | May 2026 | ⭐ MCP applied to real infra work |
 | [Building Agents with MCP — Full Workshop](https://www.youtube.com/watch?v=kQmXtrmQ5Zg) | AI Engineer (w/ Anthropic) | Mar 2025 | Deepest practical workshop, from the source |
@@ -1676,6 +1683,24 @@ A curated study path that maps directly to the [labs](https://github.com/naramse
 | [HuggingFace Agents Course](https://huggingface.co/learn/agents-course) | Free course | Maintained | Build agents end-to-end |
 | [HuggingFace channel](https://www.youtube.com/@HuggingFace) | YouTube | Ongoing | Model releases |
 | [LangChain channel](https://www.youtube.com/@LangChain) | YouTube | Ongoing | Patterns from maintainers |
+
+---
+
+### 6b. Evaluation, Fine-Tuning & AI Security
+*Pairs with → [Lab 4: AI Infra](https://github.com/naramsettisiva/genAIPrepration/tree/main/labs/lab4_infra/) and the AI Infrastructure section. These were
+gaps in earlier versions of this list — evaluation and safety are exactly what senior
+interviews probe.*
+
+| Video | Author | Published | Why watch |
+|-------|--------|-----------|-----------|
+| [AI Evals Explained: How to evaluate AI Agents?](https://www.youtube.com/watch?v=_Er8Hao_gmQ) | Aishwarya Srinivasan | Jul 2026 | ⭐⭐ **How do you know your AI works?** Essential leadership answer |
+| [The Future of AI Security: Can We Trust AI Agents?](https://www.youtube.com/watch?v=4Gx4sWiELDM) | Aishwarya Srinivasan | Jul 2026 | ⭐⭐ Guardrails & trust — critical for regulated/healthcare domains |
+| [Understanding AI Agent Hallucination](https://www.youtube.com/watch?v=bNRhppHct54) | IBM Technology | Aug 2026 | ⭐ Failure modes and mitigation |
+| [LLM Fine-Tuning Explained: The Complete Guide](https://www.youtube.com/watch?v=Wx1oiBCmxjY) | Aishwarya Srinivasan | May 2026 | ⭐ Fine-tune vs RAG vs prompt — a real architecture decision |
+| [What is Loop Engineering? (Why Prompt Engineering is Dead)](https://www.youtube.com/watch?v=aUpyza-DSMs) | Aishwarya Srinivasan | Jul 2026 | Where prompting practice is heading |
+
+**Interview payoff:** "How do you measure whether an AI system is working?" and "how do you
+prevent it from doing harm?" are the two questions that separate senior candidates. §6b covers both.
 
 ---
 
@@ -1781,7 +1806,10 @@ Most are ~1-2 hrs with hands-on notebooks:
 
 | Video | Author | Published | Why watch |
 |-------|--------|-----------|-----------|
-| [Agentic Engineering vs Software Engineering](https://www.youtube.com/watch?v=FgaBdwSvOGM) | IBM Technology | Aug 2026 | ⭐ How engineering practice is changing — leadership-relevant |
+| [Agentic Engineering vs Software Engineering](https://www.youtube.com/watch?v=FgaBdwSvOGM) | IBM Technology | Aug 2026 | ⭐ How engineering practice is changing |
+| [Google's Head of Search on Agents & Multimodal](https://www.youtube.com/watch?v=vg6WahIPbFc) | Aishwarya Srinivasan | Jun 2026 | ⭐ Exec-level framing you can echo in interviews |
+| [LinkedIn's AI Executive on Agents, GPUs, Future of ML](https://www.youtube.com/watch?v=V4vObsx-WUc) | Aishwarya Srinivasan | May 2026 | ⭐ How AI leaders talk about strategy |
+| [Forward Deployed Engineer: Hottest AI Job of 2026](https://www.youtube.com/watch?v=w-Z4QYK1QL4) | Aishwarya Srinivasan | Jun 2026 | Where AI org roles are heading |
 | [Intro to Architecture and Systems Design Interviews](https://www.youtube.com/watch?v=ZgdS0EUmn70) | Jackson Gabbard | Jul 2016 | 🕰️ **Old but still the best** on how design interviews are *scored* — interview craft, not tech |
 | [System Design Interview – Step By Step Guide](https://www.youtube.com/watch?v=bUHFg8CZFws) | System Design Interview | Nov 2019 | 🕰️ Durable whiteboarding framework |
 | [System Design Introduction For Interview](https://www.youtube.com/watch?v=UzLMhqg3_Wc) | Tushar Roy | Nov 2017 | 🕰️ Fundamentals refresher |
@@ -1796,6 +1824,7 @@ Most are ~1-2 hrs with hands-on notebooks:
 | [@amazonwebservices](https://www.youtube.com/@amazonwebservices) | AWS product & how-to |
 | [@AWSEventsChannel](https://www.youtube.com/@AWSEventsChannel) | re:Invent / summit deep dives |
 | [@anthropic-ai](https://www.youtube.com/@anthropic-ai) | Claude, MCP, agents from the source |
+| [@aishwaryasrinivasan](https://www.youtube.com/@aishwaryasrinivasan) | ⭐ Clear, current (2026) explainers: agents, RAG, evals, system design |
 | [@AndrejKarpathy](https://www.youtube.com/@AndrejKarpathy) | Best-in-class LLM education |
 | [@3blue1brown](https://www.youtube.com/@3blue1brown) | Visual math behind transformers |
 | [@freecodecamp](https://www.youtube.com/@freecodecamp) | Long-form free courses |
