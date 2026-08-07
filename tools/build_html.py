@@ -19,23 +19,44 @@ import subprocess
 from datetime import datetime, timezone
 import markdown
 
+try:
+    from zoneinfo import ZoneInfo
+    CENTRAL = ZoneInfo('America/Chicago')   # auto-handles CST (winter) / CDT (summer)
+except Exception:                            # pragma: no cover
+    CENTRAL = None
+
+STAMP_FMT = '%d %b %Y, %I:%M %p %Z'
+
+
+def _to_central(dt):
+    """Convert an aware datetime to US Central, falling back to UTC if tz data is missing."""
+    if CENTRAL is None:
+        return dt.astimezone(timezone.utc)
+    return dt.astimezone(CENTRAL)
+
 
 def build_stamp(src):
     """
-    Build the 'last updated' line. Prefers the source file's last git commit date
-    (accurate to when the content actually changed) and falls back to build time.
+    Build the 'last updated' / 'page built' stamps in US Central time.
+
+    'last updated' prefers the source file's last git commit timestamp (when the
+    CONTENT actually changed); falls back to build time if git data is missing.
+    Timezone label is CST or CDT automatically, per the date.
     """
-    built = datetime.now(timezone.utc).strftime('%d %b %Y')
+    built = _to_central(datetime.now(timezone.utc)).strftime(STAMP_FMT)
+
     content_date = None
     try:
         out = subprocess.run(
-            ['git', 'log', '-1', '--format=%cd', '--date=format:%d %b %Y', '--', src],
+            ['git', 'log', '-1', '--format=%cI', '--', src],   # strict ISO-8601
             capture_output=True, text=True, timeout=10,
         )
-        if out.returncode == 0 and out.stdout.strip():
-            content_date = out.stdout.strip()
+        iso = out.stdout.strip()
+        if out.returncode == 0 and iso:
+            content_date = _to_central(datetime.fromisoformat(iso)).strftime(STAMP_FMT)
     except Exception:
         pass
+
     return content_date or built, built
 
 CSS = r"""
