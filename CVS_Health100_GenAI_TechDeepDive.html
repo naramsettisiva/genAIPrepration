@@ -181,7 +181,7 @@ img{max-width:100%;height:auto;}
     <a href="#ai-infrastructure-preparation">AI Infrastructure</a>
     <a href="#ai-assisted-coding-preparation">AI-Assisted Coding</a>
     <a href="#the-hands-on-learning-program">The Hands-On Learning Program</a>
-    <a href="#mock-interview-practice-on-your-phone-chatgpt-claude">🎤 Mock Interview Practice on Your Ph…</a>
+    <a href="#mock-interview-practice-on-your-phone-claude-chatgpt">🎤 Mock Interview Practice on Your Ph…</a>
     <a href="#learning-videos-courses">🎥 Learning Videos & Courses</a>
 </nav>
 
@@ -1909,9 +1909,274 @@ Unifies pharmacies, providers, insurers, PBMs, and digital health solutions into
 <p><strong>Runnable:</strong> <code>mcp_server.py</code> (real protocol implementation) + <code>test_client.py</code> (drives the full conversation) — exposes business metrics so an AI can answer BI questions by calling your server.</p>
 <p><strong>Interview power line:</strong> <em>"I built and launched an MCP server from scratch — it's the open standard that lets any AI assistant connect to your tools uniformly. Under the hood it's JSON-RPC over stdio with initialize, tools/list, and tools/call. I implemented the protocol by hand so I understand exactly what happens, which matters for debugging, security, and auth."</em></p>
 <hr />
-<h2 id="mock-interview-practice-on-your-phone-chatgpt-claude">🎤 Mock Interview Practice on Your Phone (ChatGPT / Claude)</h2>
-<p>Practice interviews anywhere using the ChatGPT or Claude app. <strong>Use voice mode</strong> — speaking<br />
-your answers out loud is the whole point. Typing them builds the wrong muscle.</p>
+<h2 id="mock-interview-practice-on-your-phone-claude-chatgpt">🎤 Mock Interview Practice on Your Phone (Claude + ChatGPT)</h2>
+<p>Practice interviews anywhere. You have both apps — <strong>use each for what it's actually better at.</strong></p>
+<blockquote>
+<p><strong>Speak your answers out loud.</strong> Typing builds the wrong muscle. The whole point is<br />
+rehearsing what comes out of your mouth under pressure.</p>
+</blockquote>
+<hr />
+<h3 id="which-app-for-what">Which app for what</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th><strong>Claude</strong></th>
+<th><strong>ChatGPT</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Best for</strong></td>
+<td>Repeat practice with persistent context; detailed written critique</td>
+<td>Live, realistic spoken back-and-forth</td>
+</tr>
+<tr>
+<td><strong>Killer feature</strong></td>
+<td><strong>Projects</strong> — upload your prep once, reuse forever</td>
+<td><strong>Advanced voice</strong> — interrupts and follows up like a real person</td>
+</tr>
+<tr>
+<td><strong>Voice</strong></td>
+<td>Dictate your answer; reply in text (playable)</td>
+<td>Full hands-free spoken conversation</td>
+</tr>
+<tr>
+<td><strong>Reviewing feedback</strong></td>
+<td>✅ Scroll back through written critique</td>
+<td>Harder — voice transcripts are messier</td>
+</tr>
+<tr>
+<td><strong>Setup cost</strong></td>
+<td>5 min once (then zero)</td>
+<td>Re-paste context each new chat</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Practical split:</strong><br />
+- <strong>Claude</strong> → your home base. Set up a Project once; every session has full context and you keep a written record of critiques.<br />
+- <strong>ChatGPT</strong> → your dress rehearsal. Use advanced voice for the realistic pressure of being interrupted and pushed.</p>
+<hr />
+<h3 id="setup-a-claude-project-do-this-once-5-min-recommended">Setup A — Claude Project (do this once, ~5 min) ⭐ recommended</h3>
+<p>This is the biggest win available to you, and it's a paid-plan feature you already have.</p>
+<ol>
+<li>In Claude, create a <strong>new Project</strong> called <code>Interview Prep</code></li>
+<li>Add to <strong>Project knowledge</strong>:</li>
+<li>Your resume (PDF/DOCX)</li>
+<li>The prep guide — either upload the <code>.md</code>, or paste the link:<br />
+<code>https://naramsettisiva.github.io/genAIPrepration/</code></li>
+<li>Any job description you're targeting</li>
+<li>Set the Project's <strong>custom instructions</strong> to:</li>
+</ol>
+<pre class="codehilite"><code>You are an experienced interviewer helping me prepare for senior engineering
+leadership roles (Lead Director / Senior Engineering Manager / Principal TPM).
+
+Use the project knowledge for my background and prep material.
+
+Always:
+- Ask ONE question at a time and wait for my full answer
+- Stay in character as the interviewer; probe weak spots, don't accept vague answers
+- After each answer: score 1-5, name the single biggest weakness, and show a
+  stronger version in 2-3 sentences
+- Flag when I ramble (senior answers should land in ~90 seconds)
+- Be harsher than feels comfortable — real interviewers are less generous than you
+</code></pre>
+
+<p><strong>Why this matters:</strong> every new chat in that Project already knows your background. No<br />
+re-pasting. Per Anthropic's docs, paid plans also get RAG-backed project knowledge (~10x<br />
+capacity), so you can load a lot of material.</p>
+<p>Then just open a new chat in the Project and say: <em>"Run a hiring manager mock interview."</em></p>
+<h3 id="setup-b-chatgpt-per-chat">Setup B — ChatGPT (per-chat)</h3>
+<p>No Projects equivalent, so prime each new chat with this once:</p>
+<pre class="codehilite"><code>I'm preparing for senior engineering leadership interviews (Lead Director /
+Senior Engineering Manager / Principal TPM level).
+
+My background:
+- 24+ years experience, 12+ years in people leadership
+- Currently Sr. Technical Program Manager leading a 250+ person org across
+  8 engineering teams and 10+ services; grew that business line $30M → $100M
+  revenue and cut cost-to-serve 48%
+- Previously built an AWS consulting practice from 4 → 50+ engineers in 15 months
+- Senior Development Manager at Oracle (scaled a team 30 → 80)
+- Co-founder/VP Technology at a fintech startup (concept → MVP in 100 days)
+- 18+ months shipping production GenAI: AI agents, RAG, MCP servers, AI-powered
+  support automation
+- Deep AWS; ramping on GCP
+
+Ask ONE question at a time. Wait for my full answer. Then score it 1-5 and tell
+me specifically what to improve. Be harsher than feels comfortable.
+</code></pre>
+
+<blockquote>
+<p>💡 Or point it at the public guide: <em>"Read https://naramsettisiva.github.io/genAIPrepration/<br />
+and use it as my background, then interview me."</em> Confirm it actually loaded the page first.</p>
+</blockquote>
+<h4 id="turning-on-voice">Turning on voice</h4>
+<ul>
+<li><strong>ChatGPT</strong> — tap the <strong>voice/waveform control</strong> on the input bar for a hands-free spoken conversation</li>
+<li><strong>Claude</strong> — tap the <strong>microphone</strong> to dictate your answer</li>
+</ul>
+<p><em>(Both apps move their UI around between releases — if an icon isn't where described, it's<br />
+near the message input.)</em></p>
+<hr />
+<h3 id="the-5-practice-modes">The 5 Practice Modes</h3>
+<p>Same prompts work in either app. In Claude, run them inside your Project.</p>
+<h4 id="1-hiring-manager-interview-start-here">1. Hiring Manager Interview — start here</h4>
+<pre class="codehilite"><code>Act as the hiring manager for a Lead Director of Software Engineering role on an
+AI-native platform team. Conduct a realistic 45-minute interview.
+
+ONE question at a time; wait for my spoken answer. Ask natural follow-ups and
+probe weak spots. Cover: background, technical depth, people leadership,
+AI/GenAI delivery, cross-functional influence, and first 90 days.
+
+After each answer: score 1-5, name the biggest weakness, show a stronger version.
+Stay in character. Start with your first question.
+</code></pre>
+
+<h4 id="2-technical-deep-dive-genai-depth">2. Technical Deep-Dive (GenAI depth)</h4>
+<pre class="codehilite"><code>Act as a senior technical interviewer. Grill me on GenAI depth for a Lead
+Director role. One question at a time.
+
+Cover: RAG (chunking, embeddings, grounding), agents (ReAct, tool use,
+guardrails), evaluation (how do I know the AI works?), AI infrastructure (cost,
+caching, model routing), MCP, and build-vs-buy judgment.
+
+Push back when I'm hand-wavy. Make me define terms I use loosely. Ask &quot;why&quot; and
+&quot;what would you do differently.&quot; Score each answer 1-5. Start.
+</code></pre>
+
+<h4 id="3-whiteboard-architecture-verbal-design">3. Whiteboard / Architecture (verbal design)</h4>
+<pre class="codehilite"><code>Give me a system design prompt for a senior engineering leader, then let me think
+out loud. Act as the interviewer: ask clarifying questions, add constraints
+mid-way, challenge my trade-offs.
+
+Topics: an AI-native customer support platform; a RAG system over millions of
+documents; an agent that safely takes actions on production systems; the AI
+infrastructure layer for a platform serving millions of users.
+
+Don't give me the answer — coach me with questions. At the end, tell me what a
+strong answer would have covered that I missed. Give me one prompt now.
+</code></pre>
+
+<blockquote>
+<p>In <strong>Claude</strong>, add: <em>"Keep a running architecture summary as an artifact I can review."</em></p>
+</blockquote>
+<h4 id="4-behavioral-star-drilling">4. Behavioral / STAR drilling</h4>
+<pre class="codehilite"><code>Rapid-fire behavioral interview for a senior engineering leadership role. One
+question at a time, covering: scaling teams, managing underperformers,
+influencing executives when I disagreed, competing priorities, a failure I owned,
+developing managers, and driving change through resistance.
+
+After each answer: say whether it followed STAR, point out if I was vague about
+MY contribution vs. the team's, flag any missing measurable result, score 1-5.
+Start.
+</code></pre>
+
+<h4 id="5-reverse-interview-questions-you-ask">5. Reverse Interview (questions YOU ask)</h4>
+<pre class="codehilite"><code>I'm the candidate. Act as a hiring manager and let me interview YOU about the
+role and team. After each question I ask, tell me what it signals about me,
+whether it's too generic, and what a more senior-sounding version would be.
+I'll start asking now.
+</code></pre>
+
+<hr />
+<h3 id="making-it-work-on-mobile">Making it work on mobile</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Situation</th>
+<th>Do this</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Commuting / walking</strong></td>
+<td>ChatGPT voice, hands-free — Mode 4 (behavioral)</td>
+</tr>
+<tr>
+<td><strong>Only 10 minutes</strong></td>
+<td>Mode 4: one question, one answer, one critique</td>
+</tr>
+<tr>
+<td><strong>Want feedback to review later</strong></td>
+<td>Claude in your Project — written critique persists</td>
+</tr>
+<tr>
+<td><strong>Practicing the 2-min pitch</strong></td>
+<td><em>"Just listen to my 2-minute intro, then critique it. No questions yet."</em></td>
+</tr>
+<tr>
+<td><strong>Answer felt weak</strong></td>
+<td><em>"Let me try that again"</em> — redo while it's fresh</td>
+</tr>
+<tr>
+<td><strong>Harder mode</strong></td>
+<td><em>"Be a skeptical interviewer unconvinced by my AWS-to-GCP transition."</em></td>
+</tr>
+<tr>
+<td><strong>Tracking progress over weeks</strong></td>
+<td>Claude Project — chat history stays in one place</td>
+</tr>
+</tbody>
+</table></div>
+<h4 id="mid-session-commands">Mid-session commands</h4>
+<ul>
+<li><em>"Harder."</em> / <em>"Easier."</em></li>
+<li><em>"Skip to leadership questions."</em></li>
+<li><em>"Model the perfect answer for that one."</em></li>
+<li><em>"Was that too long?"</em> (aim ~90 seconds, not 5 minutes)</li>
+<li><em>"Summarize my 3 weakest areas from this session."</em> ← <strong>end every session with this</strong></li>
+</ul>
+<hr />
+<h3 id="a-realistic-caveat">A realistic caveat</h3>
+<p>AI mocks are excellent for <strong>reps, structure, and hearing your own filler words</strong>. They are<br />
+weak at judging executive presence and they <strong>score more generously than real interviewers</strong>.</p>
+<ul>
+<li>Treat 4/5 from an AI as roughly 3/5 from a real hiring manager</li>
+<li>Explicitly ask for harsher grading</li>
+<li>Do at least one mock with a <strong>real human</strong> before the actual interview — neither app can<br />
+  replicate someone senior deciding whether to hire you</li>
+</ul>
+<hr />
+<h3 id="suggested-cadence">Suggested cadence</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>When</th>
+<th>Session</th>
+<th>App</th>
+<th>Length</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Daily</td>
+<td>Mode 4 behavioral, voice, commuting</td>
+<td>ChatGPT</td>
+<td>10 min</td>
+</tr>
+<tr>
+<td>2-3× / week</td>
+<td>Mode 1 full hiring manager run</td>
+<td>Claude Project</td>
+<td>30-45 min</td>
+</tr>
+<tr>
+<td>Weekly</td>
+<td>Mode 3 whiteboard, verbalize a design</td>
+<td>Claude (artifacts)</td>
+<td>30 min</td>
+</tr>
+<tr>
+<td>Before a real interview</td>
+<td>Mode 5 reverse + redo your 2-min pitch</td>
+<td>ChatGPT voice</td>
+<td>15 min</td>
+</tr>
+</tbody>
+</table></div>
+<p>Keep a running list from <em>"Summarize my 3 weakest areas"</em> — in your Claude Project it<br />
+accumulates automatically, and that list is your study plan.</p>
 <hr />
 <h3 id="setup-30-seconds">Setup (30 seconds)</h3>
 <h4 id="voice-mode-do-this-first">Voice mode — do this first</h4>
@@ -1964,9 +2229,9 @@ prep material. Then interview me."</em><br />
 (Works when the app has web access. Verify it actually loaded the page before relying on it.)</p>
 </blockquote>
 <hr />
-<h3 id="the-5-practice-modes">The 5 Practice Modes</h3>
+<h3 id="the-5-practice-modes_1">The 5 Practice Modes</h3>
 <p>Pick one, paste the prompt, then switch to voice.</p>
-<h4 id="1-hiring-manager-interview-start-here">1. Hiring Manager Interview (start here)</h4>
+<h4 id="1-hiring-manager-interview-start-here_1">1. Hiring Manager Interview (start here)</h4>
 <pre class="codehilite"><code>Act as the hiring manager for a Lead Director of Software Engineering role on an
 AI-native platform team. Conduct a realistic 45-minute interview.
 
@@ -1982,7 +2247,7 @@ Rules:
 Start with your first question.
 </code></pre>
 
-<h4 id="2-technical-deep-dive-genai-depth">2. Technical Deep-Dive (GenAI depth)</h4>
+<h4 id="2-technical-deep-dive-genai-depth_1">2. Technical Deep-Dive (GenAI depth)</h4>
 <pre class="codehilite"><code>Act as a senior technical interviewer. Grill me on GenAI depth for a Lead
 Director role. One question at a time.
 
@@ -1996,7 +2261,7 @@ If I use a term loosely, make me define it. Score each answer 1-5.
 Start.
 </code></pre>
 
-<h4 id="3-whiteboard-architecture-verbal-design">3. Whiteboard / Architecture (verbal design)</h4>
+<h4 id="3-whiteboard-architecture-verbal-design_1">3. Whiteboard / Architecture (verbal design)</h4>
 <pre class="codehilite"><code>Give me a system design prompt for a senior engineering leader, then let me
 think out loud. Act as the interviewer: ask clarifying questions, add
 constraints mid-way, and challenge my trade-offs.
@@ -2012,7 +2277,7 @@ what a strong answer would have covered that I missed.
 Give me one prompt now.
 </code></pre>
 
-<h4 id="4-behavioral-star-drilling">4. Behavioral / STAR drilling</h4>
+<h4 id="4-behavioral-star-drilling_1">4. Behavioral / STAR drilling</h4>
 <pre class="codehilite"><code>Rapid-fire behavioral interview for a senior engineering leadership role.
 Ask me one question at a time about: scaling teams, managing underperformers,
 influencing executives when I disagreed, handling competing priorities,
@@ -2027,7 +2292,7 @@ After each answer:
 Start.
 </code></pre>
 
-<h4 id="5-reverse-interview-questions-you-ask">5. Reverse Interview (questions YOU ask)</h4>
+<h4 id="5-reverse-interview-questions-you-ask_1">5. Reverse Interview (questions YOU ask)</h4>
 <pre class="codehilite"><code>I'm the candidate. Act as a hiring manager and let me interview YOU about the
 role and team. After each question I ask, tell me:
 - What that question signals about me (good or bad)
@@ -2038,7 +2303,7 @@ I'll start asking now.
 </code></pre>
 
 <hr />
-<h3 id="making-it-work-on-mobile">Making it work on mobile</h3>
+<h3 id="making-it-work-on-mobile_1">Making it work on mobile</h3>
 <div class="table-wrap"><table>
 <thead>
 <tr>
@@ -2082,7 +2347,7 @@ I'll start asking now.
 <li><em>"Summarize my 3 weakest areas from this session."</em> ← <strong>do this at the end of every session</strong></li>
 </ul>
 <hr />
-<h3 id="a-realistic-caveat">A realistic caveat</h3>
+<h3 id="a-realistic-caveat_1">A realistic caveat</h3>
 <p>AI mock interviews are excellent for <strong>reps, structure, and filler-word awareness</strong>. They are<br />
 weaker at judging executive presence, and they tend to be <strong>more generous than a real<br />
 interviewer</strong>. So:</p>
@@ -2093,7 +2358,7 @@ interviewer</strong>. So:</p>
   replicate the pressure of someone senior deciding whether to hire you</li>
 </ul>
 <hr />
-<h3 id="suggested-cadence">Suggested cadence</h3>
+<h3 id="suggested-cadence_1">Suggested cadence</h3>
 <div class="table-wrap"><table>
 <thead>
 <tr>
