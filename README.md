@@ -17,6 +17,11 @@ case categorization, AI summaries, agentic automation, natural-language BI, and 
 programs — plus practical sections on **people/engineering leadership, AI infrastructure,
 AI-assisted coding, and popular frameworks.**
 
+### 🎤 [Mock Interview Practice on Your Phone](MOCK_INTERVIEW_PROMPTS.md)
+Copy-paste prompt packs for running realistic mock interviews in the **ChatGPT or Claude
+mobile app** using voice mode — hiring manager, technical deep-dive, whiteboard, behavioral,
+and reverse-interview modes.
+
 ### 🎥 Learning Videos & Courses
 Curated, **link-verified** video and course path (YouTube, AWS Skill Builder, Coursera,
 HuggingFace, DeepLearning.AI) — plus a 6-week study plan. Available two ways:
